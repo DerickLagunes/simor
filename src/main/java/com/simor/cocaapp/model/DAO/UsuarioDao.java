@@ -22,17 +22,9 @@ public class UsuarioDao{
                     while(res.next()){
                         Usuario usr = new Usuario();
                         usr.setId(res.getInt("id"));
-                        usr.setNombre(res.getString("nombre"));
-                        usr.setNombre2(res.getString("nombre2"));
-                        usr.setApellido(res.getString("apellido"));
-                        usr.setApellido2(res.getString("apellido2"));
-                        usr.setSexo(res.getInt("sexo"));
-                        usr.setFecha_nacimiento(res.getDate("fecha_nacimiento"));
-                        usr.setCorreo(res.getString("correo"));
-                        usr.setContra(res.getString("contra"));
-                        usr.setCodigo(res.getString("codigo"));
-                        usr.setRol((Rol) (res.getObject("rol")));
-                        usr.setUltimo_login(res.getDate("ultimo_login"));
+                        usr.setCorreo(res.getString("nombre_usuario"));
+                        usr.setContra(res.getString("contrasena"));
+                        usr.setTipo_usuario(res.getString("tipo_usuario"));
                         listaUsuario.add(usr);
                     }
                 }
@@ -45,8 +37,7 @@ public class UsuarioDao{
 
     public Object findOne(String correo, String contra) {
         Usuario usr = new Usuario();
-        String query = "select usuario.*, roles.nombre_rol from usuario join roles on usuario.rol = roles.id " +
-                "where correo = ? AND contra = sha2(?,224)";
+        String query = "select usuarios.* from usuario where nombre_usuario = ? AND contrasena = sha2(?,224)";
         try(Connection con = DatabaseConnectionManager.getConnection()){
             try(PreparedStatement stmt = con.prepareStatement(query)){
                 stmt.setString(1,correo);
@@ -54,19 +45,9 @@ public class UsuarioDao{
                 try (ResultSet res = stmt.executeQuery()){
                     if(res.next()){
                         usr.setId(res.getInt("id"));
-                        usr.setNombre(res.getString("nombre"));
-                        usr.setNombre2(res.getString("nombre2"));
-                        usr.setApellido(res.getString("apellido"));
-                        usr.setApellido2(res.getString("apellido2"));
-                        usr.setSexo(res.getInt("sexo"));
-                        usr.setFecha_nacimiento(res.getDate("fecha_nacimiento"));
-                        usr.setCorreo(res.getString("correo"));
-                        usr.setContra(res.getString("contra"));
-                        usr.setCodigo(res.getString("codigo"));
-                        Rol rol = new Rol();
-                        rol.setNombre_rol(res.getString("nombre_rol"));
-                        usr.setRol(rol);
-                        usr.setUltimo_login(res.getDate("ultimo_login"));
+                        usr.setCorreo(res.getString("nombre_usuario"));
+                        usr.setContra(res.getString("contrasena"));
+                        usr.setTipo_usuario(res.getString("tipo_usuario"));
                     }
                 }
             }

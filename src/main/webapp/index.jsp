@@ -27,7 +27,7 @@
 
         <div class="row">
         <c:forEach items="${operaciones}" var="o">
-            <div class="col-4">
+            <div class="col-6">
                 <a href="${o.operacion}?operacion=&quot;&quot;">
                 <div class="card shadow-sm">
                     <img class="bd-placeholder-img card-img-top"

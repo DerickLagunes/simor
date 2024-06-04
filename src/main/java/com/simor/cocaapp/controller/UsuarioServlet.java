@@ -2,7 +2,6 @@ package com.simor.cocaapp.controller;
 
 import com.simor.cocaapp.model.DAO.UsuarioDao;
 import com.simor.cocaapp.model.Operacion;
-import com.simor.cocaapp.model.Rol;
 import com.simor.cocaapp.model.Usuario;
 
 import javax.servlet.ServletException;
@@ -29,52 +28,39 @@ public class UsuarioServlet extends HttpServlet {
 
         if(usr.getId()!=0){ //Que si existe un usuario en la BD
             req.getSession().setAttribute("sesion",usr);
-
-            Rol rol = new Rol();
-            rol.setNombre_rol(usr.getRol().getNombre_rol());
-
-            req.getSession().setAttribute("tipoSesion", rol.getNombre_rol());
+            //Definir el tipo de sesión de acuerdo al tipo del usuario
+            req.getSession().setAttribute("tipoSesion", usr.getTipo_usuario());
 
             List<Operacion> operaciones = new ArrayList<>();
-            switch (rol.getNombre_rol()){
+            switch (usr.getTipo_usuario()){
                 case "admin":
                     operaciones.add(
                             new Operacion(
-                                    "Usuarios",
+                                    "Ver Usuarios",
                                     "assets/img/userAdmin.png",
                                     "Ver, agregar, actualizar y eliminar <strong>usuarios</strong> del sistema"
                             ));
                     operaciones.add(
                             new Operacion(
-                                    "Clientes",
-                                    "assets/img/clientAdmin.png",
-                                    "Ver, agregar, actualizar y eliminar <strong>clientes</strong> del sistema"
-                            ));
-                    operaciones.add(
-                            new Operacion(
-                                    "Distribuidores",
-                                    "assets/img/distAdmin.png",
-                                    "Ver, agregar, actualizar y eliminar <strong>distribuidores</strong> del sistema"
-                            ));
-                    operaciones.add(
-                            new Operacion(
-                                    "Productos",
-                                    "assets/img/productAdmin.png",
-                                    "Ver, agregar, actualizar y eliminar <strong>productos</strong> del sistema"
-                            ));
-                    operaciones.add(
-                            new Operacion(
-                                    "Inventario",
-                                    "assets/img/inventoryAdmin.png",
-                                    "Administrar el <strong>inventario</strong> del sistema"
-                            ));
-                    operaciones.add(
-                            new Operacion(
-                                    "Ventas",
-                                    "assets/img/salesAdmin.png",
-                                    "Ver, agregar, actualizar y eliminar <strong>ventas</strong> del sistema"
+                                    "Evaluaciones",
+                                    "assets/img/check_truck.png",
+                                    "Ver, agregar, actualizar y eliminar <strong>Evaluaciones registradas</strong> del sistema"
                             ));
                     break;
+                case "tecnico":
+                    operaciones.add(
+                            new Operacion(
+                                    "Evaluar Unidad Economica",
+                                    "assets/img/check_truck.png",
+                                    "Agregar <strong>Evaluaciones a una unidad economica</strong> del sistema"
+                            ));
+                case "consultor":
+                    operaciones.add(
+                            new Operacion(
+                                    "Ver Evaluación de Unidad Economica",
+                                    "assets/img/check_truck.png",
+                                    "Ver <strong>Evaluaciones de sus unidades economicas</strong> en el sistema"
+                            ));
                 default:
                     break;
             }
