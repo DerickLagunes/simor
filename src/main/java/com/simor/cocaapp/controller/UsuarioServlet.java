@@ -26,7 +26,7 @@ public class UsuarioServlet extends HttpServlet {
         req.getSession().removeAttribute("mensaje");
         Usuario usr = (Usuario) dao.findOne(email, pass);
 
-        if(usr.getId()!=0){ //Que si existe un usuario en la BD
+        if(usr.getId_usuario()!=0){ //Que si existe un usuario en la BD
             req.getSession().setAttribute("sesion",usr);
             //Definir el tipo de sesión de acuerdo al tipo del usuario
             req.getSession().setAttribute("tipoSesion", usr.getTipo_usuario());
@@ -54,6 +54,7 @@ public class UsuarioServlet extends HttpServlet {
                                     "assets/img/check_truck.png",
                                     "Agregar <strong>Evaluaciones a una unidad economica</strong> del sistema"
                             ));
+                    break;
                 case "consultor":
                     operaciones.add(
                             new Operacion(
