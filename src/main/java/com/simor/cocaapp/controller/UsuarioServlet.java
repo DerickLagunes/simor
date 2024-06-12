@@ -4,11 +4,11 @@ import com.simor.cocaapp.model.DAO.UsuarioDao;
 import com.simor.cocaapp.model.Operacion;
 import com.simor.cocaapp.model.Usuario;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ public class UsuarioServlet extends HttpServlet {
         req.getSession().removeAttribute("mensaje");
         Usuario usr = (Usuario) dao.findOne(email, pass);
 
-        if(usr.getId()!=0){ //Que si existe un usuario en la BD
+        if(usr.getId_usuario()!=0){ //Que si existe un usuario en la BD
             req.getSession().setAttribute("sesion",usr);
             //Definir el tipo de sesión de acuerdo al tipo del usuario
             req.getSession().setAttribute("tipoSesion", usr.getTipo_usuario());

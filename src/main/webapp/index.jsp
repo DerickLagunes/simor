@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <jsp:include page="templates/header.jsp" />
 
 <main>
@@ -14,7 +14,7 @@
     <div class="col-sm-12 col-md-6 align-content-center">
         <div class="row">
             <div class="col-6">
-                <h1 class="h3 mb-3 font-weight-normal">Usuario: ${sesion.nombre}</h1>
+                <h1 class="h3 mb-3 font-weight-normal">Usuario: ${sesion.nombre_usuario}</h1>
                 <c:if test="${tipoSesion == 'admin'}">
                     <p>Eres <strong>administrador</strong></p>
                 </c:if>
