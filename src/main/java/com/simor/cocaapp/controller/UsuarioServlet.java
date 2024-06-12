@@ -37,12 +37,14 @@ public class UsuarioServlet extends HttpServlet {
                     operaciones.add(
                             new Operacion(
                                     "Ver Usuarios",
+                                    "verUsuarios.jsp",
                                     "assets/img/userAdmin.png",
                                     "Ver, agregar, actualizar y eliminar <strong>usuarios</strong> del sistema"
                             ));
                     operaciones.add(
                             new Operacion(
                                     "Evaluaciones",
+                                    "verEvaluaciones.jsp",
                                     "assets/img/check_truck.png",
                                     "Ver, agregar, actualizar y eliminar <strong>Evaluaciones registradas</strong> del sistema"
                             ));
@@ -51,6 +53,7 @@ public class UsuarioServlet extends HttpServlet {
                     operaciones.add(
                             new Operacion(
                                     "Evaluar Unidad Economica",
+                                    "evaluarUnidad.jsp",
                                     "assets/img/check_truck.png",
                                     "Agregar <strong>Evaluaciones a una unidad economica</strong> del sistema"
                             ));
@@ -59,6 +62,7 @@ public class UsuarioServlet extends HttpServlet {
                     operaciones.add(
                             new Operacion(
                                     "Ver Evaluación de Unidad Economica",
+                                    "verEvaluacion.jsp",
                                     "assets/img/check_truck.png",
                                     "Ver <strong>Evaluaciones de sus unidades economicas</strong> en el sistema"
                             ));

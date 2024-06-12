@@ -3,6 +3,7 @@ package com.simor.cocaapp.model;
 import java.io.Serializable;
 
 public class Operacion implements Serializable {
+    private String nombre;
     private String operacion;
     private String media;
     private String descripcion;
@@ -10,7 +11,8 @@ public class Operacion implements Serializable {
     public Operacion() {
     }
 
-    public Operacion(String operacion, String media, String descripcion) {
+    public Operacion(String nombre, String operacion, String media, String descripcion) {
+        this.nombre = nombre;
         this.operacion = operacion;
         this.media = media;
         this.descripcion = descripcion;
@@ -38,5 +40,14 @@ public class Operacion implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }

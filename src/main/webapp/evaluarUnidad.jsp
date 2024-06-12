@@ -1,137 +1,201 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listas Desplegables Anidadas</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-        .dropdown {
-            margin-bottom: 20px;
-        }
-    </style>
-    <script>
-        function updateSecondList() {
-            const firstList = document.getElementById("first-list");
-            const secondList = document.getElementById("second-list");
-            const thirdList = document.getElementById("third-list");
-            const selectedOption = firstList.value;
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<jsp:include page="templates/header.jsp" />
 
-            // Limpia las opciones actuales de la segunda y tercera lista
-            secondList.innerHTML = "<option value=''>Seleccione una opción</option>";
-            thirdList.innerHTML = "<option value=''>Seleccione una opción</option>";
+<main> <-- Cuerpo de la página --!>
 
-            // Define las opciones basadas en la selección de la primera lista
-            let options = [];
-            if (selectedOption === "luces") {
-                options = [
-                    { text: "Galibo", value: 1},
-                    { text: "Altas", value: 2},
-                    { text: "Bajas", value: 3},
-                    { text: "Demarcadoras", value: 4 },
-                    { text: "Indicadoras", value: 5}
-                ];
-            } else if (selectedOption === "llantas") {
-                options = [
-                    { text: "Rin", value: 1},
-                    { text: "Masas", value: 2},
-                    { text: "Presion", value: 3},
-                    { text: "Profundidad", value: 4},
-                    { text: "Birlos", value: 2},
-                    { text: "Tuercas", value: 2}
-                ];
-            } else if (selectedOption === "caja-dirección") {
-                options = [
-                    { text: "Fuga de aceite", value:1},
-                ];
-            }
-            else if (selectedOption === "Deposito de aceite") {
-                options = [
-                    { text: "Fuga de aceite", value:1},
-                ];
-            }
-            else if (selectedOption === "Parabrisas") {
-                options = [
-                    { text: "Estrellado", value:1},
-                ];
-            }
-            else if (selectedOption === "Limpiaparabrisas") {
-                options = [
-                    { text: "No funciona", value:1},
-                    { text: "Faltante", value:1}
-                ];
-            }
+    <div class="container-fluid" style="padding-top:60px; text-align: center;">
 
-            // Añade las nuevas opciones a la segunda lista
-            options.forEach(option => {
-                const newOption = document.createElement("option");
-                newOption.text = option.text;
-                newOption.value = option.value;
-                secondList.add(newOption);
-            });
-        }
+        <div class="row">
 
-        function updateThirdList() {
-            const thirdList = document.getElementById("third-list");
+            <div class="offset-2 col-8">
 
-            // Limpia las opciones actuales de la tercera lista
-            thirdList.innerHTML = "<option value=''>Seleccione una opción</option>";
+                <form>
+                    <div class="mb-3">
+                        <label for="id_estado" class="form-label">ID Estado</label>
+                        <select class="form-select" id="id_estado" name="id_estado" required>
+                            <option value="1">Opción 1</option>
+                            <option value="2">Opción 2</option>
+                            <option value="3">Opción 3</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="luces_galibo" class="form-label">Luces de Galibo</label>
+                        <select class="form-select" id="luces_galibo" name="luces_galibo" required>
+                            <option value="1">Buena</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Mala</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="luces_altas" class="form-label">Luces Altas</label>
+                        <select class="form-select" id="luces_altas" name="luces_altas" required>
+                            <option value="1">Buena</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Mala</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="luces_bajas" class="form-label">Luces Bajas</label>
+                        <select class="form-select" id="luces_bajas" name="luces_bajas" required>
+                            <option value="1">Buena</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Mala</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="luces_demarcadoras" class="form-label">Luces Demarcadoras</label>
+                        <select class="form-select" id="luces_demarcadoras" name="luces_demarcadoras" required>
+                            <option value="1">Buena</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Mala</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="luces_indicadoras" class="form-label">Luces Indicadoras</label>
+                        <select class="form-select" id="luces_indicadoras" name="luces_indicadoras" required>
+                            <option value="1">Buena</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Mala</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="llantas_rines_delanteros" class="form-label">Llantas Rines Delanteros</label>
+                        <select class="form-select" id="llantas_rines_delanteros" name="llantas_rines_delanteros" required>
+                            <option value="1">Buena</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Mala</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="llantas_rines_traseros" class="form-label">Llantas Rines Traseros</label>
+                        <select class="form-select" id="llantas_rines_traseros" name="llantas_rines_traseros" required>
+                            <option value="1">Buena</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Mala</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="llantas_masas_delanteras" class="form-label">Llantas Masas Delanteras</label>
+                        <select class="form-select" id="llantas_masas_delanteras" name="llantas_masas_delanteras" required>
+                            <option value="1">Buena</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Mala</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="llantas_masas_traseras" class="form-label">Llantas Masas Traseras</label>
+                        <select class="form-select" id="llantas_masas_traseras" name="llantas_masas_traseras" required>
+                            <option value="1">Buena</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Mala</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="llantas_presion" class="form-label">Llantas Presión</label>
+                        <select class="form-select" id="llantas_presion" name="llantas_presion" required>
+                            <option value="1">Alta</option>
+                            <option value="2">Media</option>
+                            <option value="3">Baja</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="llantas_profundidad" class="form-label">Llantas Profundidad</label>
+                        <select class="form-select" id="llantas_profundidad" name="llantas_profundidad" required>
+                            <option value="1">Buena</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Mala</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="llantas_birlos_delanteros" class="form-label">Llantas Birlos Delanteros</label>
+                        <select class="form-select" id="llantas_birlos_delanteros" name="llantas_birlos_delanteros" required>
+                            <option value="1">Buena</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Mala</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="llantas_birlos_traseros" class="form-label">Llantas Birlos Traseros</label>
+                        <select class="form-select" id="llantas_birlos_traseros" name="llantas_birlos_traseros" required>
+                            <option value="1">Buena</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Mala</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="llantas_tuercas_delanteros" class="form-label">Llantas Tuercas Delanteros</label>
+                        <select class="form-select" id="llantas_tuercas_delanteros" name="llantas_tuercas_delanteros" required>
+                            <option value="1">Buena</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Mala</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="llantas_tuercas_traseros" class="form-label">Llantas Tuercas Traseros</label>
+                        <select class="form-select" id="llantas_tuercas_traseros" name="llantas_tuercas_traseros" required>
+                            <option value="1">Buena</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Mala</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="caja_direccion" class="form-label">Caja Dirección</label>
+                        <select class="form-select" id="caja_direccion" name="caja_direccion" required>
+                            <option value="1">Buena</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Mala</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="deposito_aceite" class="form-label">Depósito de Aceite</label>
+                        <select class="form-select" id="deposito_aceite" name="deposito_aceite" required>
+                            <option value="1">Buena</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Mala</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="parabrisas" class="form-label">Parabrisas</label>
+                        <select class="form-select" id="parabrisas" name="parabrisas" required>
+                            <option value="1">Buena</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Mala</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="limpiaparabrisas" class="form-label">Limpiaparabrisas</label>
+                        <select class="form-select" id="limpiaparabrisas" name="limpiaparabrisas" required>
+                            <option value="1">Buena</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Mala</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="huelgo" class="form-label">Huelgo</label>
+                        <select class="form-select" id="huelgo" name="huelgo" required>
+                            <option value="1">Buena</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Mala</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="escape" class="form-label">Escape</label>
+                        <select class="form-select" id="escape" name="escape" required>
+                            <option value="1">Buena</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Mala</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
 
-            // Define las opciones para la tercera lista
-            const options = [
-                { text: "Izquierda Fundida", value: "izquierda-fundida" },
-                { text: "Derecha Fundida", value: "derecha-fundida" },
-                { text: "Izquierda Rota", value: "izquierda-rota" },
-                { text: "Derecha Rota", value: "derecha-rota" },
-                { text: "Las Dos Fundidas", value: "las-dos-fundidas" },
-                { text: "Las Dos Rotas", value: "las-dos-rotas" },
-                { text: "Aprobadas", value: "aprobadas" }
-            ];
+            </div>
 
-            // Añade las nuevas opciones a la tercera lista
-            options.forEach(option => {
-                const newOption = document.createElement("option");
-                newOption.text = option.text;
-                newOption.value = option.value;
-                thirdList.add(newOption);
-            });
-        }
-    </script>
-</head>
-<body>
-<h1>Listas Desplegables Anidadas</h1>
-<div class="dropdown">
-    <label for="first-list">Primera Lista:</label>
-    <select id="first-list" onchange="updateSecondList()">
-        <option value="">Seleccione una opción</option>
-        <option value="luces">Luces</option>
-        <option value="llantas">Llantas</option>
-        <option value="caja-direccion">Caja dirección</option>
-        <option value="deposito-aceite">Deposito de aceite</option>
-        <option value="parabrisas">Parabrisas</option>
-        <option value="limpiaparabrisas">Limpiaparabrisas</option>
-        <option value="huelgo">Huelgo</option>
-        <option value="escape">Escape</option>
-    </select>
-</div>
-<div class="dropdown">
-    <label for="second-list">Segunda Lista:</label>
-    <select id="second-list" onchange="updateThirdList()">
-        <option value="">Seleccione una opción</option>
-        <!-- Las opciones se añadirán aquí dinámicamente -->
-    </select>
-</div>
-<div class="dropdown">
-    <label for="third-list">Tercera Lista:</label>
-    <select id="third-list">
-        <option value="">Seleccione una opción</option>
-        <!-- Las opciones se añadirán aquí dinámicamente -->
-    </select>
-</div>
-</body>
-</html>
+        </div>
+
+    </div>
+
+</main> <-- Termina el cuerpo de la página --!>
+
+<jsp:include page="templates/footer.jsp" />
