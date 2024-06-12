@@ -206,4 +206,5 @@ public class EstadoVehiculo implements Serializable {
     public void setEscape(int escape) {
         this.escape = escape;
     }
+
 }
