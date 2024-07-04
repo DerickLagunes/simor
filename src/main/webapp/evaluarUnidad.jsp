@@ -140,38 +140,184 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="llantas_presion" class="form-label">Llantas Presión</label>
-                            <select class="form-select" id="llantas_presion" name="llantas_presion" required>
-                                <option value="1">Alta</option>
-                                <option value="2">Media</option>
-                                <option value="3">Baja</option>
-                            </select>
+                        <!-- Presión y Profundidad -->
+                        <div class="row">
+                            <div class="subsection-title">Presión y Profundidad</div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label"><strong>Delantera Izquierda</strong></label>
+                                <div class="input-group">
+                                    <input type="number" min="70" id="presion_delantera_izquierda" name="presion_delantera_izquierda" required class="form-control">
+                                    <span class="input-group-text" style="width: 50px">PSI</span>
+                                </div>
+                                <div class="input-group">
+                                    <input type="number" min="70" id="profundidad_delantera_izquierda" name="profundidad_delantera_izquierda" required class="form-control">
+                                    <span class="input-group-text" style="width: 50px">mm</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label"><strong>Delantera Derecha</strong></label>
+                                <div class="input-group">
+                                    <span class="input-group-text" style="width: 50px">PSI</span>
+                                    <input type="number" min="70" id="presion_delantera_derecha" name="presion_delantera_derecha" required class="form-control">
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-text" style="width: 50px">mm</span>
+                                    <input type="number" min="70" id="profundidad_delantera_derecha" name="profundidad_delantera_derecha" required class="form-control">
+                                </div>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="llantas_profundidad" class="form-label">Llantas Profundidad</label>
-                            <select class="form-select" id="llantas_profundidad" name="llantas_profundidad" required>
-                                <option value="1">Buena</option>
-                                <option value="2">Regular</option>
-                                <option value="3">Mala</option>
-                            </select>
+
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label"><strong>Traseras Izquierdas</strong></label>
+                                <div class="col-md-6 mb-3">
+                                    <div class="input-group">
+                                        <input type="number" min="70" id="presion_trasera_izquierda_1" name="presion_trasera_izquierda_1" required class="form-control">
+                                        <span class="input-group-text" style="width: 50px">PSI</span>
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="number" min="70" id="profundidad_trasera_izquierda_1" name="profundidad_trasera_izquierda_1" required class="form-control">
+                                        <span class="input-group-text" style="width: 50px">mm</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="input-group">
+                                        <input type="number" min="70" id="presion_trasera_izquierda_2" name="presion_trasera_izquierda_2" required class="form-control">
+                                        <span class="input-group-text" style="width: 50px">PSI</span>
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="number" min="70" id="profundidad_trasera_izquierda_2" name="profundidad_trasera_izquierda_2" required class="form-control">
+                                        <span class="input-group-text" style="width: 50px">mm</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label"><strong>Traseras Derechas</strong></label>
+                                <div class="col-6 mb-3">
+                                    <div class="input-group">
+                                        <input type="number" min="70" id="presion_trasera_derecha_1" name="presion_trasera_derecha_1" required class="form-control">
+                                        <span class="input-group-text" style="width: 50px">PSI</span>
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="number" min="70" id="profundidad_trasera_derecha_1" name="profundidad_trasera_derecha_1" required class="form-control">
+                                        <span class="input-group-text" style="width: 50px">mm</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <div class="input-group">
+                                        <input type="number" min="70" id="presion_trasera_derecha_2" name="presion_trasera_derecha_2" required class="form-control">
+                                        <span class="input-group-text" style="width: 50px">PSI</span>
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="number" min="70" id="profundidad_trasera_derecha_2" name="profundidad_trasera_derecha_2" required class="form-control">
+                                        <span class="input-group-text" style="width: 50px">mm</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="llantas_birlos_delanteros" class="form-label">Llantas Birlos Delanteros</label>
-                            <select class="form-select" id="llantas_birlos_delanteros" name="llantas_birlos_delanteros" required>
-                                <option value="1">Buena</option>
-                                <option value="2">Regular</option>
-                                <option value="3">Mala</option>
-                            </select>
+
+
+                        <!-- Birlos delanteros -->
+                        <div class="row">
+                            <label class="form-label"><strong>Birlos Delanteros</strong></label>
+                            <div class="col-md-6 mb-3 pe-1" style="border-right: 1px solid whitesmoke">
+                                <div class="subsection-title">Derechos</div>
+                                <% for (int i = 1; i < 11; i++) { %>
+                                <!-- Birlo -->
+                                <div class="row mb-3">
+                                    <div class="col-1 mb-3"><%=i%></div>
+                                    <div class="col-5 mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" id="birlo_delantero_derecho<%=i%>_roto" name="birlo_delantero_derecho<%=i%>" value="roto" required>
+                                            <label class="form-check-label" for="birlo_delantero_derecho<%=i%>_roto">Roto</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" id="birlo_delantero_derecho<%=i%>_aprobado" name="birlo_delantero_derecho<%=i%>" value="aprobado" required>
+                                            <label class="form-check-label" for="birlo_delantero_derecho<%=i%>_aprobado">Aprobado</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Repetir para los birlos 2 a 10 -->
+                                <% } %>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <div class="subsection-title">Izquierdos</div>
+                                <% for (int i = 1; i < 11; i++) { %>
+                                <!-- Birlo -->
+                                <div class="row mb-3">
+                                    <div class="col-1 mb-3 ml-5"><%=i%></div>
+                                    <div class="col-5 mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" id="birlo_delantero_izquierdo<%=i%>_roto" name="birlo_delantero_izquierdo<%=i%>" value="roto" required>
+                                            <label class="form-check-label" for="birlo_delantero_izquierdo<%=i%>_roto">Roto</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" id="birlo_izquierdo<%=i%>_aprobado" name="birlo_izquierdo<%=i%>" value="aprobado" required>
+                                            <label class="form-check-label" for="birlo_izquierdo<%=i%>_aprobado">Aprobado</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Repetir para los birlos 2 a 10 -->
+                                <% } %>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="llantas_birlos_traseros" class="form-label">Llantas Birlos Traseros</label>
-                            <select class="form-select" id="llantas_birlos_traseros" name="llantas_birlos_traseros" required>
-                                <option value="1">Buena</option>
-                                <option value="2">Regular</option>
-                                <option value="3">Mala</option>
-                            </select>
+                        <!-- Birlos traseros -->
+                        <div class="row">
+                            <label class="form-label"><strong>Birlos Traseros</strong></label>
+                            <div class="col-md-6 mb-3 pe-1" style="border-right: 1px solid whitesmoke">
+                                <div class="subsection-title">Derechos</div>
+                                <% for (int i = 1; i < 11; i++) { %>
+                                <!-- Birlo -->
+                                <div class="row mb-3">
+                                    <div class="col-1 mb-3"><%=i%></div>
+                                    <div class="col-5 mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" id="birlo_trasero_derecho<%=i%>_roto" name="birlo_trasero_derecho<%=i%>" value="roto" required>
+                                            <label class="form-check-label" for="birlo_trasero_derecho<%=i%>_roto">Roto</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" id="birlo_trasero_derecho<%=i%>_aprobado" name="birlo_trasero_derecho<%=i%>" value="aprobado" required>
+                                            <label class="form-check-label" for="birlo_trasero_derecho<%=i%>_aprobado">Aprobado</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Repetir para los birlos 2 a 10 -->
+                                <% } %>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <div class="subsection-title">Izquierdos</div>
+                                <% for (int i = 1; i < 11; i++) { %>
+                                <!-- Birlo -->
+                                <div class="row mb-3">
+                                    <div class="col-1 mb-3 ml-5"><%=i%></div>
+                                    <div class="col-5 mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" id="birlo_trasero_izquierdo<%=i%>_roto" name="birlo_trasero_izquierdo<%=i%>" value="roto" required>
+                                            <label class="form-check-label" for="birlo_trasero_izquierdo<%=i%>_roto">Roto</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" id="birlo_trasero_izquierdo<%=i%>_aprobado" name="birlo_trasero_izquierdo<%=i%>" value="aprobado" required>
+                                            <label class="form-check-label" for="birlo_trasero_izquierdo<%=i%>_aprobado">Aprobado</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Repetir para los birlos 2 a 10 -->
+                                <% } %>
+                            </div>
                         </div>
+
+
                         <div class="mb-3">
                             <label for="llantas_tuercas_delanteros" class="form-label">Llantas Tuercas Delanteros</label>
                             <select class="form-select" id="llantas_tuercas_delanteros" name="llantas_tuercas_delanteros" required>
