@@ -12,6 +12,25 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/icon/font/bootstrap-icons.css" />
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/jquery.dataTables.min.css" />
+    <style>
+        .section-border {
+            border: 1px solid #ced4da; /* Color del borde */
+            border-radius: 5px; /* Esquinas redondeadas */
+            padding: 15px; /* Espaciado interno */
+            margin-bottom: 20px; /* Espaciado inferior */
+        }
+        .section-title {
+            font-size: 1.25rem; /* Tamaño de fuente del título */
+            font-weight: bold; /* Texto en negrita */
+            margin-bottom: 15px; /* Espaciado inferior del título */
+            text-align: center;
+        }
+        .subsection-title {
+            font-weight: bold; /* Texto en negrita */
+            margin-bottom: 5px; /* Espaciado inferior del título */
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 <header>
