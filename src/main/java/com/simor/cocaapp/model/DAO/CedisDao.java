@@ -16,28 +16,25 @@ public class CedisDao {
         List<Cedis> listaCedis=new ArrayList<>();
         String query="select * from cedis";
         try (Connection con= DatabaseConnectionManager.getConnection()) {
-            try (PreparedStatement stmt=con.prepareStatement(query)){
-                try(ResultSet res=stmt.executeQuery()) {
-                    while (res.next()){
-                    Cedis cedis=new Cedis();
-                    cedis.setId_cedis(res.getInt("id_cedis"));
-                    cedis.setNombre_cedis(res.getString("nombre_cedis"));
-                    cedis.setRegion(res.getString("region"));
-                    listaCedis.add(cedis);
+            try (PreparedStatement stmt = con.prepareStatement(query)) {
+                try (ResultSet res = stmt.executeQuery()) {
+                    while (res.next()) {
+                        Cedis cedis = new Cedis();
+                        cedis.setId_cedis(res.getInt("id_cedis"));
+                        cedis.setNombre_cedis(res.getString("nombre_cedis"));
+                        cedis.setRegion(res.getString("region"));
+                        listaCedis.add(cedis);
+                    }
                 }
             }
-        } catch (SQLException e) {
+        }catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return listaCedis;
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
     }
 
-    public Object findOne(int id){
-        Cedis cedis=new Cedis();
+    public Cedis findOne(int id){
+        Cedis cedis = new Cedis();
         String query="select * from cedis where id_cedis = ?";
         try (Connection con=DatabaseConnectionManager.getConnection()){
             try (PreparedStatement stmt=con.prepareStatement(query)) {
@@ -50,9 +47,27 @@ public class CedisDao {
                     }
                 }
             }
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-            return cedis;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
+            return cedis;
     }
+
+
+    public boolean insert(Cedis cedis) {
+        boolean flag = false;
+        String query = "insert into cedis(nombre_cedis, region) values(?,?)";
+        try (Connection con=DatabaseConnectionManager.getConnection()) {
+            try (PreparedStatement stmt = con.prepareStatement(query)) {
+                stmt.setString(1, cedis.getNombre_cedis());
+                stmt.setString(2, cedis.getRegion());
+                if(stmt.executeUpdate()>0){
+                    flag = true;
+                }
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return flag;
+    }
+}

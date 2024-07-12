@@ -52,6 +52,13 @@ public class UsuarioServlet extends HttpServlet {
                 case "tecnico":
                     operaciones.add(
                             new Operacion(
+                                    "Registrar Unidad Economica",
+                                    "nuevoCedis.jsp",
+                                    "assets/img/check_truck.png",
+                                    "Agregar <strong>Una unidad economica</strong> en el sistema"
+                            ));
+                    operaciones.add(
+                            new Operacion(
                                     "Evaluar Unidad Economica",
                                     "evaluarUnidad.jsp",
                                     "assets/img/check_truck.png",
