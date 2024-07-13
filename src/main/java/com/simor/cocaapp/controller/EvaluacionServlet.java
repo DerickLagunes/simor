@@ -77,15 +77,15 @@ public class EvaluacionServlet extends HttpServlet {
             3 = Ambas con fuga
             4 = aprobadas
         */
-        evaluacion.setLlantas_masas_delanteras(Integer.parseInt(req.getParameter("llantas_masas_delanteras"));
-        evaluacion.setLlantas_masas_traseras(Integer.parseInt(req.getParameter("llantas_masas_traseras"));
+        evaluacion.setLlantas_masas_delanteras(Integer.parseInt(req.getParameter("llantas_masas_delanteras")));
+        evaluacion.setLlantas_masas_traseras(Integer.parseInt(req.getParameter("llantas_masas_traseras")));
         /*
         presion es en PSI:
             minimo 70
         */
         evaluacion.setLlantas_presion_delantera_izquierda(Integer.parseInt(req.getParameter("presion_delantera_izquierda")));
         evaluacion.setLlantas_presion_delantera_derecha(Integer.parseInt(req.getParameter("presion_delantera_derecha")));
-        evaluacion.setLlantas_presion_trasera_izquierda_1(Integer.parseInt(req.getParameter("presion_trasera_izquierda_1"));
+        evaluacion.setLlantas_presion_trasera_izquierda_1(Integer.parseInt(req.getParameter("presion_trasera_izquierda_1")));
         evaluacion.setLlantas_presion_trasera_izquierda_2(Integer.parseInt(req.getParameter("presion_trasera_izquierda_2")));
         evaluacion.setLlantas_presion_trasera_derecha_1(Integer.parseInt(req.getParameter("presion_trasera_derecha_1")));
         evaluacion.setLlantas_presion_trasera_derecha_2(Integer.parseInt(req.getParameter("presion_trasera_derecha_2")));
