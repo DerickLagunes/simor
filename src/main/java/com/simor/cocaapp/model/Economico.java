@@ -3,13 +3,16 @@ package com.simor.cocaapp.model;
 import java.io.Serializable;
 
 public class Economico implements Serializable {
+    private String placa;
 private String id_economico;
 private int id_cedis;
 
 //Constructor
-    public Economico(){
-    }
+    public Economico(){}
     //Getter and Setter
+    public String getPlaca() {return placa;}
+
+    public void setPlaca(String placa) {this.placa = placa;}
 
     public String getId_economico() {
         return id_economico;
