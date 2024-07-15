@@ -16,7 +16,7 @@
             language: {
                 url: '${pageContext.request.contextPath}/assets/js/es-MX.json'
             },
-            ajax: '${pageContext.request.contextPath}/verEconomicos',
+            ajax: '${pageContext.request.contextPath}/verEconomicosCliente?id_usuario=${session.id_usuario}',
             processing: true,
             serverSide: true,
             columns: [

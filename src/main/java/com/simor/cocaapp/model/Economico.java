@@ -1,6 +1,7 @@
 package com.simor.cocaapp.model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class Economico implements Serializable {
@@ -60,5 +61,39 @@ public class Economico implements Serializable {
 
     public void setId_usuario(int id_usuario) {
         this.id_usuario = id_usuario;
+    }
+
+    public String getSelector(){
+        String eval1 ="<select class=\"form-select selectWithLinks\">\n";
+        String options = "<option value=\"\" disabled selected>Evaluaciones...</option>\n";
+        String eval2 = "</select>\n";
+        if(this.getEvaluaciones().get(0).getId_evaluacion() > 0) {
+            for (Evaluacion e : this.getEvaluaciones()) {
+                if (e.getFecha_de_evaluacion() != null) {
+                    String formattedDate = new SimpleDateFormat("dd/MM/yyyy").format(e.getFecha_de_evaluacion());
+                    options += "<option value=\"verEvaluacion?id_evaluacion=" + e.getId_evaluacion() + "\">" + formattedDate + "</option>\n";
+                }
+            }
+        }else{
+            eval1 = "<p>Sin Evaluaciones</p>";
+            options = "";
+            eval2 = "";
+        }
+        //Dictamenes
+        String eval3 ="<select class=\"form-select selectWithLinks\">\n";
+        String options2 = "<option value=\"\" disabled selected>Dictamenes...</option>\n";
+        String eval4 = "</select>\n";
+        if(this.getDictamenes().get(0).getId_dictamen() > 0) {
+            for (Dictamen e : this.getDictamenes()) {
+                if (e.getFolio1() > 0 && e.getFolio2() > 0) {
+                    options2 += "<option value=\"verDictamen?id_dictamen=" + e.getId_dictamen() + "\">" + e.getFolio1() +"/"+ e.getFolio2() + "</option>\n";
+                }
+            }
+        }else{
+            eval3 = "<p>Sin Dictamenes</p>";
+            options2 = "";
+            eval4 = "";
+        }
+        return eval1 + options + eval2 + eval3 + options2 + eval4;
     }
 }
