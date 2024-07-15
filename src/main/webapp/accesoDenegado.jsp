@@ -4,7 +4,7 @@
     <div class="d-flex align-items-center justify-content-center vh-100">
         <div class="text-center row">
             <div class="offset-md-1 col-md-5">
-                <img src="${pageContext.request.contextPath}/assets/img/busted.jpg" alt="" class="img-fluid">
+                <img src="${pageContext.request.contextPath}/assets/dictamenes/busted.jpg" alt="" class="img-fluid">
             </div>
             <div class="col-md-5 mt-5">
                 <p class="fs-3">

@@ -5,6 +5,12 @@
 <main>
     <div class="container-fluid" style="padding-top:60px; text-align: center;">
         <div class="row">
+            <c:if test="${not empty mensaje}">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>${mensaje}.</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </c:if>
             <div class="d-none d-sm-block offset-md-1 col-md-4 align-content-center">
                 <h1>Bienvenido a CocaApp</h1><br/>
                 <img class="img-fluid" src="assets/img/logo.png" alt="logo">
@@ -20,14 +26,13 @@
                 </c:if>
             </div>
             <div class="col-6">
-                <br>
                 <a class="btn btn-danger" href="login"><i class="bi bi-door-open-fill"></i> Cerrar sesión</a>
             </div>
         </div>
 
         <div class="row">
         <c:forEach items="${operaciones}" var="o">
-            <div class="col-6">
+            <div class="col-4">
                 <a href="${o.operacion}">
                 <div class="card shadow-sm">
                     <img class="bd-placeholder-img card-img-top"

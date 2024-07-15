@@ -36,11 +36,15 @@ public class EconomicoServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id_economico = req.getParameter("id_economico");
+        String placa = req.getParameter("placa");
         String economico_cedis = req.getParameter("economico_cedis");
+        String id_usuario_economico = req.getParameter("id_usuario_economico");
 
         Economico economico = new Economico();
         economico.setId_economico(id_economico);
+        economico.setPlaca(placa);
         economico.setId_cedis(Integer.parseInt(economico_cedis));
+        economico.setId_usuario(Integer.parseInt(id_usuario_economico));
 
         EconomicoDao dao = new EconomicoDao();
 

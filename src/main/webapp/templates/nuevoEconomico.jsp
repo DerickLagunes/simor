@@ -18,6 +18,22 @@
             <div class="row">
 
               <div class="mb-3">
+                <label for="economico_cedis" class="form-label">CEDIS<i class="text-danger">*</i></label>
+                <select class="form-select" id="economico_cedis" name="economico_cedis" required>
+                  <option value="" disabled selected>Seleccione...</option>
+                </select>
+                <div id="economico_cedis_ayuda" class="form-text">Selecciona la el CEDIS al que pertenece el económico.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="id_usuario_economico" class="form-label">Dueño de la unidad económica<i class="text-danger">*</i></label>
+                <select class="form-select" id="id_usuario_economico" name="id_usuario_economico" required>
+                  <option value="" disabled selected>Seleccione...</option>
+                </select>
+                <div id="id_usuario_economico_ayuda" class="form-text">Selecciona el dueño del económico.</div>
+              </div>
+
+              <div class="mb-3">
                 <label for="id_economico" class="form-label">Identificador del Económico<i class="text-danger">*</i></label>
                 <input maxlength="10" required="" type="text" class="form-control" id="id_economico"
                        name="id_economico" aria-describedby="id_economico_ayuda">
@@ -25,11 +41,14 @@
               </div>
 
               <div class="mb-3">
-                <label for="economico_cedis" class="form-label">Región del CEDIS<i class="text-danger">*</i></label>
-                <select class="form-select" id="economico_cedis" name="economico_cedis" required>
-                  <option value="" disabled selected>Seleccione...</option>
-                </select>
-                <div id="economico_cedis_ayuda" class="form-text">Selecciona la el CEDIS al que pertenece el económico.</div>
+                <label for="placa" class="form-label">Placa<i class="text-danger">*</i></label>
+                <input maxlength="25" required="" type="text" class="form-control" id="placa"
+                       name="placa" aria-describedby="placa_ayuda">
+                <div id="placa_ayuda" class="form-text">Escribe aquí la placa del nuevo Económico.</div>
+              </div>
+
+              <div class="mb-3">
+                <p>Nota: En este formulario no puedes cargar dictamenes, usa el formulario dedicado en <a href="../nuevoEconomico.jsp">este enlace</a>.</p>
               </div>
 
             </div>
@@ -49,6 +68,8 @@
 <script>
   var myModal = document.getElementById('nuevoEconomicoModal')
   var id = document.getElementById('id_economico')
+  var id_user = document.getElementById('id_usuario_economico')
+  var placa = document.getElementById('placa')
   var cedis = document.getElementById('economico_cedis')
 
   myModal.addEventListener('shown.bs.modal', function () {
@@ -83,7 +104,6 @@
   }
 
   //Función que actuliza la lista de cedis en el formulario de evaluación
-  //WIP ajustar todo
   // Debe hacer que el selector de unidades se reinicie
   function updateEconomico(){
     let select = document.getElementById("economico");

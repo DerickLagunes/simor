@@ -1,29 +1,29 @@
 package com.simor.cocaapp.model.DAO;
 
-import com.simor.cocaapp.model.Cedis;
-import com.simor.cocaapp.model.Economico;
-import com.simor.cocaapp.model.EconomicoEvaluacion;
-import com.simor.cocaapp.model.Evaluacion;
+import com.simor.cocaapp.model.*;
 import com.simor.cocaapp.utils.DatabaseConnectionManager;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TablaDao {
 
-    public ArrayList<Economico> get(int start, int length, String searchTerm, String orderColumn, String orderDir){
-        ArrayList<Economico> lista = new ArrayList<>();
-        String query = "SELECT * " + //poner aqui las columnas
+    public ArrayList<Tabla> get(int start, int length, String searchTerm, String orderColumn, String orderDir){
+        ArrayList<Tabla> lista = new ArrayList<>();
+        String query = "SELECT ee.fecha_de_evaluacion, e.placa, e.id_economico, e.id_cedis, c.nombre_cedis, c.region, " +
+                "ee.id_evaluacion, d.id_dictamen, d.folio1, d.folio2, d.archivo1, d.archivo2, ev.id_evaluacion " +
                 "FROM economicos AS e " +
                 "JOIN cedis AS c ON e.id_cedis = c.id_cedis " +
-                "JOIN economico_evaluacion AS ee on e.id_economico = ee.id_evaluacion " +
+                "JOIN economico_evaluacion AS ee on e.id_economico = ee.id_economico " +
                 "JOIN evaluacion as ev on ev.id_evaluacion = ee.id_evaluacion " +
+                "JOIN dictamen_economico de on e.id_economico = de.id_economico " +
+                "JOIN dictamen d on de.id_dictamen = d.id_dictamen " +
                 "WHERE e.placa LIKE ? OR e.id_economico LIKE ? OR e.id_cedis LIKE ? " +
-                "OR ee.fecha_de_evaluacion LIKE ? OR c.region LIKE ?"+
-                "ORDER BY " + orderColumn + " " + orderDir + " LIMIT ? OFFSET ?";
+                "OR ee.fecha_de_evaluacion LIKE ? OR c.region LIKE ? "+
+                "ORDER BY " + orderColumn + " " + orderDir + " LIMIT ? OFFSET ? ;";
+
         try{
             Connection con = DatabaseConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(query);
@@ -35,33 +35,89 @@ public class TablaDao {
             ps.setString(5, searchPattern);
             ps.setInt(6, length);
             ps.setInt(7, start);
+
             ResultSet rs = ps.executeQuery();
+
+            //objeto para guardar la lista de evaluaciones en el mismo economico
+            Map<String, Tabla> dataMap = new HashMap<>();
+            int i = 0;
+            //Definir las acciones dinamicamente:
+            String eval1 =
+                    "<label for=\"selector"+ i +"\" class=\"form-label\">Evaluaciones: </label>" +
+                            "<select id=\"selector"+ i +"\" class=\"form-select selectWithLinks\">";
+            String options = "<option value=\"\" disabled selected>Seleccione...</option>";
+            String eval2 = "</select>";
+
             while(rs.next()){
-                Economico e = new Economico();
-                //WIP ver la configuración de datos que retorna la consulta
-                e.setPlaca(rs.getString("placa"));
-                e.setId_economico(rs.getString("id"));
+                i++;
+                String id_economico = rs.getString("id_economico");
+                Tabla tabla = dataMap.get(id_economico); //porque cada registro es para un economico
+                if(tabla==null){//Si el economico no esta en el objeto mapa
+                    tabla = new Tabla();
+                    Economico e = new Economico();
+                    Cedis c = new Cedis();
+                    Usuario u = new Usuario();
 
-                Cedis c = new Cedis();
-                c.setId_cedis();
-                c.setNombre_cedis();
-                c.setRegion();
+                    String placa = rs.getString("placa");
+                    int id_cedis = rs.getInt("id_cedis");
+                    String region = rs.getString("region");
+                    String nombre_cedis = rs.getString("nombre_cedis");
 
-                e.setId_cedis();
+                    e.setId_economico(id_economico);
+                    e.setPlaca(placa);
+                    e.setId_cedis(id_cedis);
+                    c.setId_cedis(id_cedis);
+                    c.setRegion(region);
+                    c.setNombre_cedis(nombre_cedis);
 
-                EconomicoEvaluacion ee = new EconomicoEvaluacion();
-                ee.setId_economico(e.getId_economico());
-                ee.setFecha_de_evaluacion();
+                    tabla.setEconomico(e);
+                    tabla.setCedis(c);
+                    tabla.setUsuario(u);
 
-                Evaluacion ev = new Evaluacion();
-                ev.setId_evaluacion();
+                    dataMap.put(id_economico, tabla);
+                }
+                Evaluacion evaluacion = new Evaluacion();
+                Dictamen dictamen = new Dictamen();
 
-                ee.setId_evaluacion();
-                //Definir las acciones dinamicamente:
-                e.setModificar("<a class=\"btn btn-primary\" href=\"modificarServlet?id="+d.getId()+"\">Modificar</a>");
-                e.setEliminar("<a class=\"btn btn-danger\" href=\"eliminarServlet?id="+d.getId()+"\">Eliminar</a>");
-                lista.add(e);
+                Timestamp fecha_de_evaluacion = rs.getTimestamp("fecha_de_evaluacion");
+                int id_evaluacion = rs.getInt("id_evaluacion");
+
+                evaluacion.setId_evaluacion(id_evaluacion);
+                evaluacion.setFecha_de_evaluacion(fecha_de_evaluacion);
+
+                int id_dictamen = rs.getInt("id_dictamen");
+                int folio1 = rs.getInt("folio1");
+                int folio2 = rs.getInt("folio2");
+                String archivo1 = rs.getString("archivo1");
+                String archivo2 = rs.getString("archivo2");
+
+                dictamen.setId_dictamen(id_dictamen);
+                dictamen.setFolio1(folio1);
+                dictamen.setFolio2(folio2);
+                dictamen.setArchivo1(archivo1);
+                dictamen.setArchivo2(archivo2);
+
+                tabla.getEconomico().getEvaluaciones().add(evaluacion);
+                tabla.getEconomico().getDictamenes().add(dictamen);
+
+                if(evaluacion.getId_evaluacion()>0){
+                    options += "<option value=\""+ evaluacion.getId_evaluacion() +"\">"+ evaluacion.getFecha_de_evaluacion().toString() +"</option>";
+                }
+
+
+                tabla.setConsultar_evaluacion(eval1 + options + eval2);
+                tabla.setConsultar_dictamen1(
+                        "<a class=\"btn btn-primary\" href=\"verDictamen?id_dictamen="+i+"\">Dictamen 1</a>");
+
+                tabla.setConsultar_dictamen2(
+                        "<a class=\"btn btn-primary\" href=\"verDictamen?id_dictamen="+i+"\">Dictamen 2</a>");
+
+
+
+
             }
+            lista = new ArrayList<>(dataMap.values());
+
             rs.close();
             ps.close();
             con.close();
@@ -76,8 +132,10 @@ public class TablaDao {
         int res = 0;
         String query = "SELECT COUNT(*) AS res FROM economicos AS e " +
                 "JOIN cedis AS c ON e.id_cedis = c.id_cedis " +
-                "JOIN economico_evaluacion AS ee on e.id_economico = ee.id_evaluacion " +
-                "JOIN evaluacion as e on e.id_evaluacion = ee.id_evaluacion " +
+                "JOIN economico_evaluacion AS ee on e.id_economico = ee.id_economico " +
+                "JOIN evaluacion AS ev on ev.id_evaluacion = ee.id_evaluacion " +
+                "JOIN dictamen_economico de on e.id_economico = de.id_economico " +
+                "JOIN dictamen d on de.id_dictamen = d.id_dictamen " +
                 "WHERE e.placa LIKE ? OR e.id_economico LIKE ? OR e.id_cedis LIKE ? " +
                 "OR ee.fecha_de_evaluacion LIKE ? OR c.region LIKE ?";
         try{

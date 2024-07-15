@@ -14,18 +14,18 @@
         const table = document.getElementById('tabla_economicos');
         new DataTable(table, {
             language: {
-                url: '${pageContext.request.contextPath}/JS/es-MX.json'
+                url: '${pageContext.request.contextPath}/assets/js/es-MX.json'
             },
             ajax: '${pageContext.request.contextPath}/verEconomicos',
             processing: true,
             serverSide: true,
             columns: [
-                {data: 'fecha'},
-                {data: 'placa'},
-                {data: 'economico'},
-                {data: 'cedis'},
-                {data: 'region'},
-                {data: 'consultar'}
+                {data: 'economico.evaluaciones[0].fecha_de_evaluacion'},
+                {data: 'economico.placa'},
+                {data: 'economico.id_economico'},
+                {data: 'cedis.nombre_cedis'},
+                {data: 'cedis.region'},
+                {data: 'consultar_evaluacion'}
             ]
         });
     });

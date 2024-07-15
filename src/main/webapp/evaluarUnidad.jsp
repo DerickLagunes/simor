@@ -472,6 +472,7 @@
                         </div>
                     </div>
                     <br>
+                    <input type="hidden" name="id_usuario_evaluador" value="${sesion.id_usuario}" />
                     <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
             </div>
@@ -693,8 +694,36 @@
 </script>
 
 <script>
+    function loadClientes() {
+        let req = new XMLHttpRequest();
+        let userSelect = document.getElementById("id_usuario_economico");
+        req.onreadystatechange = function() {
+            if (req.readyState == XMLHttpRequest.DONE) { // XMLHttpRequest.DONE == 4
+                if (req.status == 200) {
+                    let respuesta = JSON.parse(req.responseText); //json
+                    for(let key in respuesta){
+                        if (respuesta.hasOwnProperty(key)) {
+                            //Crear elementos del select
+                            let option = document.createElement("option");
+                            option.setAttribute("value", respuesta[key].id_usuario);
+                            option.text = respuesta[key].nombre_usuario;
+                            userSelect.appendChild(option);
+                        }
+                    }
+                }
+                else if (req.status == 400) {console.log('There was an error 400');}
+                else {console.log('something else other than 200 was returned');}
+            }
+        };
+        req.open("POST", "clientes", true);
+        req.send(null);
+    }
+</script>
+
+<script>
     document.addEventListener("DOMContentLoaded", (event) => {
         loadCedis();
+        loadClientes();
     });
     document.getElementById("cedis_select").addEventListener("change", (valor) => {
         const cedis = valor.target.value; // Obtiene el valor del option seleccionado

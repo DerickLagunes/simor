@@ -1,9 +1,11 @@
 package com.simor.cocaapp.model;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 public class Evaluacion implements Serializable {
     private int id_evaluacion;
+    private int id_usuario;
     private int luces_galibo;
     private int luces_altas;
     private int luces_bajas;
@@ -49,6 +51,7 @@ public class Evaluacion implements Serializable {
     private int huelgo;
     private int huelgo_cuanto;
     private int escape;
+    private Timestamp fecha_de_evaluacion;
 
     //Constructor
     public Evaluacion(){
@@ -420,5 +423,21 @@ public class Evaluacion implements Serializable {
 
     public void setLlantas_tuercas_trasera_derecha_num(int llantas_tuercas_trasera_derecha_num) {
         this.llantas_tuercas_trasera_derecha_num = llantas_tuercas_trasera_derecha_num;
+    }
+
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
+    }
+
+    public Timestamp getFecha_de_evaluacion() {
+        return fecha_de_evaluacion;
+    }
+
+    public void setFecha_de_evaluacion(Timestamp fecha_de_evaluacion) {
+        this.fecha_de_evaluacion = fecha_de_evaluacion;
     }
 }

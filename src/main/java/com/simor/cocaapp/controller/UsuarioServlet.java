@@ -52,26 +52,33 @@ public class UsuarioServlet extends HttpServlet {
                 case "tecnico":
                     operaciones.add(
                             new Operacion(
-                                    "Registrar Unidad Economica",
-                                    "nuevoCedis.jsp",
+                                    "Consultar Unidades Económicas",
+                                    "verEconomicos.jsp",
                                     "assets/img/check_truck.png",
-                                    "Agregar <strong>Una unidad economica</strong> en el sistema"
+                                    "Consultar <strong>las unidades económicas</strong> registradas en el sistema"
+                            ));
+                    operaciones.add(
+                            new Operacion(
+                                    "Registrar Unidad Economica",
+                                    "nuevoEconomico.jsp",
+                                    "assets/img/registrarEconomico.png",
+                                    "Agregar <strong>una unidad economica</strong> en el sistema"
                             ));
                     operaciones.add(
                             new Operacion(
                                     "Evaluar Unidad Economica",
                                     "evaluarUnidad.jsp",
-                                    "assets/img/check_truck.png",
-                                    "Agregar <strong>Evaluaciones a una unidad economica</strong> del sistema"
+                                    "assets/img/evaluarUnidad.png",
+                                    "Evaluar <strong>una unidad economica</strong> en el sistema"
                             ));
                     break;
-                case "consultor":
+                case "cliente":
                     operaciones.add(
                             new Operacion(
-                                    "Ver Evaluación de Unidad Economica",
-                                    "verEvaluacion.jsp",
+                                    "Ver mis evaluaciónes",
+                                    "verEconomicosCliente.jsp",
                                     "assets/img/check_truck.png",
-                                    "Ver <strong>Evaluaciones de sus unidades economicas</strong> en el sistema"
+                                    "Ver <strong>sus unidades economicas</strong> registradas en el sistema"
                             ));
                 default:
                     break;

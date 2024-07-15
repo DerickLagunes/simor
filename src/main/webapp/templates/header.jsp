@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Zazil</title>
+    <title>SIMOR</title>
     <meta name="description" content="Sistema de Simor">
     <meta name="author" content="Derick Axel Lagunes Ramirez & Nancy Victoria Guadarrama Alvarez">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -55,10 +55,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/index.jsp">Home</a>
-                    <a class="nav-link" href="${pageContext.request.contextPath}/tienda.jsp">Productos</a>
-                    <a class="nav-link" href="${pageContext.request.contextPath}/contacto">Contacto</a>
-                    <a class="nav-link" href="${pageContext.request.contextPath}/zazil.jsp">¿Quienes somos?</a>
+                    <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/index.jsp">Inicio</a>
                 </div>
             </div>
         </div>

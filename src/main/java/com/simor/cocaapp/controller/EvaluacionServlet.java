@@ -130,6 +130,8 @@ public class EvaluacionServlet extends HttpServlet {
         evaluacion.setHuelgo_cuanto(Integer.parseInt(req.getParameter("huelgo_cuanto")));
         evaluacion.setEscape(Integer.parseInt(req.getParameter("escape")));
 
+        evaluacion.setId_usuario(Integer.parseInt(req.getParameter("id_usuario_evaluador")));
+
         //Insertar esta info
         //Primero la evaluacion
         EvaluacionDao dao = new EvaluacionDao();

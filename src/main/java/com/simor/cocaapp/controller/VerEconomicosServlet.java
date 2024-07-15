@@ -1,6 +1,9 @@
 package com.simor.cocaapp.controller;
 
 import com.google.gson.Gson;
+import com.simor.cocaapp.model.DAO.TablaDao;
+import com.simor.cocaapp.model.DataTableResponse;
+import com.simor.cocaapp.model.Tabla;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,13 +14,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-@WebServlet(name="VerEconomicosServlet", value = "verEconomicos")
+@WebServlet(name="VerEconomicosServlet", value = "/verEconomicos")
 public class VerEconomicosServlet extends HttpServlet {
-    private DataDao dao;
+    private TablaDao dao;
 
     @Override
     public void init() throws ServletException {
-        dao = new DataDao();
+        dao = new TablaDao();
     }
 
     @Override
@@ -30,11 +33,11 @@ public class VerEconomicosServlet extends HttpServlet {
         // Obtener parámetros de ordenación
         String orderColumnIndex = request.getParameter("order[0][column]");
         String orderDir = request.getParameter("order[0][dir]");
-        String[] columnNames = {"name", "position", "office", "age", "startDate", "salary"};
+        String[] columnNames = {"fecha_de_evaluacion", "placa", "id_economico", "nombre_cedis", "region", "consultar"};
         String orderColumn = columnNames[Integer.parseInt(orderColumnIndex)];
 
         // Aquí deberías obtener los datos desde tu base de datos
-        ArrayList<Data> dataList = dao.get(start, length, searchTerm, orderColumn, orderDir);
+        ArrayList<Tabla> dataList = dao.get(start, length, searchTerm, orderColumn, orderDir);
         int total = dao.countAll(searchTerm);
 
         DataTableResponse dataTableResponse = new DataTableResponse();

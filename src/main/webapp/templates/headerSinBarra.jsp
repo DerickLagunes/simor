@@ -2,10 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Zazil</title>
-    <meta name="keywords" content="Zazil - insumos cosmeticos">
-    <meta name="description" content="Sistema de Zazil">
-    <meta name="author" content="Derick Lagunes">
+    <title>SIMOR</title>
+    <meta name="description" content="Sistema de Simor">
+    <meta name="author" content="Derick Axel Lagunes Ramirez & Nancy Victoria Guadarrama Alvarez">>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/icon/font/fonts/bootstrap-icons.woff" />
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/icon/font/fonts/bootstrap-icons.woff2" />

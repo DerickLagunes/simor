@@ -88,9 +88,10 @@
     let select2 = document.getElementById("economico_cedis");
     let req = new XMLHttpRequest();
 
-    limpiarSelect("cedis_select");
-    limpiarSelect("economico_cedis");
-    limpiarSelect("economico");
+    if(document.getElementById("cedis_select")){limpiarSelect("cedis_select");}
+    if(document.getElementById("economico_cedis")){limpiarSelect("economico_cedis");}
+    if(document.getElementById("economico")){limpiarSelect("economico");}
+
     req.open("GET", "cedis", true);
     req.onreadystatechange = function() {
       if (req.readyState === XMLHttpRequest.DONE) {
@@ -102,11 +103,14 @@
               let option = document.createElement("option");
               option.setAttribute("value", respuesta[key].id_cedis);
               option.text = respuesta[key].nombre_cedis;
-              let option2 = document.createElement("option");
-              option2.setAttribute("value", respuesta[key].id_cedis);
-              option2.text = respuesta[key].nombre_cedis;
               select.appendChild(option);
-              select2.appendChild(option2);
+
+              if(document.getElementById("economico_cedis")) {
+                let option2 = document.createElement("option");
+                option2.setAttribute("value", respuesta[key].id_cedis);
+                option2.text = respuesta[key].nombre_cedis;
+                select2.appendChild(option2);
+              }
             }
           }
         } else {
