@@ -29,5 +29,16 @@
         });
     });
 </script>
+<script>
+    // Delegación de eventos para los selects
+    document.addEventListener('change', function(event) {
+        if (event.target && event.target.classList.contains('selectWithLinks')) {
+            var selectedValue = event.target.value;
+            if (selectedValue) {
+                window.location.href = "${pageContext.request.contextPath}/"+selectedValue;
+            }
+        }
+    });
+</script>
 </body>
 </html>

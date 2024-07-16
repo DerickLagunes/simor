@@ -32,26 +32,164 @@ public class EvaluacionDao {
         return listaEconomicoEvaluacion;
     }
 
-    public Object findOne(int idEstado, int idEconomico){
-        EconomicoEvaluacion estadoEconomico = new EconomicoEvaluacion();
-        String query="select * from evaluacion where id_evaluacion = ? and id_economico = ?";
+    public Evaluacion getOne(int id_evaluacion){
+        Evaluacion e = new Evaluacion();
+        String query="select * from evaluacion where id_evaluacion = ?";
         try (Connection con=DatabaseConnectionManager.getConnection()) {
             try (PreparedStatement stmt = con.prepareStatement(query)) {
-                stmt.setInt(1, idEstado);
-                stmt.setInt(2, idEconomico);
+                stmt.setInt(1, id_evaluacion);
                 try (ResultSet res = stmt.executeQuery()) {
                     if (res.next()) {
-                        estadoEconomico.setId_evaluacion(res.getInt("id_evaluacion"));
-                        estadoEconomico.setId_economico(res.getString("id_economico"));
-                        estadoEconomico.setFecha_de_evaluacion(res.getTimestamp("fecha_de_evaluacion"));
-                    }
 
+                        Timestamp fecha_de_evaluacion = res.getTimestamp("fecha_de_evaluacion");
+                        e.setFecha_de_evaluacion(fecha_de_evaluacion); //Timestamp
+
+                        e.setId_evaluacion(id_evaluacion);
+
+                        int id_usuario = res.getInt("id_usuario");
+                        e.setId_usuario(id_usuario);
+
+                        int luces_galibo = res.getInt("luces_galibo");
+                        e.setLuces_galibo(luces_galibo);
+
+                        int luces_altas = res.getInt("luces_altas");
+                        e.setLuces_altas(luces_altas);
+
+                        int luces_bajas = res.getInt("luces_bajas");
+                        e.setLuces_bajas(luces_bajas);
+
+                        int luces_demarcadoras_delanteras = res.getInt("luces_demarcadoras_delanteras");
+                        e.setLuces_demarcadoras_delanteras(luces_demarcadoras_delanteras);
+
+                        int luces_demarcadoras_traseras = res.getInt("luces_demarcadoras_traseras");
+                        e.setLuces_demarcadoras_traseras(luces_demarcadoras_traseras);
+
+                        int luces_indicadoras = res.getInt("luces_indicadoras");
+                        e.setLuces_indicadoras(luces_indicadoras);
+
+                        int llantas_rines_delanteros = res.getInt("llantas_rines_delanteros");
+                        e.setLlantas_rines_delanteros(llantas_rines_delanteros);
+
+                        int llantas_rines_traseros = res.getInt("llantas_rines_traseros");
+                        e.setLlantas_rines_traseros(llantas_rines_traseros);
+
+                        int llantas_masas_delanteras = res.getInt("llantas_masas_delanteras");
+                        e.setLlantas_masas_delanteras(llantas_masas_delanteras);
+
+                        int llantas_masas_traseras = res.getInt("llantas_masas_traseras");
+                        e.setLlantas_masas_traseras(llantas_masas_traseras);
+
+                        int llantas_presion_delantera_izquierda = res.getInt("llantas_presion_delantera_izquierda");
+                        e.setLlantas_presion_delantera_izquierda(llantas_presion_delantera_izquierda);
+
+                        int llantas_presion_delantera_derecha = res.getInt("llantas_presion_delantera_derecha");
+                        e.setLlantas_presion_delantera_derecha(llantas_presion_delantera_derecha);
+
+                        int llantas_presion_trasera_izquierda_1 = res.getInt("llantas_presion_trasera_izquierda_1");
+                        e.setLlantas_presion_trasera_izquierda_1(llantas_presion_trasera_izquierda_1);
+
+                        int llantas_presion_trasera_izquierda_2 = res.getInt("llantas_presion_trasera_izquierda_2");
+                        e.setLlantas_presion_trasera_izquierda_2(llantas_presion_trasera_izquierda_2);
+
+                        int llantas_presion_trasera_derecha_1 = res.getInt("llantas_presion_trasera_derecha_1");
+                        e.setLlantas_presion_trasera_derecha_1(llantas_presion_trasera_derecha_1);
+
+                        int llantas_presion_trasera_derecha_2 = res.getInt("llantas_presion_trasera_derecha_2");
+                        e.setLlantas_presion_trasera_derecha_2(llantas_presion_trasera_derecha_2);
+
+                        int llantas_profundidad_delantera_izquierda = res.getInt("llantas_profundidad_delantera_izquierda");
+                        e.setLlantas_profundidad_delantera_izquierda(llantas_profundidad_delantera_izquierda);
+
+                        int llantas_profundidad_delantera_derecha = res.getInt("llantas_profundidad_delantera_derecha");
+                        e.setLlantas_profundidad_delantera_derecha(llantas_profundidad_delantera_derecha);
+
+                        int llantas_profundidad_trasera_izquierda_1 = res.getInt("llantas_profundidad_trasera_izquierda_1");
+                        e.setLlantas_profundidad_trasera_izquierda_1(llantas_profundidad_trasera_izquierda_1);
+
+                        int llantas_profundidad_trasera_izquierda_2 = res.getInt("llantas_profundidad_trasera_izquierda_2");
+                        e.setLlantas_profundidad_trasera_izquierda_2(llantas_profundidad_trasera_izquierda_2);
+
+                        int llantas_profundidad_trasera_derecha_1 = res.getInt("llantas_profundidad_trasera_derecha_1");
+                        e.setLlantas_profundidad_trasera_derecha_1(llantas_profundidad_trasera_derecha_1);
+
+                        int llantas_profundidad_trasera_derecha_2 = res.getInt("llantas_profundidad_trasera_derecha_2");
+                        e.setLlantas_profundidad_trasera_derecha_2(llantas_profundidad_trasera_derecha_2);
+
+                        int llantas_birlos_delantera_izquierda = res.getInt("llantas_birlos_delantera_izquierda");
+                        e.setLlantas_birlos_delantera_izquierda(llantas_birlos_delantera_izquierda);
+
+                        int llantas_birlos_delantera_derecha = res.getInt("llantas_birlos_delantera_derecha");
+                        e.setLlantas_birlos_delantera_derecha(llantas_birlos_delantera_derecha);
+
+                        int llantas_birlos_trasera_izquierda = res.getInt("llantas_birlos_trasera_izquierda");
+                        e.setLlantas_birlos_trasera_izquierda(llantas_birlos_trasera_izquierda);
+
+                        int llantas_birlos_trasera_derecha = res.getInt("llantas_birlos_trasera_derecha");
+                        e.setLlantas_birlos_trasera_derecha(llantas_birlos_trasera_derecha);
+
+                        int llantas_birlos_delantera_izquierda_num = res.getInt("llantas_birlos_delantera_izquierda_num");
+                        e.setLlantas_birlos_delantera_izquierda_num(llantas_birlos_delantera_izquierda_num);
+
+                        int llantas_birlos_delantera_derecha_num = res.getInt("llantas_birlos_delantera_derecha_num");
+                        e.setLlantas_birlos_delantera_derecha_num(llantas_birlos_delantera_derecha_num);
+
+                        int llantas_birlos_trasera_izquierda_num = res.getInt("llantas_birlos_trasera_izquierda_num");
+                        e.setLlantas_birlos_trasera_izquierda_num(llantas_birlos_trasera_izquierda_num);
+
+                        int llantas_birlos_trasera_derecha_num = res.getInt("llantas_birlos_trasera_derecha_num");
+                        e.setLlantas_birlos_trasera_derecha_num(llantas_birlos_trasera_derecha_num);
+
+                        int llantas_tuercas_delantera_izquierda = res.getInt("llantas_tuercas_delantera_izquierda");
+                        e.setLlantas_tuercas_delantera_izquierda(llantas_tuercas_delantera_izquierda);
+
+                        int llantas_tuercas_delantera_derecha = res.getInt("llantas_tuercas_delantera_derecha");
+                        e.setLlantas_tuercas_delantera_derecha(llantas_tuercas_delantera_derecha);
+
+                        int llantas_tuercas_trasera_izquierda = res.getInt("llantas_tuercas_trasera_izquierda");
+                        e.setLlantas_tuercas_trasera_izquierda(llantas_tuercas_trasera_izquierda);
+
+                        int llantas_tuercas_trasera_derecha = res.getInt("llantas_tuercas_trasera_derecha");
+                        e.setLlantas_tuercas_trasera_derecha(llantas_tuercas_trasera_derecha);
+
+                        int llantas_tuercas_delantera_izquierda_num = res.getInt("llantas_tuercas_delantera_izquierda_num");
+                        e.setLlantas_tuercas_delantera_izquierda_num(llantas_tuercas_delantera_izquierda_num);
+
+                        int llantas_tuercas_delantera_derecha_num = res.getInt("llantas_tuercas_delantera_derecha_num");
+                        e.setLlantas_tuercas_delantera_derecha_num(llantas_tuercas_delantera_derecha_num);
+
+                        int llantas_tuercas_trasera_izquierda_num = res.getInt("llantas_tuercas_trasera_izquierda_num");
+                        e.setLlantas_tuercas_trasera_izquierda_num(llantas_tuercas_trasera_izquierda_num);
+
+                        int llantas_tuercas_trasera_derecha_num = res.getInt("llantas_tuercas_trasera_derecha_num");
+                        e.setLlantas_tuercas_trasera_derecha_num(llantas_tuercas_trasera_derecha_num);
+
+                        int caja_direccion = res.getInt("caja_direccion");
+                        e.setCaja_direccion(caja_direccion);
+
+                        int deposito_aceite = res.getInt("deposito_aceite");
+                        e.setDeposito_aceite(deposito_aceite);
+
+                        int parabrisas = res.getInt("parabrisas");
+                        e.setParabrisas(parabrisas);
+
+                        int limpiaparabrisas = res.getInt("limpiaparabrisas");
+                        e.setLimpiaparabrisas(limpiaparabrisas);
+
+                        int huelgo = res.getInt("huelgo");
+                        e.setHuelgo(huelgo);
+
+                        int huelgo_cuanto = res.getInt("huelgo_cuanto");
+                        e.setHuelgo_cuanto(huelgo_cuanto);
+
+                        int escape = res.getInt("escape");
+                        e.setEscape(escape);
+                    }
                 }
             }
-        }catch (SQLException e) {
-                throw new RuntimeException(e);
+        }catch (SQLException ex) {
+                throw new RuntimeException(ex);
             }
-            return estadoEconomico;
+            return e;
         }
 
 

@@ -46,7 +46,7 @@ public class EconomicoConDictamenServlet extends HttpServlet {
         try {
             dao.insertWKey(economico);
         }catch(Exception e) {
-            mensaje = "La unidad económica ya existe o hubo en error con la base de datos, contacte al administrador o soporte técnico";
+            mensaje = "La unidad económica ya existe.";
         }
         ///////////////////////////////////////////////
         String UPLOAD_DIRECTORY = req.getServletContext().getRealPath("/") + "assets"+File.separator+"dictamenes";
@@ -91,10 +91,11 @@ public class EconomicoConDictamenServlet extends HttpServlet {
             //Insertar dictamen en la base de datos
             dictamen.setId_dictamen(dd.insert(dictamen));
             dd.insertRelation(dictamen,economico);
+            mensaje = " El dictamen fue insertado correctamente";
         }
         ///////////////////////////////////////////////
 
-        req.getSession().setAttribute("mensaje","Unidad económica insertada correctamente");
+        req.getSession().setAttribute("mensaje",mensaje);
         resp.sendRedirect("index.jsp");
     }
 

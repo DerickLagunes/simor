@@ -50,4 +50,26 @@ public class DictamenDao {
         }
         return flag;
     }
+
+    public Dictamen getOne(int idDictamen) {
+        Dictamen d = new Dictamen();
+        String query="select * from dictamen where id_dictamen = ?";
+        try (Connection con=DatabaseConnectionManager.getConnection()){
+            try (PreparedStatement stmt=con.prepareStatement(query)) {
+                stmt.setInt(1, idDictamen);
+                try (ResultSet res = stmt.executeQuery()) {
+                    if (res.next()) {
+                        d.setId_dictamen(res.getInt("id_dictamen"));
+                        d.setFolio1(res.getInt("folio1"));
+                        d.setFolio2(res.getInt("folio2"));
+                        d.setArchivo1(res.getString("archivo1"));
+                        d.setArchivo2(res.getString("archivo2"));
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return d;
+    }
 }
