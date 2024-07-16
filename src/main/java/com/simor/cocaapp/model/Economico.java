@@ -66,7 +66,7 @@ public class Economico implements Serializable {
     public String getSelector(){
         String eval1 ="<select class=\"form-select selectWithLinks\">\n";
         String options = "<option value=\"\" disabled selected>Evaluaciones...</option>\n";
-        String eval2 = "</select>\n";
+        String eval2 = "</select><br>\n";
         if(this.getEvaluaciones().get(0).getId_evaluacion() > 0) {
             for (Evaluacion e : this.getEvaluaciones()) {
                 if (e.getFecha_de_evaluacion() != null) {
@@ -75,9 +75,9 @@ public class Economico implements Serializable {
                 }
             }
         }else{
-            eval1 = "<p>Sin Evaluaciones</p>";
-            options = "";
-            eval2 = "";
+            eval1 = "<strong class=\"mb-0\">Sin Evaluaciones </strong>";
+            options = "<a class=\"btn btn-primary\" href=\"evaluarUnidadEspecifica?id_cedis="+this.getId_cedis()+"&id_economico="+this.getId_economico()+"\">Evaluar</a>";
+            eval2 = "<br><br>";
         }
         //Dictamenes
         String eval3 ="<select class=\"form-select selectWithLinks\">\n";
@@ -90,9 +90,9 @@ public class Economico implements Serializable {
                 }
             }
         }else{
-            eval3 = "<p>Sin Dictamenes</p>";
-            options2 = "";
-            eval4 = "";
+            eval3 = "<strong class=\"mb-0\"> Sin Dictamenes &nbsp;&nbsp;</strong>";
+            options2 = "<a class=\"btn btn-primary\" href=\"cargarDictamenEspecifico?id_economico="+this.getId_economico()+"\">Evaluar</a>";
+            eval4 = "<br>";
         }
         return eval1 + options + eval2 + eval3 + options2 + eval4;
     }

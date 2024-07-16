@@ -13,7 +13,7 @@
                 </div>
                 </c:if>
 
-                <table id="tabla_economicos" class="table table-striped table-hover" style="width:100%">
+                <table id="tabla_economicos" class="table table-striped table-hover align-middle" style="width:100%">
                     <thead>
                     <tr>
                         <th>Placa</th>

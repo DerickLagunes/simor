@@ -7,44 +7,34 @@ import com.simor.cocaapp.model.Economico;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.Part;
+import jakarta.servlet.http.*;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.UUID;
 
 @MultipartConfig
-@WebServlet(name = "EconomicoConDictamenServlet", value = "/economicocondictamen")
-public class EconomicoConDictamenServlet extends HttpServlet {
+@WebServlet(name="DictamenEspecificoServlet", value="/cargarDictamenEspecifico")
+public class DictamenEspecificoServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect("404.jsp");
+        HttpSession sesion = req.getSession();
+        String id_economico = req.getParameter("id_economico");
+        sesion.setAttribute("id_economico",id_economico);
+        resp.sendRedirect("nuevoDictamen.jsp");
     }
+
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id_economico = req.getParameter("id_economico");
-        String placa = req.getParameter("placa");
-        String economico_cedis = req.getParameter("economico_cedis");
-        String cliente = req.getParameter("id_usuario");
-
         Economico economico = new Economico();
         economico.setId_economico(id_economico);
-        economico.setPlaca(placa);
-        economico.setId_cedis(Integer.parseInt(economico_cedis));
-        economico.setId_usuario(Integer.parseInt(cliente));
-
         EconomicoDao dao = new EconomicoDao();
         try{
-            dao.insertWKey(economico);
-            ///////////////////////////////////////////////
-            String UPLOAD_DIRECTORY = req.getServletContext().getRealPath("/") + "assets"+File.separator+"dictamenes";
+            String UPLOAD_DIRECTORY = req.getServletContext().getRealPath("/") + "assets"+ File.separator+"dictamenes";
             String filePath1 = "";
             String filePath2 = "";
 
@@ -86,12 +76,12 @@ public class EconomicoConDictamenServlet extends HttpServlet {
             }
             ///////////////////////////////////////////////
 
-            req.getSession().setAttribute("mensaje","Unidad económica insertada correctamente");
+            req.getSession().setAttribute("mensaje","Dictamen insertado correctamente");
         } catch(Exception e){
-            req.getSession().setAttribute("mensaje","La unidad económica ya existe o hubo en error con la base de datos, contacte al administrador o soporte técnico");
+            req.getSession().setAttribute("mensaje","Hubo en error con la base de datos, contacte al administrador o soporte técnico");
         }
 
-        resp.sendRedirect("index.jsp");
+        resp.sendRedirect("verEconomicos.jsp");
     }
 
     private String getSubmittedFileName(Part part) {
@@ -105,6 +95,4 @@ public class EconomicoConDictamenServlet extends HttpServlet {
         }
         return "";
     }
-
-
 }

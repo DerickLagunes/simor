@@ -14,7 +14,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 </c:if>
-                <form method="post" action="evaluacion">
+                <form id="form" method="post" action="evaluacion">
                     <!-- Inicia sección de CEDIS y Unidad -->
                     <div class="section-border">
                         <div class="section-title">Nueva evaluación de económico</div>
@@ -732,5 +732,37 @@
         loadEconomico(cedis); // Llama a la función con el valor seleccionado
     });
 </script>
+<c:if test="${not empty id_cedis}">
+    <script>
+        loadEconomico(${id_cedis});
+        let selectorC = document.getElementById("cedis_select");
+        let selectorE = document.getElementById("economico");
+        selectorC.value = ${id_cedis};
+        setTimeout(function() {
+            selectorE.value = '${id_economico}';
+        }, 2000); // 3000 milisegundos = 3 segundos
+
+    </script>
+    <% request.getSession().removeAttribute("id_cedis"); %>
+    <% request.getSession().removeAttribute("id_economico"); %>
+</c:if>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var form = document.getElementById("form");
+
+        form.addEventListener("submit", function(event) {
+            // Get all input elements in the form
+            var inputs = form.querySelectorAll("input[disabled]");
+
+            // Temporarily enable all disabled inputs before submitting the form
+            inputs.forEach(function(input) {
+                input.disabled = false;
+            });
+
+            // Form will be submitted with enabled inputs
+        });
+    });
+</script>
+
 <% request.getSession().removeAttribute("mensaje"); %>
 <jsp:include page="templates/footer.jsp" />
