@@ -36,8 +36,8 @@ public class UsuarioDao{
 
     public Object findOne(String correo, String contra) {
         Usuario usr = new Usuario();
-        //String query = "select usuarios.* from usuarios where nombre_usuario = ? AND contrasena = sha2(?,224)";
-        String query = "select usuarios.* from usuarios where nombre_usuario = ? AND contrasena = ?";
+        String query = "select usuarios.* from usuarios where nombre_usuario = ? AND contrasena = sha2(?,224)";
+        //String query = "select usuarios.* from usuarios where nombre_usuario = ? AND contrasena = ?";
         try(Connection con = DatabaseConnectionManager.getConnection()){
             try(PreparedStatement stmt = con.prepareStatement(query)){
                 stmt.setString(1,correo);
