@@ -144,7 +144,7 @@ INSERT INTO usuarios (nombre_usuario, contrasena, tipo_usuario) VALUES
 
 -- Insertar algunos datos de ejemplo
 INSERT INTO usuarios (nombre_usuario, contrasena, tipo_usuario) VALUES
-                                                                    ('admin1', 'contrasenaSegura', 'admin'),
+('admin1', 'contrasenaSegura', 'admin'),
                                                                     ('verificador1', 'contrasenaSegura', 'tecnico'),
                                                                     ('cliente1', 'contrasenaSegura', 'cliente');
 
