@@ -2,11 +2,28 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <jsp:include page="templates/header.jsp" />
 <jsp:include page="templates/nuevoCedis.jsp" />
+
+<style>
+    .custom-file-button input[type=file]{
+        margin-left: -2px !important;
+    }
+    .custom-file-button input[type=file]::-webkit-file-upload-button {
+        display: none;
+    }
+    .custom-file-button input[type=file]::file-selector-button {
+        display: none;
+    }
+    .custom-file-button:hover label {
+        background-color: #dde0e3;
+        cursor: pointer;
+    }
+</style>
 <style>
     .archivo {
         display: none;
     }
 </style>
+
 <main>
     <div class="container-fluid" style="padding-top:60px; text-align: center">
         <div class="row justify-content-center">
@@ -22,7 +39,9 @@
                     <!-- Inicia sección de CEDIS y Unidad -->
                     <div class="section-border">
                         <div class="section-title">Nuevo registro de Económico</div>
-                        <p class="disabled text-start text-body-secondary mb-3">Si se registra un Económico con un identificador que ya existe en la base de datos, no se reemplazaran los datos del económico. Sin embargo, si se agregara un nuevo dictamen, en caso de ser registrado.</p>
+                        <p class="disabled text-start text-body-secondary mb-3">Si se registra un Económico con un identificador que ya existe en la Base de Datos, no se reemplazaran los datos del económico. Sin embargo, si se agregara un nuevo dictamen, en caso de ser registrado.</p>
+                        <p class="disabled text-start text-body-secondary mb-3" style="color: dimgrey">Todos los campos son obligatorios <i class="text-danger">*</i>.</p>
+                        <br>
                         <div class="row">
                             <label for="cedis_select" class="form-label">CEDIS<i class="text-danger">*</i></label>
                             <div class="col-8 mb-3">
@@ -71,8 +90,11 @@
                                         </div>
                                         <div class="col-6">
                                             <label for="file1" class="form-label">Archivo PDF<i class="text-danger">*</i></label>
-                                            <input type="file" accept="application/pdf" class="form-control archi" id="file1"
-                                                   name="file1" aria-describedby="file1_ayuda">
+                                            <div class="input-group custom-file-button">
+                                                <label class="input-group-text" for="file1">Adjuntar archivo</label>
+                                                <input type="file" accept="application/pdf" class="form-control archi" id="file1"
+                                                       name="file1" aria-describedby="file1_ayuda">
+                                            </div>
                                             <div id="file1_ayuda" class="form-text">Sube aqui <i class="bi-upload"></i> el primer archivo PDF.</div>
                                         </div>
                                     </div>
@@ -87,8 +109,11 @@
                                         </div>
                                         <div class="col-6">
                                             <label for="file2" class="form-label">Archivo PDF<i class="text-danger">*</i></label>
-                                            <input type="file" accept="application/pdf" class="form-control archi" id="file2"
-                                                   name="file2" aria-describedby="file2_ayuda">
+                                            <div class="input-group custom-file-button">
+                                                <label class="input-group-text" for="file2">Adjuntar archivo</label>
+                                                <input type="file" accept="application/pdf" class="form-control archi" id="file2"
+                                                       name="file2" aria-describedby="file2_ayuda">
+                                            </div>
                                             <div id="file2_ayuda" class="form-text">Sube aqui <i class="bi-upload"></i> el segundo archivo PDF.</div>
                                         </div>
                                     </div>

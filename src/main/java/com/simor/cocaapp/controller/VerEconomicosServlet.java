@@ -38,7 +38,9 @@ public class VerEconomicosServlet extends HttpServlet {
 
         // Aquí deberías obtener los datos desde tu base de datos
         ArrayList<Tabla> dataList = dao.get(start, length, searchTerm, orderColumn, orderDir);
+
         int total = dao.countAll(searchTerm);
+        System.out.println("Son " + total + " registros");
 
         DataTableResponse dataTableResponse = new DataTableResponse();
         dataTableResponse.setDraw(draw);

@@ -26,7 +26,7 @@ public class Usuario implements Serializable {
     }
 
     public String getNombre_usuario() {
-        return nombre_usuario;
+        return nombre_usuario.toUpperCase();
     }
 
     public void setNombre_usuario(String nombre_usuario) {

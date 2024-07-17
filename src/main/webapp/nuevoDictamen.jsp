@@ -2,6 +2,21 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <jsp:include page="templates/header.jsp" />
 <jsp:include page="templates/nuevoCedis.jsp" />
+<style>
+    .custom-file-button input[type=file]{
+        margin-left: -2px !important;
+    }
+    .custom-file-button input[type=file]::-webkit-file-upload-button {
+        display: none;
+    }
+    .custom-file-button input[type=file]::file-selector-button {
+         display: none;
+    }
+    .custom-file-button:hover label {
+        background-color: #dde0e3;
+        cursor: pointer;
+    }
+</style>
 <main>
     <div class="container-fluid" style="padding-top:60px; text-align: center">
         <div class="row justify-content-center">
@@ -16,8 +31,10 @@
                     <input type="hidden" name="id_economico" value="${id_economico}">
                     <!-- Inicia sección de CEDIS y Unidad -->
                     <div class="section-border">
-                        <div class="section-title">Nuevo dictamen para ${id_economico}</div>
+                        <div class="section-title">Dictamenes para económico ${id_economico}:</div>
                         <div class="row">
+                            <p class="disabled text-start text-body-secondary mb-3" style="color: dimgrey">Todos los campos son obligatorios <i class="text-danger">*</i>.</p>
+                            <br>
                             <div class="mb-3">
                                 <div class="archivo mb-3">
                                     <div class="row">
@@ -29,8 +46,11 @@
                                         </div>
                                         <div class="col-6">
                                             <label for="file1" class="form-label">Archivo PDF<i class="text-danger">*</i></label>
-                                            <input type="file" accept="application/pdf" class="form-control archi" id="file1"
-                                                   name="file1" aria-describedby="file1_ayuda">
+                                            <div class="input-group custom-file-button">
+                                                <label class="input-group-text" for="file1">Adjuntar archivo</label>
+                                                <input type="file" accept="application/pdf" class="form-control archi" id="file1"
+                                                       name="file1" aria-describedby="file1_ayuda">
+                                            </div>
                                             <div id="file1_ayuda" class="form-text">Sube aqui <i class="bi-upload"></i> el primer archivo PDF.</div>
                                         </div>
                                     </div>
@@ -45,8 +65,11 @@
                                         </div>
                                         <div class="col-6">
                                             <label for="file2" class="form-label">Archivo PDF<i class="text-danger">*</i></label>
-                                            <input type="file" accept="application/pdf" class="form-control archi" id="file2"
-                                                   name="file2" aria-describedby="file2_ayuda">
+                                            <div class="input-group custom-file-button">
+                                                <label class="input-group-text" for="file2">Adjuntar archivo</label>
+                                                <input type="file" accept="application/pdf" class="form-control archi" id="file2"
+                                                       name="file2" aria-describedby="file2_ayuda">
+                                            </div>
                                             <div id="file2_ayuda" class="form-text">Sube aqui <i class="bi-upload"></i> el segundo archivo PDF.</div>
                                         </div>
                                     </div>

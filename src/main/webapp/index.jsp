@@ -5,12 +5,6 @@
 <main>
     <div class="container-fluid" style="padding-top:60px; text-align: center;">
         <div class="row">
-            <c:if test="${not empty mensaje}">
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>${mensaje}.</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            </c:if>
             <div class="d-none d-sm-block offset-md-1 col-md-4 align-content-center">
                 <h1>Bienvenido a CocaApp</h1><br/>
                 <img class="img-fluid" src="assets/img/logo.png" alt="logo">
@@ -57,9 +51,9 @@
             <div class="col-sm-12 col-md-6 align-content-center">
                 <form class="form-signin" action="login" method="post">
                     <img class="mb-4" src="assets/img/login.png" alt="login" width="350" height="200">
-                    <h1 class="h3 mb-3 font-weight-normal">Porfavor inicia sesión:</h1>
-                    <label for="inputEmail" class="sr-only">Correo:</label>
-                    <input type="text" id="inputEmail" class="form-control" placeholder="Correo electronico" required="" autofocus="" name="email">
+                    <h1 class="h3 mb-3 font-weight-normal">Inicia sesión:</h1>
+                    <label for="inputEmail" class="sr-only">Usuario:</label>
+                    <input type="text" id="inputEmail" class="form-control" placeholder="Nombre de usuario" required="" autofocus="" name="email">
                     <label for="inputPassword" class="sr-only">Contraseña:</label>
                     <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="" name="pass">
                     <br/>
@@ -69,7 +63,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     </c:if>
-                    <a class="link-info">¿Has olvidado tu contraseña?</a><br><br>
+                    <!-- <a class="link-info">¿Has olvidado tu contraseña?</a><br><br> -->
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesión</button>
                 </form>
             </div>

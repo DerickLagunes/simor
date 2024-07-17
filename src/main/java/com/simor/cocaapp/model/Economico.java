@@ -63,7 +63,7 @@ public class Economico implements Serializable {
         this.id_usuario = id_usuario;
     }
 
-    public String getSelector(){
+    public String getSelector(boolean isCliente){
         String eval1 ="<select class=\"form-select selectWithLinks\">\n";
         String options = "<option value=\"\" disabled selected>Evaluaciones...</option>\n";
         String eval2 = "</select><br>\n";
@@ -76,7 +76,11 @@ public class Economico implements Serializable {
             }
         }else{
             eval1 = "<strong class=\"mb-0\">Sin Evaluaciones </strong>";
-            options = "<a class=\"btn btn-primary\" href=\"evaluarUnidadEspecifica?id_cedis="+this.getId_cedis()+"&id_economico="+this.getId_economico()+"\">Evaluar</a>";
+            if(isCliente){
+                options = "Por favor espere a que un técnico registre la evaluación de su unidad.";
+            }else{
+                options = "<a class=\"btn btn-primary\" href=\"evaluarUnidadEspecifica?id_cedis="+this.getId_cedis()+"&id_economico="+this.getId_economico()+"\">Agregar</a>";
+            }
             eval2 = "<br><br>";
         }
         //Dictamenes
@@ -91,7 +95,12 @@ public class Economico implements Serializable {
             }
         }else{
             eval3 = "<strong class=\"mb-0\"> Sin Dictamenes &nbsp;&nbsp;</strong>";
-            options2 = "<a class=\"btn btn-primary\" href=\"cargarDictamenEspecifico?id_economico="+this.getId_economico()+"\">Evaluar</a>";
+            if(isCliente){
+                options2 = "Por favor espere a que un técnico carge el dictamen de su unidad.";
+
+            }else{
+                options2 = "<a class=\"btn btn-primary\" href=\"cargarDictamenEspecifico?id_economico="+this.getId_economico()+"\">Agregar</a>";
+            }
             eval4 = "<br>";
         }
         return eval1 + options + eval2 + eval3 + options2 + eval4;

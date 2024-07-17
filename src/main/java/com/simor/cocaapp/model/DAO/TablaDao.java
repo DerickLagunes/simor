@@ -93,7 +93,7 @@ public class TablaDao {
                 tabla.getEconomico().getDictamenes().add(dictamen);
 
                 //Construye el selector de evaluaciones y dictamenes
-                tabla.setConsultar_evaluacion(tabla.getEconomico().getSelector());
+                tabla.setConsultar_evaluacion(tabla.getEconomico().getSelector(false));
 
             }
             lista = new ArrayList<>(dataMap.values());
@@ -110,12 +110,12 @@ public class TablaDao {
 
     public int countAll(String searchTerm){
         int res = 0;
-        String query = "SELECT COUNT(*) AS res FROM economicos AS e " +
+        String query = "SELECT COUNT(DISTINCT e.id_economico) AS res FROM economicos AS e " +
                 "JOIN cedis AS c ON e.id_cedis = c.id_cedis " +
-                "JOIN economico_evaluacion AS ee on e.id_economico = ee.id_economico " +
-                "JOIN evaluacion AS ev on ev.id_evaluacion = ee.id_evaluacion " +
-                "JOIN dictamen_economico de on e.id_economico = de.id_economico " +
-                "JOIN dictamen d on de.id_dictamen = d.id_dictamen " +
+                "LEFT JOIN economico_evaluacion AS ee on e.id_economico = ee.id_economico " +
+                "LEFT JOIN evaluacion AS ev on ev.id_evaluacion = ee.id_evaluacion " +
+                "LEFT JOIN dictamen_economico de on e.id_economico = de.id_economico " +
+                "LEFT JOIN dictamen d on de.id_dictamen = d.id_dictamen " +
                 "WHERE e.placa LIKE ? OR e.id_economico LIKE ? OR e.id_cedis LIKE ? " +
                 "OR ee.fecha_de_evaluacion LIKE ? OR c.region LIKE ?";
         try{
@@ -225,7 +225,7 @@ public class TablaDao {
                 tabla.getEconomico().getDictamenes().add(dictamen);
 
                 //Construye el selector de evaluaciones y dictamenes
-                tabla.setConsultar_evaluacion(tabla.getEconomico().getSelector());
+                tabla.setConsultar_evaluacion(tabla.getEconomico().getSelector(true));
 
             }
             lista = new ArrayList<>(dataMap.values());
@@ -242,12 +242,12 @@ public class TablaDao {
 
     public int countAll(int id, String searchTerm) {
         int res = 0;
-        String query = "SELECT COUNT(*) AS res FROM economicos AS e " +
+        String query = "SELECT COUNT(DISTINCT e.id_economico) AS res FROM economicos AS e " +
                 "JOIN cedis AS c ON e.id_cedis = c.id_cedis " +
-                "JOIN economico_evaluacion AS ee on e.id_economico = ee.id_economico " +
-                "JOIN evaluacion AS ev on ev.id_evaluacion = ee.id_evaluacion " +
-                "JOIN dictamen_economico de on e.id_economico = de.id_economico " +
-                "JOIN dictamen d on de.id_dictamen = d.id_dictamen " +
+                "LEFT JOIN economico_evaluacion AS ee on e.id_economico = ee.id_economico " +
+                "LEFT JOIN evaluacion AS ev on ev.id_evaluacion = ee.id_evaluacion " +
+                "LEFT JOIN dictamen_economico de on e.id_economico = de.id_economico " +
+                "LEFT JOIN dictamen d on de.id_dictamen = d.id_dictamen " +
                 "WHERE e.id_usuario = ? AND (e.placa LIKE ? OR e.id_economico LIKE ? OR e.id_cedis LIKE ?) " +
                 "OR ee.fecha_de_evaluacion LIKE ? OR c.region LIKE ?";
         try{

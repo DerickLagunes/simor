@@ -18,6 +18,8 @@
                     <!-- Inicia sección de CEDIS y Unidad -->
                     <div class="section-border">
                         <div class="section-title">Nueva evaluación de económico</div>
+                        <p class="disabled text-start text-body-secondary mb-3" style="color: dimgrey">Todos los campos son obligatorios <i class="text-danger">*</i>.</p>
+                        <br>
                         <div class="row">
                             <label for="cedis_select" class="form-label">CEDIS</label>
                             <div class="col-8 mb-3">
