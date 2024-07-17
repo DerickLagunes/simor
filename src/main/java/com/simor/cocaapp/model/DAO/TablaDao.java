@@ -248,11 +248,12 @@ public class TablaDao {
                 "LEFT JOIN evaluacion AS ev on ev.id_evaluacion = ee.id_evaluacion " +
                 "LEFT JOIN dictamen_economico de on e.id_economico = de.id_economico " +
                 "LEFT JOIN dictamen d on de.id_dictamen = d.id_dictamen " +
-                "WHERE e.id_usuario = ? AND (e.placa LIKE ? OR e.id_economico LIKE ? OR e.id_cedis LIKE ?) " +
-                "OR ee.fecha_de_evaluacion LIKE ? OR c.region LIKE ?";
+                "WHERE e.id_usuario = ? AND (e.placa LIKE ? OR e.id_economico LIKE ? OR e.id_cedis LIKE ? " +
+                "OR ee.fecha_de_evaluacion LIKE ? OR c.region LIKE ?)";
         try{
             Connection con = DatabaseConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(query);
+            System.out.println(id);
             ps.setInt(1,id);
             String searchPattern = "%" + searchTerm + "%";
             ps.setString(2, searchPattern);

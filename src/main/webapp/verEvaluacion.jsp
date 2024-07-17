@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="section-border">
-                    <div class="section-title">Reporte de elementos <strong class="text-danger">NO Aprobados</strong></div>
+                    <div class="section-title">Reporte de elementos</div>
                     <div class="row">
                         <p class="mb-3">Tras realizar la inspección del económico, el técnico verificador encontró lo siguiente:</p>
                         <table class="table table-striped table-hover">

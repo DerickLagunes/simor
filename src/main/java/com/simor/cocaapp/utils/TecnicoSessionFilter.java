@@ -9,13 +9,23 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebFilter(urlPatterns = {
-        "/Productos",
-        "/Colonia",
-        "/Municipio",
-        "/Estado",
-        "/Pais",
-        "/productos.jsp",
-        "/nuevoProducto.jsp"
+        "/cedis",
+        "/clientes",
+        "/cargarDictamenEspecifico",
+        "/economicocondictamen",
+        "/economico",
+        "/evaluacion",
+        "/uploadexcel",
+        "/evaluarUnidadEspecifica",
+        "/verDictamen",
+        "/verEconomicos",
+        "/verEvaluacion",
+        "/evaluarUnidad.jsp",
+        "/nuevoDictamen.jsp",
+        "/subirExcel.jsp",
+        "/verDictamen.jsp",
+        "/verEconomicos.jsp",
+        "/verEvaluacion.jsp"
 }) // This filter will be applied to all URLs
 public class TecnicoSessionFilter implements Filter {
 

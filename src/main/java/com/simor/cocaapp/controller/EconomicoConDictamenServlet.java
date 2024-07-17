@@ -45,8 +45,9 @@ public class EconomicoConDictamenServlet extends HttpServlet {
         EconomicoDao dao = new EconomicoDao();
         try {
             dao.insertWKey(economico);
+            mensaje = "Económico registrado exitosamente";
         }catch(Exception e) {
-            mensaje = "La unidad económica ya existe.";
+            mensaje = "La unidad económica ya existe";
         }
         ///////////////////////////////////////////////
         String UPLOAD_DIRECTORY = req.getServletContext().getRealPath("/") + "assets"+File.separator+"dictamenes";

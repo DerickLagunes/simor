@@ -622,32 +622,32 @@ public class Evaluacion implements Serializable {
         minima delantera 3.2 mm
         minima trasera 1.6 mm
         */
-        if(this.llantas_profundidad_delantera_izquierda >= 3.2){
+        if(this.llantas_profundidad_delantera_izquierda >= 32){
             this.resultados.add(new Resultado(true,"Profundidad Delantera Izquierda","Llantas", "Aprobada"));
         }else{
             this.resultados.add(new Resultado(false,"Profundidad Delantera Izquierda","Llantas", "Menos de 3.2 mm"));
         }
-        if(this.llantas_profundidad_delantera_derecha >= 3.2){
+        if(this.llantas_profundidad_delantera_derecha >= 32){
             this.resultados.add(new Resultado(true,"Profundidad Delantera Derecha","Llantas", "Aprobada"));
         }else{
             this.resultados.add(new Resultado(false,"Profundidad Delantera Derecha","Llantas", "Menos de 3.2 mm"));
         }
-        if(this.llantas_profundidad_trasera_izquierda_1 >= 1.6){
+        if(this.llantas_profundidad_trasera_izquierda_1 >= 16){
             this.resultados.add(new Resultado(true,"Profundidad Trasera Izquierda 1","Llantas", "Aprobada"));
         }else{
             this.resultados.add(new Resultado(false,"Profundidad Trasera Izquierda 1","Llantas", "Menos de 1.6 mm"));
         }
-        if(this.llantas_profundidad_trasera_izquierda_2 >= 1.6){
+        if(this.llantas_profundidad_trasera_izquierda_2 >= 16){
             this.resultados.add(new Resultado(true,"Profundidad Trasera Izquierda 2","Llantas", "Aprobada"));
         }else{
             this.resultados.add(new Resultado(false,"Profundidad Trasera Izquierda 2","Llantas", "Menos de 1.6 mm"));
         }
-        if(this.llantas_profundidad_trasera_derecha_1 >= 1.6){
+        if(this.llantas_profundidad_trasera_derecha_1 >= 16){
             this.resultados.add(new Resultado(true,"Profundidad Trasera Derecha 1","Llantas", "Aprobada"));
         }else{
             this.resultados.add(new Resultado(false,"Profundidad Trasera Derecha 1","Llantas", "Menos de 1.6 mm"));
         }
-        if(this.llantas_profundidad_trasera_derecha_2 >= 1.6){
+        if(this.llantas_profundidad_trasera_derecha_2 >= 16){
             this.resultados.add(new Resultado(true,"Profundidad Trasera Derecha 2","Llantas", "Aprobada"));
         }else{
             this.resultados.add(new Resultado(false,"Profundidad Trasera Derecha 2","Llantas", "Menos de 1.6 mm"));

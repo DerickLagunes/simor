@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/icon/font/bootstrap-icons.css" />
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/jquery.dataTables.min.css" />
+    <link rel="icon" href="${pageContext.request.contextPath}/assets/img/icono_pagina.png" type="image/png">
     <style>
         .section-border {
             border: 1px solid #ced4da; /* Color del borde */

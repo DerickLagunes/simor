@@ -659,6 +659,7 @@
 
 <script>
     function loadEconomico(cedis) {
+        limpiarSelect("economico")
         let req = new XMLHttpRequest();
         let cedisSelect = document.getElementById("economico");
 

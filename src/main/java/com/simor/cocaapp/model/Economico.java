@@ -71,7 +71,7 @@ public class Economico implements Serializable {
             for (Evaluacion e : this.getEvaluaciones()) {
                 if (e.getFecha_de_evaluacion() != null) {
                     String formattedDate = new SimpleDateFormat("dd/MM/yyyy").format(e.getFecha_de_evaluacion());
-                    options += "<option value=\"verEvaluacion?id_evaluacion=" + e.getId_evaluacion() + "\">" + formattedDate + "</option>\n";
+                    options += "<option value=\"verEvaluacion"+ (isCliente? "Cliente":"") +"?id_evaluacion=" + e.getId_evaluacion() + "\">" + formattedDate + "</option>\n";
                 }
             }
         }else{
@@ -90,7 +90,7 @@ public class Economico implements Serializable {
         if(this.getDictamenes().get(0).getId_dictamen() > 0) {
             for (Dictamen e : this.getDictamenes()) {
                 if (e.getFolio1() > 0 && e.getFolio2() > 0) {
-                    options2 += "<option value=\"verDictamen?id_dictamen=" + e.getId_dictamen() + "&id_economico="+this.getId_economico()+"\"> Folio1: " + e.getFolio1() +" | Folio2:"+ e.getFolio2() + "</option>\n";
+                    options2 += "<option value=\"verDictamen"+ (isCliente? "Cliente":"") +"?id_dictamen=" + e.getId_dictamen() + "&id_economico="+this.getId_economico()+"\"> Folio1: " + e.getFolio1() +" | Folio2:"+ e.getFolio2() + "</option>\n";
                 }
             }
         }else{

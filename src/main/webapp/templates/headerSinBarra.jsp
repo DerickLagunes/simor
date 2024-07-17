@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/icon/font/bootstrap-icons.css" />
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/jquery.dataTables.min.css" />
+    <link rel="icon" href="${pageContext.request.contextPath}/assets/img/icono_pagina.png" type="image/png">
 </head>
 <body>
 <header>
@@ -18,14 +19,14 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">
                 <img src="${pageContext.request.contextPath}/assets/img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-                Zazil
+                UVSCTAT464/UVSCTEC322
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/index.jsp">Home</a>
+                    <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/index.jsp">Inicio</a>
                 </div>
             </div>
         </div>
