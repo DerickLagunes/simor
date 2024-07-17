@@ -1,7 +1,6 @@
 package com.simor.cocaapp.model.DAO;
 
-import com.simor.cocaapp.model.EconomicoEvaluacion;
-import com.simor.cocaapp.model.Evaluacion;
+import com.simor.cocaapp.model.*;
 import com.simor.cocaapp.utils.DatabaseConnectionManager;
 
 import java.sql.*;
@@ -34,7 +33,7 @@ public class EvaluacionDao {
 
     public Evaluacion getOne(int id_evaluacion){
         Evaluacion e = new Evaluacion();
-        String query="select * from evaluacion where id_evaluacion = ?";
+        String query="select e.*,ee.fecha_de_evaluacion from evaluacion as e join economico_evaluacion ee on e.id_evaluacion = ee.id_evaluacion where e.id_evaluacion = ?";
         try (Connection con=DatabaseConnectionManager.getConnection()) {
             try (PreparedStatement stmt = con.prepareStatement(query)) {
                 stmt.setInt(1, id_evaluacion);
@@ -270,6 +269,42 @@ public class EvaluacionDao {
             e.printStackTrace();
         }
         return id_evaluacion;
+    }
+
+    public Data getEconomico(int id_evaluacion) {
+        Economico e = new Economico();
+        Cedis c = new Cedis();
+        Data d = new Data();
+        String query="SELECT e.id_economico, c.nombre_cedis, c.region, e.placa, ee.fecha_de_evaluacion " +
+                "FROM economico_evaluacion AS ee " +
+                "JOIN economicos AS e ON ee.id_economico=e.id_economico " +
+                "JOIN cedis AS c ON c.id_cedis=e.id_cedis " +
+                "WHERE ee.id_evaluacion = ?";
+        try (Connection con=DatabaseConnectionManager.getConnection()) {
+            try (PreparedStatement stmt = con.prepareStatement(query)) {
+                stmt.setInt(1, id_evaluacion);
+                try (ResultSet res = stmt.executeQuery()) {
+                    if (res.next()) {
+                        String id_economico = res.getString("id_economico");
+                        String nombre_cedis = res.getString("nombre_cedis");
+                        String region = res.getString("region");
+                        String placa = res.getString("placa");
+                        Timestamp fecha_de_evaluacion = res.getTimestamp("fecha_de_evaluacion");
+
+                        e.setId_economico(id_economico);
+                        e.setPlaca(placa);
+                        c.setNombre_cedis(nombre_cedis);
+                        c.setRegion(region);
+                        d.setFecha_de_evaluacion(fecha_de_evaluacion);
+                        d.setEconomico(e);
+                        d.setCedis(c);
+                    }
+                }
+            }
+        }catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+        return d;
     }
 }
 

@@ -438,7 +438,7 @@
                                     <option value="1">Aprobado</option>
                                     <option value="2">No funciona</option>
                                     <option value="3">Falta 1 pluma</option>
-                                    <option value="4">Faltan 2 pluma</option>
+                                    <option value="4">Faltan 2 plumas</option>
                                 </select>
                             </div>
                         </div>

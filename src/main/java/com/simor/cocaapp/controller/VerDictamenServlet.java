@@ -18,7 +18,7 @@ public class VerDictamenServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id_dictamen = Integer.parseInt(req.getParameter("id_dictamen"));
-        int id_economico = Integer.parseInt(req.getParameter("id_economico"));
+        String id_economico = req.getParameter("id_economico");
         DictamenDao dao = new DictamenDao();
         Dictamen dictamen = dao.getOne(id_dictamen);
 

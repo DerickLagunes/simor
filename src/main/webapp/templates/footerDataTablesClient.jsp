@@ -1,8 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <footer class="footer">
-    <%
-        request.getSession().removeAttribute("mensaje");
-    %>
+    <% request.getSession().removeAttribute("mensaje"); %>
 </footer>
 <script src="${pageContext.request.contextPath}/assets/js/jquery-3.7.0.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/bootstrap.js" ></script>
@@ -16,7 +14,7 @@
             language: {
                 url: '${pageContext.request.contextPath}/assets/js/es-MX.json'
             },
-            ajax: '${pageContext.request.contextPath}/verEconomicosCliente?id_usuario=${session.id_usuario}',
+            ajax: '${pageContext.request.contextPath}/verEconomicosCliente?id_usuario=${sesion.id_usuario}',
             processing: true,
             serverSide: true,
             columns: [
@@ -27,6 +25,17 @@
                 {data: 'consultar_evaluacion'}
             ]
         });
+    });
+</script>
+<script>
+    // Delegación de eventos para los selects
+    document.addEventListener('change', function(event) {
+        if (event.target && event.target.classList.contains('selectWithLinks')) {
+            var selectedValue = event.target.value;
+            if (selectedValue) {
+                window.location.href = "${pageContext.request.contextPath}/"+selectedValue;
+            }
+        }
     });
 </script>
 </body>

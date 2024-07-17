@@ -2,6 +2,7 @@ package com.simor.cocaapp.model;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 public class Evaluacion implements Serializable {
     private int id_evaluacion;
@@ -52,9 +53,11 @@ public class Evaluacion implements Serializable {
     private int huelgo_cuanto;
     private int escape;
     private Timestamp fecha_de_evaluacion;
+    private ArrayList<Resultado> resultados;
 
     //Constructor
     public Evaluacion(){
+        resultados = new ArrayList<>();
     }
     //Getter and Setter
 
@@ -439,5 +442,371 @@ public class Evaluacion implements Serializable {
 
     public void setFecha_de_evaluacion(Timestamp fecha_de_evaluacion) {
         this.fecha_de_evaluacion = fecha_de_evaluacion;
+    }
+
+    public ArrayList<Resultado> getResultados() {
+        /*
+        Galibo, altas y bajas:
+            1 = izq fundida
+            2 = derecha fundida
+            3 = ambas fundidas
+            4 = aprobadas
+        */
+        if(this.luces_galibo == 1){
+            this.resultados.add(new Resultado(false,"Luces Galibo", "Luces", "Izquierda fundida"));
+        } else if (this.luces_galibo == 2) {
+            this.resultados.add(new Resultado(false,"Luces Galibo","Luces", "Derecha fundida"));
+        } else if (this.luces_galibo == 3) {
+            this.resultados.add(new Resultado(false,"Luces Galibo","Luces", "Ambas fundidas"));
+        }else{
+            this.resultados.add(new Resultado(true,"Luces Galibo","Luces", "Aprobado"));
+        }
+
+        if(this.luces_altas == 1){
+            this.resultados.add(new Resultado(false,"Luces Altas","Luces", "Izquierda fundida"));
+        } else if (this.luces_altas == 2) {
+            this.resultados.add(new Resultado(false,"Luces Altas","Luces", "Derecha fundida"));
+        } else if (this.luces_altas == 3) {
+            this.resultados.add(new Resultado(false,"Luces Altas","Luces", "Ambas fundidas"));
+        }else{
+            this.resultados.add(new Resultado(true,"Luces Altas","Luces", "Aprobado"));
+        }
+
+        if(this.luces_bajas == 1){
+            this.resultados.add(new Resultado(false,"Luces Bajas","Luces", "Izquierda fundida"));
+        } else if (this.luces_bajas == 2) {
+            this.resultados.add(new Resultado(false,"Luces Bajas","Luces", "Derecha fundida"));
+        } else if (this.luces_bajas == 3) {
+            this.resultados.add(new Resultado(false,"Luces Bajas","Luces", "Ambas fundidas"));
+        }else{
+            this.resultados.add(new Resultado(true,"Luces Bajas","Luces", "Aprobado"));
+        }
+
+        /*
+        demarcadoras:
+            1 = izq fundida
+            2 = derecha fundida
+            3 = ambas fundidas
+            4 = aprobadas
+        */
+        if(this.luces_demarcadoras_delanteras == 1){
+            this.resultados.add(new Resultado(false,"Luces Demarcadoras Delanteras","Luces", "Izquierda fundida"));
+        } else if (this.luces_demarcadoras_delanteras == 2) {
+            this.resultados.add(new Resultado(false,"Luces Demarcadoras Delanteras","Luces", "Derecha fundida"));
+        } else if (this.luces_demarcadoras_delanteras == 3) {
+            this.resultados.add(new Resultado(false,"Luces Demarcadoras Delanteras","Luces", "Ambas fundidas"));
+        }else{
+            this.resultados.add(new Resultado(true,"Luces Demarcadoras Delanteras","Luces", "Aprobado"));
+        }
+
+        if(this.luces_demarcadoras_traseras == 1){
+            this.resultados.add(new Resultado(false,"Luces Demarcadoras Traseras","Luces", "Izquierda fundida"));
+        } else if (this.luces_demarcadoras_traseras == 2) {
+            this.resultados.add(new Resultado(false,"Luces Demarcadoras Traseras","Luces", "Derecha fundida"));
+        } else if (this.luces_demarcadoras_traseras == 3) {
+            this.resultados.add(new Resultado(false,"Luces Demarcadoras Traseras","Luces", "Ambas fundidas"));
+        }else{
+            this.resultados.add(new Resultado(true,"Luces Demarcadoras Traseras","Luces", "Aprobado"));
+        }
+
+        /*
+        indicadoras:
+            1 = 1 fundida
+            2 = 2 fundida
+            3 = 3 fundidas
+            4 = aprobadas
+        */
+        if(this.luces_indicadoras == 1){
+            this.resultados.add(new Resultado(false,"Luces Indicadoras","Luces", "1 fundida"));
+        } else if (this.luces_indicadoras == 2) {
+            this.resultados.add(new Resultado(false,"Luces Indicadoras","Luces", "2 fundida"));
+        } else if (this.luces_indicadoras == 3) {
+            this.resultados.add(new Resultado(false,"Luces Indicadoras","Luces", "3 fundidas"));
+        }else{
+            this.resultados.add(new Resultado(true,"Luces Indicadoras","Luces", "Aprobadas"));
+        }
+
+
+        //Llantas
+        /*
+        rines:
+            1 = Derecho roto o soldado
+            2 = Izquierdo roto o soldado
+            3 = Ambos rotos o soldados
+            4 = aprobados
+        */
+        if(this.llantas_rines_delanteros == 1){
+            this.resultados.add(new Resultado(false,"Rines Delanteros","Llantas", "Derecho roto o soldado"));
+        } else if (this.llantas_rines_delanteros == 2) {
+            this.resultados.add(new Resultado(false,"Rines Delanteros","Llantas", "Izquierdo roto o soldado"));
+        } else if (this.llantas_rines_delanteros == 3) {
+            this.resultados.add(new Resultado(false,"Rines Delanteros","Llantas", "Ambos rotos o soldados"));
+        }else{
+            this.resultados.add(new Resultado(true,"Rines Delanteros","Llantas", "Aprobados"));
+        }
+
+        if(this.llantas_rines_traseros == 1){
+            this.resultados.add(new Resultado(false,"Rines Traseros","Llantas", "Derecho roto o soldado"));
+        } else if (this.llantas_rines_traseros == 2) {
+            this.resultados.add(new Resultado(false,"Rines Traseros","Llantas", "Izquierdo roto o soldado"));
+        } else if (this.llantas_rines_traseros == 3) {
+            this.resultados.add(new Resultado(false,"Rines Traseros","Llantas", "Ambos rotos o soldados"));
+        }else{
+            this.resultados.add(new Resultado(true,"Rines Traseros","Llantas", "Aprobados"));
+        }
+
+        /*
+        masas:
+            1 = Derecha con fuga
+            2 = Izquierda con fuga
+            3 = Ambas con fuga
+            4 = aprobadas
+        */
+        if(this.llantas_masas_delanteras == 1){
+            this.resultados.add(new Resultado(false,"Masas Delanteras","Llantas", "Derecha con fuga"));
+        } else if (this.llantas_masas_delanteras == 2) {
+            this.resultados.add(new Resultado(false,"Masas Delanteras","Llantas", "Izquierda con fuga"));
+        } else if (this.llantas_masas_delanteras == 3) {
+            this.resultados.add(new Resultado(false,"Masas Delanteras","Llantas", "Ambas con fuga"));
+        }else{
+            this.resultados.add(new Resultado(true,"Masas Delanteras","Llantas", "Aprobadas"));
+        }
+
+        if(this.llantas_masas_traseras == 1){
+            this.resultados.add(new Resultado(false,"Masas Traseras","Llantas", "Derecha con fuga"));
+        } else if (this.llantas_masas_traseras == 2) {
+            this.resultados.add(new Resultado(false,"Masas Traseras","Llantas", "Izquierda con fuga"));
+        } else if (this.llantas_masas_traseras == 3) {
+            this.resultados.add(new Resultado(false,"Masas Traseras","Llantas", "Ambas con fuga"));
+        }else{
+            this.resultados.add(new Resultado(true,"Masas Traseras","Llantas", "Aprobadas"));
+        }
+
+        /*
+        presion es en PSI:
+            minimo 70
+        */
+        if(this.llantas_presion_delantera_izquierda >= 70){
+            this.resultados.add(new Resultado(true,"Presión Delantera Izquierda","Llantas", "Aprobada"));
+        }else{
+            this.resultados.add(new Resultado(false,"Presión Delantera Izquierda","Llantas", "Menos de 70 PSI"));
+        }
+        if(this.llantas_presion_delantera_derecha >= 70){
+            this.resultados.add(new Resultado(true,"Presión Delantera Derecha","Llantas", "Aprobada"));
+        }else{
+            this.resultados.add(new Resultado(false,"Presión Delantera Derecha","Llantas", "Menos de 70 PSI"));
+        }
+        if(this.llantas_presion_trasera_izquierda_1 >= 70){
+            this.resultados.add(new Resultado(true,"Presión Trasera Izquierda 1","Llantas", "Aprobada"));
+        }else{
+            this.resultados.add(new Resultado(false,"Presión Trasera Izquierda 1","Llantas", "Menos de 70 PSI"));
+        }
+        if(this.llantas_presion_trasera_izquierda_2 >= 70){
+            this.resultados.add(new Resultado(true,"Presión Trasera Izquierda 2","Llantas", "Aprobada"));
+        }else{
+            this.resultados.add(new Resultado(false,"Presión Trasera Izquierda 2","Llantas", "Menos de 70 PSI"));
+        }
+        if(this.llantas_presion_trasera_derecha_1 >= 70){
+            this.resultados.add(new Resultado(true,"Presión Trasera Derecha 1","Llantas", "Aprobada"));
+        }else{
+            this.resultados.add(new Resultado(false,"Presión Trasera Derecha 1","Llantas", "Menos de 70 PSI"));
+        }
+        if(this.llantas_presion_trasera_derecha_2 >= 70){
+            this.resultados.add(new Resultado(true,"Presión Trasera Derecha 2","Llantas", "Aprobada"));
+        }else{
+            this.resultados.add(new Resultado(false,"Presión Trasera Derecha 2","Llantas", "Menos de 70 PSI"));
+        }
+
+        /*
+        profundidad es en mm si excede las minimas
+        minima delantera 3.2 mm
+        minima trasera 1.6 mm
+        */
+        if(this.llantas_profundidad_delantera_izquierda >= 3.2){
+            this.resultados.add(new Resultado(true,"Profundidad Delantera Izquierda","Llantas", "Aprobada"));
+        }else{
+            this.resultados.add(new Resultado(false,"Profundidad Delantera Izquierda","Llantas", "Menos de 3.2 mm"));
+        }
+        if(this.llantas_profundidad_delantera_derecha >= 3.2){
+            this.resultados.add(new Resultado(true,"Profundidad Delantera Derecha","Llantas", "Aprobada"));
+        }else{
+            this.resultados.add(new Resultado(false,"Profundidad Delantera Derecha","Llantas", "Menos de 3.2 mm"));
+        }
+        if(this.llantas_profundidad_trasera_izquierda_1 >= 1.6){
+            this.resultados.add(new Resultado(true,"Profundidad Trasera Izquierda 1","Llantas", "Aprobada"));
+        }else{
+            this.resultados.add(new Resultado(false,"Profundidad Trasera Izquierda 1","Llantas", "Menos de 1.6 mm"));
+        }
+        if(this.llantas_profundidad_trasera_izquierda_2 >= 1.6){
+            this.resultados.add(new Resultado(true,"Profundidad Trasera Izquierda 2","Llantas", "Aprobada"));
+        }else{
+            this.resultados.add(new Resultado(false,"Profundidad Trasera Izquierda 2","Llantas", "Menos de 1.6 mm"));
+        }
+        if(this.llantas_profundidad_trasera_derecha_1 >= 1.6){
+            this.resultados.add(new Resultado(true,"Profundidad Trasera Derecha 1","Llantas", "Aprobada"));
+        }else{
+            this.resultados.add(new Resultado(false,"Profundidad Trasera Derecha 1","Llantas", "Menos de 1.6 mm"));
+        }
+        if(this.llantas_profundidad_trasera_derecha_2 >= 1.6){
+            this.resultados.add(new Resultado(true,"Profundidad Trasera Derecha 2","Llantas", "Aprobada"));
+        }else{
+            this.resultados.add(new Resultado(false,"Profundidad Trasera Derecha 2","Llantas", "Menos de 1.6 mm"));
+        }
+
+        /*
+        Birlos y Tuercas,
+        si variable principal es = 1 significa Rotos o faltantes
+        en ese caso se pone el numero de rotos o faltantes, por defecto es 0
+        en caso de que sea 2 significa aprobados
+        */
+        if(this.llantas_birlos_delantera_izquierda == 2){
+            this.resultados.add(new Resultado(true,"Birlos Delantera Izquierda","Llantas", "Aprobada"));
+        }else{
+            if(this.llantas_birlos_delantera_izquierda_num > 2){
+                this.resultados.add(new Resultado(false,"Birlos Delantera Izquierda","Llantas", "Más de 2 birlos rotos o faltantes"));
+            }else {
+                this.resultados.add(new Resultado(true,"Birlos Delantera Izquierda","Llantas", "Menos de 2 birlos rotos o faltantes"));
+            }
+        }
+        if(this.llantas_birlos_delantera_derecha == 2){
+            this.resultados.add(new Resultado(true,"Birlos Delantera Derecha","Llantas", "Aprobada"));
+        }else{
+            if(this.llantas_birlos_delantera_derecha_num > 2){
+                this.resultados.add(new Resultado(false,"Birlos Delantera Derecha","Llantas", "Más de 2 birlos rotos o faltantes"));
+            }else {
+                this.resultados.add(new Resultado(true,"Birlos Delantera Derecha","Llantas", "Menos de 2 birlos rotos o faltantes"));
+            }
+        }
+
+        if(this.llantas_birlos_trasera_izquierda == 2){
+            this.resultados.add(new Resultado(true,"Birlos Trasera Izquierda","Llantas", "Aprobada"));
+        }else{
+            if(this.llantas_birlos_trasera_izquierda_num > 2){
+                this.resultados.add(new Resultado(false,"Birlos Trasera Izquierda","Llantas", "Más de 2 birlos rotos o faltantes"));
+            }else {
+                this.resultados.add(new Resultado(true,"Birlos Trasera Izquierda","Llantas", "Menos de 2 birlos rotos o faltantes"));
+            }
+        }
+        if(this.llantas_birlos_trasera_derecha == 2){
+            this.resultados.add(new Resultado(true,"Birlos Trasera Derecha","Llantas", "Aprobada"));
+        }else{
+            if(this.llantas_birlos_trasera_derecha_num > 2){
+                this.resultados.add(new Resultado(false,"Birlos Trasera Derecha","Llantas", "Más de 2 birlos rotos o faltantes"));
+            }else {
+                this.resultados.add(new Resultado(true,"Birlos Trasera Derecha","Llantas", "Menos de 2 birlos rotos o faltantes"));
+            }
+        }
+
+        if(this.llantas_tuercas_delantera_izquierda == 2){
+            this.resultados.add(new Resultado(true,"Tuercas Delantera Izquierda","Llantas", "Aprobada"));
+        }else{
+            if(this.llantas_tuercas_delantera_izquierda_num > 2){
+                this.resultados.add(new Resultado(false,"Tuercas Delantera Izquierda","Llantas", "Más de 2 tuercas rotas o faltantes"));
+            }else {
+                this.resultados.add(new Resultado(true,"Tuercas Delantera Izquierda","Llantas", "Menos de 2 tuercas rotas o faltantes"));
+            }
+        }
+        if(this.llantas_tuercas_delantera_derecha == 2){
+            this.resultados.add(new Resultado(true,"Tuercas Delantera Derecha","Llantas", "Aprobada"));
+        }else{
+            if(this.llantas_tuercas_delantera_derecha_num > 2){
+                this.resultados.add(new Resultado(false,"Tuercas Delantera Derecha","Llantas", "Más de 2 tuercas rotas o faltantes"));
+            }else {
+                this.resultados.add(new Resultado(true,"Tuercas Delantera Derecha","Llantas", "Menos de 2 tuercas rotas o faltantes"));
+            }
+        }
+
+        if(this.llantas_tuercas_trasera_izquierda == 2){
+            this.resultados.add(new Resultado(true,"Tuercas Trasera Izquierda","Llantas", "Aprobada"));
+        }else{
+            if(this.llantas_tuercas_trasera_izquierda_num > 2){
+                this.resultados.add(new Resultado(false,"Tuercas Trasera Izquierda","Llantas", "Más de 2 tuercas rotas o faltantes"));
+            }else {
+                this.resultados.add(new Resultado(true,"Tuercas Trasera Izquierda","Llantas", "Menos de 2 tuercas rotas o faltantes"));
+            }
+        }
+        if(this.llantas_tuercas_trasera_derecha == 2){
+            this.resultados.add(new Resultado(true,"Tuercas Trasera Derecha","Llantas", "Aprobada"));
+        }else{
+            if(this.llantas_tuercas_trasera_derecha_num > 2){
+                this.resultados.add(new Resultado(false,"Tuercas Trasera Derecha","Llantas", "Más de 2 tuercas rotas o faltantes"));
+            }else {
+                this.resultados.add(new Resultado(true,"Tuercas Trasera Derecha","Llantas", "Menos de 2 tuercas rotas o faltantes"));
+            }
+        }
+
+        //Otros
+        /*
+        Caja de dirección y deposito de aceite:
+            1 = Fuga de aceite
+            2 = Aprobado
+        */
+        if(this.caja_direccion == 1){
+            this.resultados.add(new Resultado(false,"Caja de Dirección", "Otros", "Fuga de aceite"));
+        }else{
+            this.resultados.add(new Resultado(true,"Caja de Dirección","Otros", "Aprobada"));
+        }
+        if(this.deposito_aceite == 1){
+            this.resultados.add(new Resultado(false,"Deposito de Aceite", "Otros", "Fuga de aceite"));
+        }else{
+            this.resultados.add(new Resultado(true,"Deposito de Aceite","Otros", "Aprobado"));
+        }
+
+        /*
+        Parabrisas:
+            1 = Aprobado
+            2 = Estrellado
+        */
+        if(this.parabrisas == 2){
+            this.resultados.add(new Resultado(false,"Parabrisas", "Otros", "Estrellado"));
+        }else{
+            this.resultados.add(new Resultado(true,"Parabrisas","Otros", "Aprobado"));
+        }
+
+
+        /*
+        Limpia Parabrisas:
+            1 = Aprobado
+            2 = No funciona
+            3 = Falta 1 pluma
+            4 = Faltan 2 plumas
+        */
+        if(this.limpiaparabrisas == 4){
+            this.resultados.add(new Resultado(false,"Limpia Parabrisas", "Otros", "Faltan 2 plumas"));
+        } else if (this.limpiaparabrisas == 3) {
+            this.resultados.add(new Resultado(false,"Limpia Parabrisas", "Otros", "Falta 1 pluma"));
+        } else if (this.limpiaparabrisas == 2) {
+            this.resultados.add(new Resultado(false,"Limpia Parabrisas", "Otros", "No funciona"));
+        }else{
+            this.resultados.add(new Resultado(true,"Limpia Parabrisas","Otros", "Aprobado"));
+        }
+
+        /*
+        Huelgo:
+            1 = Aprobado
+            2 = cuanto
+        */
+        if(this.huelgo == 1){
+            this.resultados.add(new Resultado(true,"Huelgo","Otros", "Aprobado"));
+        }else{
+            this.resultados.add(new Resultado(false,"Huelgo","Llantas", "El huelgo tiene: " + this.huelgo_cuanto));
+        }
+
+        /*
+        Escape:
+            1 = Aprobado
+            2 = Faltante
+            3 = Roto
+        */
+        if(this.escape == 3){
+            this.resultados.add(new Resultado(false,"Escape", "Otros", "Roto"));
+        } else if (this.limpiaparabrisas == 2) {
+            this.resultados.add(new Resultado(false,"Escape", "Otros", "Faltante"));
+        } else{
+            this.resultados.add(new Resultado(true,"Escape","Otros", "Aprobado"));
+        }
+
+        this.resultados = resultados;
+        return resultados;
     }
 }
