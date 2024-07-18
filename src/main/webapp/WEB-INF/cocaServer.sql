@@ -139,7 +139,7 @@ INSERT INTO usuarios (nombre_usuario, contrasena, tipo_usuario) VALUES
 ("MMCARGA-5",  sha2("M322464",256),"cliente"),
 ("TRAMUSA-7",  sha2("T322464",256),"cliente"),
 ("TJL-3",  sha2("T322464",256),"cliente"),
-("GUEMES6",  sha2("G322464",256),"cliente");
+("GUEMES-6",  sha2("G322464",256),"cliente");
 
 
 -- Insertar algunos datos de ejemplo
