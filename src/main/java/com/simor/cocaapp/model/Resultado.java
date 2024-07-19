@@ -4,15 +4,17 @@ public class Resultado {
     private boolean aprobado;
     private String elemento;
     private String categoria;
+    private String apruebaCon;
     private String resultado;
 
     public Resultado() {
     }
 
-    public Resultado(boolean aprobado, String elemento, String categoria, String resultado) {
+    public Resultado(boolean aprobado, String elemento, String categoria, String apruebaCon, String resultado) {
         this.aprobado = aprobado;
         this.elemento = elemento;
         this.categoria = categoria;
+        this.apruebaCon = apruebaCon;
         this.resultado = resultado;
     }
 
@@ -46,5 +48,13 @@ public class Resultado {
 
     public void setElemento(String elemento) {
         this.elemento = elemento;
+    }
+
+    public String getApruebaCon() {
+        return apruebaCon;
+    }
+
+    public void setApruebaCon(String apruebaCon) {
+        this.apruebaCon = apruebaCon;
     }
 }

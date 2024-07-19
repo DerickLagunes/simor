@@ -2,10 +2,10 @@ package com.simor.cocaapp.model;
 
 public class Dictamen {
     private int id_dictamen;
-    private int folio1;
-    private int folio2;
-    private String archivo1;
-    private String archivo2;
+    private int folio_humo;
+    private String folio_fisico;
+    private String archivo_humo;
+    private String archivo_fisico;
 
     public Dictamen() {
     }
@@ -19,34 +19,34 @@ public class Dictamen {
     }
 
     public int getFolio1() {
-        return folio1;
+        return folio_humo;
     }
 
-    public void setFolio1(int folio1) {
-        this.folio1 = folio1;
+    public void setFolio1(int folio_humo) {
+        this.folio_humo = folio_humo;
     }
 
-    public int getFolio2() {
-        return folio2;
+    public String getFolio2() {
+        return folio_fisico;
     }
 
-    public void setFolio2(int folio2) {
-        this.folio2 = folio2;
+    public void setFolio2(String folio_fisico) {
+        this.folio_fisico = folio_fisico;
     }
 
     public String getArchivo1() {
-        return archivo1;
+        return archivo_humo;
     }
 
-    public void setArchivo1(String archivo1) {
-        this.archivo1 = archivo1;
+    public void setArchivo1(String archivo_humo) {
+        this.archivo_humo = archivo_humo;
     }
 
     public String getArchivo2() {
-        return archivo2;
+        return archivo_fisico;
     }
 
-    public void setArchivo2(String archivo2) {
-        this.archivo2 = archivo2;
+    public void setArchivo2(String archivo_fisico) {
+        this.archivo_fisico = archivo_fisico;
     }
 }

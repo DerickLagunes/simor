@@ -49,53 +49,54 @@ public class EconomicoConDictamenServlet extends HttpServlet {
         }catch(Exception e) {
             mensaje = "La unidad económica ya existe";
         }
-        ///////////////////////////////////////////////
-        String UPLOAD_DIRECTORY = req.getServletContext().getRealPath("/") + "assets"+File.separator+"dictamenes";
-        String filePath1 = "";
-        String filePath2 = "";
 
-        try {
-            Part filePart = req.getPart("file1");
-            String fileName = getSubmittedFileName(filePart);
-            String uniqueFileName = UUID.randomUUID().toString() + "_" + fileName;
-            filePath1 = UPLOAD_DIRECTORY + File.separator + uniqueFileName;
-            InputStream fileContent = filePart.getInputStream();
-            Files.copy(fileContent, Paths.get(filePath1));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            Part filePart = req.getPart("file2");
-            String fileName = getSubmittedFileName(filePart);
-            String uniqueFileName = UUID.randomUUID().toString() + "_" + fileName;
-            filePath2 = UPLOAD_DIRECTORY + File.separator + uniqueFileName;
-            InputStream fileContent = filePart.getInputStream();
-            Files.copy(fileContent, Paths.get(filePath2));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
-        String folio1 = req.getParameter("folio1");
-        String folio2 = req.getParameter("folio2");
+        String folio_humo = req.getParameter("folio_humo");
+        String folio_fisico = req.getParameter("folio_fisico");
+        if(!folio_humo.equals("") || !folio_fisico.equals("")){
+            ///////////////////////////////////////////////
+            String UPLOAD_DIRECTORY = req.getServletContext().getRealPath("/") + "assets"+File.separator+"dictamenes";
+            String filePath1 = "";
+            String filePath2 = "";
 
-        System.out.println(folio1);
-        System.out.println(folio2);
 
-        Dictamen dictamen = new Dictamen();
-        DictamenDao dd = new DictamenDao();
-        if(!folio1.equals("") || !folio2.equals("")){
-            dictamen.setFolio1(Integer.parseInt(folio1));
-            dictamen.setFolio2(Integer.parseInt(folio2));
+            try {
+                Part filePart = req.getPart("archivo_humo");
+                String fileName = getSubmittedFileName(filePart);
+                String uniqueFileName = UUID.randomUUID().toString() + "_" + fileName;
+                filePath1 = UPLOAD_DIRECTORY + File.separator + uniqueFileName;
+                InputStream fileContent = filePart.getInputStream();
+                Files.copy(fileContent, Paths.get(filePath1));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                Part filePart = req.getPart("archivo_fisico");
+                String fileName = getSubmittedFileName(filePart);
+                String uniqueFileName = UUID.randomUUID().toString() + "_" + fileName;
+                filePath2 = UPLOAD_DIRECTORY + File.separator + uniqueFileName;
+                InputStream fileContent = filePart.getInputStream();
+                Files.copy(fileContent, Paths.get(filePath2));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            Dictamen dictamen = new Dictamen();
+            DictamenDao dd = new DictamenDao();
+
+            dictamen.setFolio1(Integer.parseInt(folio_humo));
+            dictamen.setFolio2(folio_fisico);
             dictamen.setArchivo1(filePath1);
             dictamen.setArchivo2(filePath2);
 
             //Insertar dictamen en la base de datos
             dictamen.setId_dictamen(dd.insert(dictamen));
             dd.insertRelation(dictamen,economico);
-            mensaje = " El dictamen fue insertado correctamente";
+            mensaje += ", El dictamen fue insertado correctamente";
         }
         ///////////////////////////////////////////////
 
+        System.out.println(mensaje);
         req.getSession().setAttribute("mensaje",mensaje);
         resp.sendRedirect("index.jsp");
     }

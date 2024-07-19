@@ -83,38 +83,39 @@
                                 <div class="archivo mb-3">
                                     <div class="row">
                                         <div class="col-6">
-                                            <label for="folio1" class="form-label">Folio del primer dictamen<i class="text-danger">*</i></label>
-                                            <input maxlength="25" type="text" class="form-control archi" id="folio1"
-                                                   name="folio1" aria-describedby="folio1_ayuda">
-                                            <div id="folio1_ayuda" class="form-text">Escribe aquí <i class="bi-arrow-up"></i> el folio del primer dictamen.</div>
+                                            <label for="folio_humo" class="form-label">Folio del primer dictamen<i class="text-danger">*</i></label>
+                                            <input maxlength="8" pattern="\d{1,8}" title="Ingrese hasta 8 dígitos" type="text" class="form-control archi" id="folio_humo"
+                                                   name="folio_humo" aria-describedby="folio_humo_ayuda">
+                                            <div id="folio_humo_ayuda" class="form-text">Escribe aquí <i class="bi-arrow-up"></i> el folio del dictamen de humo.</div>
                                         </div>
                                         <div class="col-6">
-                                            <label for="file1" class="form-label">Archivo PDF<i class="text-danger">*</i></label>
+                                            <label for="archivo_humo" class="form-label">Archivo PDF<i class="text-danger">*</i></label>
                                             <div class="input-group custom-file-button">
-                                                <label class="input-group-text" for="file1">Adjuntar archivo</label>
-                                                <input type="file" accept="application/pdf" class="form-control archi" id="file1"
-                                                       name="file1" aria-describedby="file1_ayuda">
+                                                <label class="input-group-text" for="archivo_humo">Adjuntar archivo</label>
+                                                <input type="file" accept="application/pdf" class="form-control archi" id="archivo_humo"
+                                                       name="archivo_humo" aria-describedby="archivo_humo_ayuda">
                                             </div>
-                                            <div id="file1_ayuda" class="form-text">Sube aqui <i class="bi-upload"></i> el primer archivo PDF.</div>
+                                            <div id="archivo_humo_ayuda" class="form-text">Sube aqui <i class="bi-upload"></i> el archivo PDF del dictamen de humo.</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="archivo mb-3">
                                     <div class="row">
                                         <div class="col-6">
-                                            <label for="folio1" class="form-label">Folio del segundo dictamen<i class="text-danger">*</i></label>
-                                            <input maxlength="25" type="text" class="form-control archi" id="folio2"
-                                                   name="folio2" aria-describedby="folio2_ayuda">
-                                            <div id="folio2_ayuda" class="form-text">Escribe aquí <i class="bi-arrow-up"></i> el folio del segundo dictamen.</div>
+                                            <label for="folio_fisico" class="form-label">Folio del segundo dictamen<i class="text-danger">*</i></label>
+                                            <input maxlength="8" pattern="[A-Za-z]\d{7}" title="Debe comenzar con un carácter seguido de 7 dígitos"
+                                                   type="text" class="form-control archi" id="folio_fisico"
+                                                   name="folio_fisico" aria-describedby="folio_fisico_ayuda">
+                                            <div id="folio_fisico_ayuda" class="form-text">Escribe aquí <i class="bi-arrow-up"></i> el folio del dictamen físico.</div>
                                         </div>
                                         <div class="col-6">
-                                            <label for="file2" class="form-label">Archivo PDF<i class="text-danger">*</i></label>
+                                            <label for="archivo_fisico" class="form-label">Archivo PDF<i class="text-danger">*</i></label>
                                             <div class="input-group custom-file-button">
-                                                <label class="input-group-text" for="file2">Adjuntar archivo</label>
-                                                <input type="file" accept="application/pdf" class="form-control archi" id="file2"
-                                                       name="file2" aria-describedby="file2_ayuda">
+                                                <label class="input-group-text" for="archivo_fisico">Adjuntar archivo</label>
+                                                <input type="file" accept="application/pdf" class="form-control archi" id="archivo_fisico"
+                                                       name="archivo_fisico" aria-describedby="archivo_fisico_ayuda">
                                             </div>
-                                            <div id="file2_ayuda" class="form-text">Sube aqui <i class="bi-upload"></i> el segundo archivo PDF.</div>
+                                            <div id="archivo_fisico_ayuda" class="form-text">Sube aqui <i class="bi-upload"></i> el archivo PDF del dictamen físico.</div>
                                         </div>
                                     </div>
                                 </div>

@@ -6,7 +6,7 @@
 <main>
     <div class="container-fluid" style="padding-top:60px; text-align: center">
         <div class="row justify-content-center">
-            <div class="col-12">
+            <div class="col-10">
             <c:if test="${not empty mensaje}">
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <strong>${mensaje}.</strong>

@@ -3,7 +3,11 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:include page="templates/header.jsp" />
-
+<style>
+    .bi {
+        font-size: 24px; /* Ajusta el tamaño del icono */
+    }
+</style>
 <main>
     <div class="container-fluid" style="padding-top:60px; text-align: center">
         <div class="row justify-content-center">
@@ -38,7 +42,9 @@
                                     <th>No.</th>
                                     <th>Categoría</th>
                                     <th>Elemento</th>
+                                    <th>Aprueba con</th>
                                     <th>Resultado</th>
+                                    <th>Evaluación</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -47,20 +53,24 @@
                                     <c:choose>
                                         <c:when test="${tipoSesion == 'tecnico'}">
                                             <tr>
-                                                <td><%=i%></td>
-                                                <td>${r.categoria}</td>
-                                                <td>${r.elemento}</td>
-                                                <td>${r.resultado}</td>
+                                                <td class="align-middle"><%=i%></td>
+                                                <td class="align-middle">${r.categoria}</td>
+                                                <td class="align-middle">${r.elemento}</td>
+                                                <td class="align-middle">${r.apruebaCon}</td>
+                                                <td class="align-middle">${r.resultado}</td>
+                                                <td class="${r.aprobado} align-middle"></td>
                                             </tr>
                                             <% i++; %>
                                         </c:when>
                                         <c:otherwise>
                                             <c:if test="${not r.aprobado}">
                                                 <tr>
-                                                    <td><%=i%></td>
-                                                    <td>${r.categoria}</td>
-                                                    <td>${r.elemento}</td>
-                                                    <td>${r.resultado}</td>
+                                                    <td class="align-middle"><%=i%></td>
+                                                    <td class="align-middle">${r.categoria}</td>
+                                                    <td class="align-middle">${r.elemento}</td>
+                                                    <td class="align-middle">${r.apruebaCon}</td>
+                                                    <td class="align-middle">${r.resultado}</td>
+                                                    <td class="${r.aprobado} align-middle"></td>
                                                 </tr>
                                                 <% i++; %>
                                             </c:if>
@@ -75,6 +85,43 @@
         </div>
     </div>
 </main>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Seleccionar todas las celdas con la clase "true"
+        const trueCells = document.querySelectorAll('td.true');
+        const falseCells = document.querySelectorAll('td.false');
+
+        // Cambiar el contenido de cada celda a "aprobado"
+        trueCells.forEach(cell => {
+            let icono = document.createElement("i");
+
+            icono.setAttribute("class","bi text-success bi-clipboard-check-fill")
+            let texto = document.createElement("span");
+            texto.textContent = "Aprobado";
+
+            let contenedor = document.createElement("span");
+            //contenedor.appendChild(texto);
+            contenedor.appendChild(icono);
+
+
+            cell.appendChild(contenedor);
+        });
+        // Cambiar el contenido de cada celda a "reprobado"
+        falseCells.forEach(cell => {
+            let icono = document.createElement("i");
+
+            icono.setAttribute("class","bi text-danger bi-clipboard-x-fill")
+            let texto = document.createElement("span");
+            texto.textContent = "Reprobado";
+
+            let contenedor = document.createElement("span");
+            //contenedor.appendChild(texto);
+            contenedor.appendChild(icono);
+
+            cell.appendChild(contenedor);
+        });
+    });
+</script>
 <%
     request.getSession().removeAttribute("mensaje");
     request.getSession().removeAttribute("data");

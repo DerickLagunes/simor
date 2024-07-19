@@ -85,10 +85,10 @@ CREATE TABLE evaluacion (
 
 create table dictamen(
                          id_dictamen INT primary key auto_increment,
-                         folio1 int,
-                         folio2 int,
-                         archivo1 varchar(512),
-                         archivo2 varchar(512)
+                         folio_humo int,
+                         folio_fisico varchar(10),
+                         archivo_humo varchar(512),
+                         archivo_fisico varchar(512)
 );
 
 create table dictamen_economico(
@@ -111,8 +111,8 @@ create table economico_evaluacion (
 
 -- Datos usuarios
 INSERT INTO usuarios (nombre_usuario, contrasena, tipo_usuario) VALUES 
-("minerva", sha2("RMAD3224641",256),"admin"),
-("uriel", sha2("FUGA3224641",256),"admin"),
+("minerva", sha2("RMAD3224641",256),"tecnico"),
+("uriel", sha2("FUGA3224641",256),"tecnico"),
 ("esteban", sha2("EGA322464",256),"tecnico"),
 ("elizau", sha2("REF322464",256),"tecnico"),
 ("mayra", sha2("MRMA322464",256),"tecnico"),
@@ -140,10 +140,3 @@ INSERT INTO usuarios (nombre_usuario, contrasena, tipo_usuario) VALUES
 ("TRAMUSA-7",  sha2("T322464",256),"cliente"),
 ("TJL-3",  sha2("T322464",256),"cliente"),
 ("GUEMES-6",  sha2("G322464",256),"cliente");
-
-
--- Insertar algunos datos de ejemplo
-INSERT INTO usuarios (nombre_usuario, contrasena, tipo_usuario) VALUES
-('admin1', 'contrasenaSegura', 'admin'),
-                                                                    ('verificador1', 'contrasenaSegura', 'tecnico'),
-                                                                    ('cliente1', 'contrasenaSegura', 'cliente');

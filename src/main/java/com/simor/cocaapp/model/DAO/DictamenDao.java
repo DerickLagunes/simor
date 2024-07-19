@@ -12,11 +12,11 @@ import java.sql.SQLException;
 public class DictamenDao {
     public int insert(Dictamen dictamen) {
         int id_dictamen = 0;
-        String query = "INSERT INTO dictamen (folio1, folio2, archivo1, archivo2) VALUES (?, ?, ?, ?);";
+        String query = "INSERT INTO dictamen (folio_humo, folio_fisico, archivo_humo, archivo_fisico) VALUES (?, ?, ?, ?);";
         try (Connection con= DatabaseConnectionManager.getConnection()) {
             try (PreparedStatement stmt = con.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
                 stmt.setInt(1, dictamen.getFolio1());
-                stmt.setInt(2, dictamen.getFolio2());
+                stmt.setString(2, dictamen.getFolio2());
                 stmt.setString(3, dictamen.getArchivo1());
                 stmt.setString(4, dictamen.getArchivo2());
                 if(stmt.executeUpdate()>0){
@@ -60,10 +60,10 @@ public class DictamenDao {
                 try (ResultSet res = stmt.executeQuery()) {
                     if (res.next()) {
                         d.setId_dictamen(res.getInt("id_dictamen"));
-                        d.setFolio1(res.getInt("folio1"));
-                        d.setFolio2(res.getInt("folio2"));
-                        d.setArchivo1(res.getString("archivo1"));
-                        d.setArchivo2(res.getString("archivo2"));
+                        d.setFolio1(res.getInt("folio_humo"));
+                        d.setFolio2(res.getString("folio_fisico"));
+                        d.setArchivo1(res.getString("archivo_humo"));
+                        d.setArchivo2(res.getString("archivo_fisico"));
                     }
                 }
             }

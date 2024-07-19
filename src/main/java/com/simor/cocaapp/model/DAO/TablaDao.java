@@ -13,7 +13,7 @@ public class TablaDao {
     public ArrayList<Tabla> get(int start, int length, String searchTerm, String orderColumn, String orderDir){
         ArrayList<Tabla> lista = new ArrayList<>();
         String query = "SELECT ee.fecha_de_evaluacion, e.placa, e.id_economico, e.id_cedis, c.nombre_cedis, c.region, " +
-                "ee.id_evaluacion, d.id_dictamen, d.folio1, d.folio2, d.archivo1, d.archivo2, ev.id_evaluacion " +
+                "ee.id_evaluacion, d.id_dictamen, d.folio_humo, d.folio_fisico, d.archivo_humo, d.archivo_fisico, ev.id_evaluacion " +
                 "FROM economicos AS e " +
                 "JOIN cedis AS c ON e.id_cedis = c.id_cedis " +
                 "LEFT JOIN economico_evaluacion AS ee on e.id_economico = ee.id_economico " +
@@ -78,16 +78,16 @@ public class TablaDao {
                 evaluacion.setFecha_de_evaluacion(fecha_de_evaluacion);
 
                 int id_dictamen = rs.getInt("id_dictamen");
-                int folio1 = rs.getInt("folio1");
-                int folio2 = rs.getInt("folio2");
-                String archivo1 = rs.getString("archivo1");
-                String archivo2 = rs.getString("archivo2");
+                int folio_humo = rs.getInt("folio_humo");
+                String folio_fisico = rs.getString("folio_fisico");
+                String archivo_humo = rs.getString("archivo_humo");
+                String archivo_fisico = rs.getString("archivo_fisico");
 
                 dictamen.setId_dictamen(id_dictamen);
-                dictamen.setFolio1(folio1);
-                dictamen.setFolio2(folio2);
-                dictamen.setArchivo1(archivo1);
-                dictamen.setArchivo2(archivo2);
+                dictamen.setFolio1(folio_humo);
+                dictamen.setFolio2(folio_fisico);
+                dictamen.setArchivo1(archivo_humo);
+                dictamen.setArchivo2(archivo_fisico);
 
                 tabla.getEconomico().getEvaluaciones().add(evaluacion);
                 tabla.getEconomico().getDictamenes().add(dictamen);
@@ -144,7 +144,7 @@ public class TablaDao {
     public ArrayList<Tabla> get(int id, int start, int length, String searchTerm, String orderColumn, String orderDir) {
         ArrayList<Tabla> lista = new ArrayList<>();
         String query = "SELECT ee.fecha_de_evaluacion, e.placa, e.id_economico, e.id_cedis, c.nombre_cedis, c.region, " +
-                "ee.id_evaluacion, d.id_dictamen, d.folio1, d.folio2, d.archivo1, d.archivo2, ev.id_evaluacion " +
+                "ee.id_evaluacion, d.id_dictamen, d.folio_humo, d.folio_fisico, d.archivo_humo, d.archivo_fisico, ev.id_evaluacion " +
                 "FROM economicos AS e " +
                 "JOIN cedis AS c ON e.id_cedis = c.id_cedis " +
                 "LEFT JOIN economico_evaluacion AS ee on e.id_economico = ee.id_economico " +
@@ -210,16 +210,16 @@ public class TablaDao {
                 evaluacion.setFecha_de_evaluacion(fecha_de_evaluacion);
 
                 int id_dictamen = rs.getInt("id_dictamen");
-                int folio1 = rs.getInt("folio1");
-                int folio2 = rs.getInt("folio2");
-                String archivo1 = rs.getString("archivo1");
-                String archivo2 = rs.getString("archivo2");
+                int folio_humo = rs.getInt("folio_humo");
+                String folio_fisico = rs.getString("folio_fisico");
+                String archivo_humo = rs.getString("archivo_humo");
+                String archivo_fisico = rs.getString("archivo_fisico");
 
                 dictamen.setId_dictamen(id_dictamen);
-                dictamen.setFolio1(folio1);
-                dictamen.setFolio2(folio2);
-                dictamen.setArchivo1(archivo1);
-                dictamen.setArchivo2(archivo2);
+                dictamen.setFolio1(folio_humo);
+                dictamen.setFolio2(folio_fisico);
+                dictamen.setArchivo1(archivo_humo);
+                dictamen.setArchivo2(archivo_fisico);
 
                 tabla.getEconomico().getEvaluaciones().add(evaluacion);
                 tabla.getEconomico().getDictamenes().add(dictamen);
@@ -253,7 +253,7 @@ public class TablaDao {
         try{
             Connection con = DatabaseConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(query);
-            System.out.println(id);
+
             ps.setInt(1,id);
             String searchPattern = "%" + searchTerm + "%";
             ps.setString(2, searchPattern);

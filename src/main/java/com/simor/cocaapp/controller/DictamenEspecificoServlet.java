@@ -39,7 +39,7 @@ public class DictamenEspecificoServlet extends HttpServlet {
             String filePath2 = "";
 
             try {
-                Part filePart = req.getPart("file1");
+                Part filePart = req.getPart("archivo_humo");
                 String fileName = getSubmittedFileName(filePart);
                 String uniqueFileName = UUID.randomUUID().toString() + "_" + fileName;
                 filePath1 = UPLOAD_DIRECTORY + File.separator + uniqueFileName;
@@ -49,7 +49,7 @@ public class DictamenEspecificoServlet extends HttpServlet {
                 e.printStackTrace();
             }
             try {
-                Part filePart = req.getPart("file2");
+                Part filePart = req.getPart("archivo_fisico");
                 String fileName = getSubmittedFileName(filePart);
                 String uniqueFileName = UUID.randomUUID().toString() + "_" + fileName;
                 filePath2 = UPLOAD_DIRECTORY + File.separator + uniqueFileName;
@@ -59,14 +59,14 @@ public class DictamenEspecificoServlet extends HttpServlet {
                 e.printStackTrace();
             }
 
-            String folio1 = req.getParameter("folio1");
-            String folio2 = req.getParameter("folio2");
+            String folio_humo = req.getParameter("folio_humo");
+            String folio_fisico = req.getParameter("folio_fisico");
 
             Dictamen dictamen = new Dictamen();
             DictamenDao dd = new DictamenDao();
-            if(!folio1.equals("") || !folio2.equals("")){
-                dictamen.setFolio1(Integer.parseInt(folio1));
-                dictamen.setFolio2(Integer.parseInt(folio2));
+            if(!folio_humo.equals("") || !folio_fisico.equals("")){
+                dictamen.setFolio1(Integer.parseInt(folio_humo));
+                dictamen.setFolio2(folio_fisico);
                 dictamen.setArchivo1(filePath1);
                 dictamen.setArchivo2(filePath2);
 
