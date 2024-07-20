@@ -86,7 +86,7 @@ CREATE TABLE evaluacion (
 create table dictamen(
                          id_dictamen INT primary key auto_increment,
                          folio_humo int,
-                         folio_fisico varchar(10),
+                         folio_fisico varchar(20),
                          archivo_humo varchar(512),
                          archivo_fisico varchar(512)
 );
