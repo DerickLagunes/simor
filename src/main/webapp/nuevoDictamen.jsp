@@ -40,7 +40,7 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <label for="folio_humo" class="form-label">Folio del dictamen de humo<i class="text-danger">*</i></label>
-                                            <input type="number" class="form-control archi" id="folio_humo"
+                                            <input type="text" class="form-control archi" id="folio_humo"
                                                    name="folio_humo" aria-describedby="folio_humo_ayuda">
                                             <div id="folio_humo_ayuda" class="form-text">Escribe aquí <i class="bi-arrow-up"></i> el folio del dictamen de humo.</div>
                                         </div>

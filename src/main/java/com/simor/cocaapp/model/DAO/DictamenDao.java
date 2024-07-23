@@ -15,7 +15,7 @@ public class DictamenDao {
         String query = "INSERT INTO dictamen (folio_humo, folio_fisico, archivo_humo, archivo_fisico) VALUES (?, ?, ?, ?);";
         try (Connection con= DatabaseConnectionManager.getConnection()) {
             try (PreparedStatement stmt = con.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
-                stmt.setInt(1, dictamen.getFolio1());
+                stmt.setString(1, dictamen.getFolio1());
                 stmt.setString(2, dictamen.getFolio2());
                 stmt.setString(3, dictamen.getArchivo1());
                 stmt.setString(4, dictamen.getArchivo2());
@@ -60,7 +60,7 @@ public class DictamenDao {
                 try (ResultSet res = stmt.executeQuery()) {
                     if (res.next()) {
                         d.setId_dictamen(res.getInt("id_dictamen"));
-                        d.setFolio1(res.getInt("folio_humo"));
+                        d.setFolio1(res.getString("folio_humo"));
                         d.setFolio2(res.getString("folio_fisico"));
                         d.setArchivo1(res.getString("archivo_humo"));
                         d.setArchivo2(res.getString("archivo_fisico"));

@@ -78,7 +78,7 @@ public class TablaDao {
                 evaluacion.setFecha_de_evaluacion(fecha_de_evaluacion);
 
                 int id_dictamen = rs.getInt("id_dictamen");
-                int folio_humo = rs.getInt("folio_humo");
+                String folio_humo = rs.getString("folio_humo");
                 String folio_fisico = rs.getString("folio_fisico");
                 String archivo_humo = rs.getString("archivo_humo");
                 String archivo_fisico = rs.getString("archivo_fisico");
@@ -210,7 +210,7 @@ public class TablaDao {
                 evaluacion.setFecha_de_evaluacion(fecha_de_evaluacion);
 
                 int id_dictamen = rs.getInt("id_dictamen");
-                int folio_humo = rs.getInt("folio_humo");
+                String folio_humo = rs.getString("folio_humo");
                 String folio_fisico = rs.getString("folio_fisico");
                 String archivo_humo = rs.getString("archivo_humo");
                 String archivo_fisico = rs.getString("archivo_fisico");

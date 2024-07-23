@@ -65,7 +65,7 @@ public class DictamenEspecificoServlet extends HttpServlet {
             Dictamen dictamen = new Dictamen();
             DictamenDao dd = new DictamenDao();
             if(!folio_humo.equals("") || !folio_fisico.equals("")){
-                dictamen.setFolio1(Integer.parseInt(folio_humo));
+                dictamen.setFolio1(folio_humo);
                 dictamen.setFolio2(folio_fisico);
                 dictamen.setArchivo1(filePath1);
                 dictamen.setArchivo2(filePath2);

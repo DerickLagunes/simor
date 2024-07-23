@@ -2,7 +2,7 @@ package com.simor.cocaapp.model;
 
 public class Dictamen {
     private int id_dictamen;
-    private int folio_humo;
+    private String folio_humo;
     private String folio_fisico;
     private String archivo_humo;
     private String archivo_fisico;
@@ -18,11 +18,11 @@ public class Dictamen {
         this.id_dictamen = id_dictamen;
     }
 
-    public int getFolio1() {
+    public String getFolio1() {
         return folio_humo;
     }
 
-    public void setFolio1(int folio_humo) {
+    public void setFolio1(String folio_humo) {
         this.folio_humo = folio_humo;
     }
 

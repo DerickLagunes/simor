@@ -89,7 +89,7 @@ public class Economico implements Serializable {
         String eval4 = "</select>\n";
         if(this.getDictamenes().get(0).getId_dictamen() > 0) {
             for (Dictamen e : this.getDictamenes()) {
-                if (e.getFolio1() > 0 && e.getFolio2() != "") {
+                if (e.getFolio1() != "" && e.getFolio2() != "") {
                     options2 += "<option value=\"verDictamen"+ (isCliente? "Cliente":"") +"?id_dictamen=" + e.getId_dictamen() + "&id_economico="+this.getId_economico()+"\"> Folio1: " + e.getFolio1() +" | Folio2:"+ e.getFolio2() + "</option>\n";
                 }
             }
