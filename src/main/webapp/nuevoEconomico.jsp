@@ -85,7 +85,7 @@
                                         <div class="col-6">
                                             <label for="folio_humo" class="form-label">Folio del primer dictamen<i class="text-danger">*</i></label>
                                             <input type="text" class="form-control archi" id="folio_humo"
-                                                   name="folio_humo" aria-describedby="folio_humo_ayuda">
+                                                   name="folio_humo" maxlength="20" aria-describedby="folio_humo_ayuda">
                                             <div id="folio_humo_ayuda" class="form-text">Escribe aquí <i class="bi-arrow-up"></i> el folio del dictamen de humo.</div>
                                         </div>
                                         <div class="col-6">
@@ -103,7 +103,7 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <label for="folio_fisico" class="form-label">Folio del dictamen físico<i class="text-danger">*</i></label>
-                                            <input type="text" class="form-control archi" id="folio_fisico"
+                                            <input type="text" maxlength="20" class="form-control archi" id="folio_fisico"
                                                    name="folio_fisico" aria-describedby="folio_fisico_ayuda">
                                             <div id="folio_fisico_ayuda" class="form-text">Escribe aquí <i class="bi-arrow-up"></i> el folio del dictamen físico.</div>
                                         </div>
