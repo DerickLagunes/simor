@@ -586,35 +586,35 @@ public class Evaluacion implements Serializable {
         presion es en PSI:
             minimo 70
         */
-        if(this.llantas_presion_delantera_izquierda >= 70){
-            this.resultados.add(new Resultado(true,"Presión Delantera Izquierda","Llantas", "La presión es igual o mayor a 70 PSI", "Obtuvo: " + this.llantas_presion_delantera_izquierda +" PSI"));
+        if(this.llantas_presion_delantera_izquierda >= 80){
+            this.resultados.add(new Resultado(true,"Presión Delantera Izquierda","Llantas", "La presión es igual o mayor a 80 PSI", "Obtuvo: " + this.llantas_presion_delantera_izquierda +" PSI"));
         }else{
-            this.resultados.add(new Resultado(false,"Presión Delantera Izquierda","Llantas", "La presión es igual o mayor a 70 PSI","Obtuvo: " + this.llantas_presion_delantera_izquierda +" PSI"));
+            this.resultados.add(new Resultado(false,"Presión Delantera Izquierda","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_delantera_izquierda +" PSI"));
         }
-        if(this.llantas_presion_delantera_derecha >= 70){
-            this.resultados.add(new Resultado(true,"Presión Delantera Derecha","Llantas", "La presión es igual o mayor a 70 PSI","Obtuvo: " + this.llantas_presion_delantera_derecha +" PSI"));
+        if(this.llantas_presion_delantera_derecha >= 80){
+            this.resultados.add(new Resultado(true,"Presión Delantera Derecha","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_delantera_derecha +" PSI"));
         }else{
-            this.resultados.add(new Resultado(false,"Presión Delantera Derecha","Llantas", "La presión es igual o mayor a 70 PSI","Obtuvo: " + this.llantas_presion_delantera_derecha +" PSI"));
+            this.resultados.add(new Resultado(false,"Presión Delantera Derecha","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_delantera_derecha +" PSI"));
         }
-        if(this.llantas_presion_trasera_izquierda_1 >= 70){
-            this.resultados.add(new Resultado(true,"Presión Trasera Izquierda 1","Llantas", "La presión es igual o mayor a 70 PSI","Obtuvo: " + this.llantas_presion_trasera_izquierda_1 +" PSI"));
+        if(this.llantas_presion_trasera_izquierda_1 >= 80){
+            this.resultados.add(new Resultado(true,"Presión Trasera Izquierda 1","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_izquierda_1 +" PSI"));
         }else{
-            this.resultados.add(new Resultado(false,"Presión Trasera Izquierda 1","Llantas", "La presión es igual o mayor a 70 PSI","Obtuvo: " + this.llantas_presion_trasera_izquierda_1 +" PSI"));
+            this.resultados.add(new Resultado(false,"Presión Trasera Izquierda 1","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_izquierda_1 +" PSI"));
         }
-        if(this.llantas_presion_trasera_izquierda_2 >= 70){
-            this.resultados.add(new Resultado(true,"Presión Trasera Izquierda 2","Llantas", "La presión es igual o mayor a 70 PSI","Obtuvo: " + this.llantas_presion_trasera_izquierda_2 +" PSI"));
+        if(this.llantas_presion_trasera_izquierda_2 >= 80){
+            this.resultados.add(new Resultado(true,"Presión Trasera Izquierda 2","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_izquierda_2 +" PSI"));
         }else{
-            this.resultados.add(new Resultado(false,"Presión Trasera Izquierda 2","Llantas", "La presión es igual o mayor a 70 PSI","Obtuvo: " + this.llantas_presion_trasera_izquierda_2 +" PSI"));
+            this.resultados.add(new Resultado(false,"Presión Trasera Izquierda 2","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_izquierda_2 +" PSI"));
         }
-        if(this.llantas_presion_trasera_derecha_1 >= 70){
-            this.resultados.add(new Resultado(true,"Presión Trasera Derecha 1","Llantas", "La presión es igual o mayor a 70 PSI","Obtuvo: " + this.llantas_presion_trasera_derecha_1 +" PSI"));
+        if(this.llantas_presion_trasera_derecha_1 >= 80){
+            this.resultados.add(new Resultado(true,"Presión Trasera Derecha 1","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_derecha_1 +" PSI"));
         }else{
-            this.resultados.add(new Resultado(false,"Presión Trasera Derecha 1","Llantas", "La presión es igual o mayor a 70 PSI","Obtuvo: " + this.llantas_presion_trasera_derecha_1 +" PSI"));
+            this.resultados.add(new Resultado(false,"Presión Trasera Derecha 1","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_derecha_1 +" PSI"));
         }
-        if(this.llantas_presion_trasera_derecha_2 >= 70){
-            this.resultados.add(new Resultado(true,"Presión Trasera Derecha 2","Llantas", "La presión es igual o mayor a 70 PSI","Obtuvo: " + this.llantas_presion_trasera_derecha_2 +" PSI"));
+        if(this.llantas_presion_trasera_derecha_2 >= 80){
+            this.resultados.add(new Resultado(true,"Presión Trasera Derecha 2","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_derecha_2 +" PSI"));
         }else{
-            this.resultados.add(new Resultado(false,"Presión Trasera Derecha 2","Llantas", "La presión es igual o mayor a 70 PSI","Obtuvo: " + this.llantas_presion_trasera_derecha_2 +" PSI"));
+            this.resultados.add(new Resultado(false,"Presión Trasera Derecha 2","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_derecha_2 +" PSI"));
         }
 
         /*

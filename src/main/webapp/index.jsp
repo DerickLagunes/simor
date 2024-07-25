@@ -17,9 +17,9 @@
                 </div>
             </c:if>
             <div class="d-none d-sm-block offset-md-1 col-md-4 align-content-center">
-                <h1>Bienvenido a CocaApp</h1><br/>
+                <h1>Bienvenido</h1><br/>
                 <img class="img-fluid" src="assets/img/logo.png" alt="logo">
-                <p class="lead">Aplicación para la revisión de los economicos</p>
+                <p class="lead">Aplicación para la revisión de las condiciones de los vehículos con permiso federal</p>
             </div>
     <c:if test="${not empty sesion}">
     <div class="col-sm-12 col-md-6 align-content-center">
