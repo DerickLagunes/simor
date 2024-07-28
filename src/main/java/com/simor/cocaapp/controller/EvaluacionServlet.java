@@ -24,6 +24,8 @@ public class EvaluacionServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String mensaje = "Hubo un error en la inserción de una nueva evaluación en la base de datos, favor de contactar a soporte técnico";
+
         //Esta es toda la info del cedis que podemos obtener del formulario
         Cedis cedis  = new Cedis();
         cedis.setId_cedis(Integer.parseInt(req.getParameter("cedis")));
@@ -93,12 +95,12 @@ public class EvaluacionServlet extends HttpServlet {
         /*
         profundidad es en mm
         */
-        evaluacion.setLlantas_profundidad_delantera_izquierda(Integer.parseInt(req.getParameter("profundidad_delantera_izquierda")));
-        evaluacion.setLlantas_profundidad_delantera_derecha(Integer.parseInt(req.getParameter("profundidad_delantera_derecha")));
-        evaluacion.setLlantas_profundidad_trasera_izquierda_1(Integer.parseInt(req.getParameter("profundidad_trasera_izquierda_1")));
-        evaluacion.setLlantas_profundidad_trasera_izquierda_2(Integer.parseInt(req.getParameter("profundidad_trasera_izquierda_2")));
-        evaluacion.setLlantas_profundidad_trasera_derecha_1(Integer.parseInt(req.getParameter("profundidad_trasera_derecha_1")));
-        evaluacion.setLlantas_profundidad_trasera_derecha_2(Integer.parseInt(req.getParameter("profundidad_trasera_derecha_2")));
+        evaluacion.setLlantas_profundidad_delantera_izquierda(Float.parseFloat(req.getParameter("profundidad_delantera_izquierda")));
+        evaluacion.setLlantas_profundidad_delantera_derecha(Float.parseFloat(req.getParameter("profundidad_delantera_derecha")));
+        evaluacion.setLlantas_profundidad_trasera_izquierda_1(Float.parseFloat(req.getParameter("profundidad_trasera_izquierda_1")));
+        evaluacion.setLlantas_profundidad_trasera_izquierda_2(Float.parseFloat(req.getParameter("profundidad_trasera_izquierda_2")));
+        evaluacion.setLlantas_profundidad_trasera_derecha_1(Float.parseFloat(req.getParameter("profundidad_trasera_derecha_1")));
+        evaluacion.setLlantas_profundidad_trasera_derecha_2(Float.parseFloat(req.getParameter("profundidad_trasera_derecha_2")));
         /*
         Birlos y Tuercas,
         si variable principal es = 1 significa Rotos o faltantes
@@ -152,13 +154,14 @@ public class EvaluacionServlet extends HttpServlet {
             EconomicoEvaluacionDao dao2 = new EconomicoEvaluacionDao();
             if(dao2.insert(economicoEvaluacion)){
                 //Se registro la evaluación, ahora enviar al usuario a donde?
-                req.getSession().setAttribute("mensaje", "La evaluación se ha registrado exitosamente.");
+                mensaje = "La evaluación se ha registrado exitosamente";
             }else{
-                req.getSession().setAttribute("mensaje", "No se logro actualizar el registro de evaluaciones del sistema.");
+                mensaje = "No se logro actualizar el registro de evaluaciones del sistema";
             }
         }else{
-            req.getSession().setAttribute("mensaje", "No se pudo registrar la evaluación, contacte a soporte técnico.");
+            mensaje = "No se pudo registrar la evaluación, contacte a soporte técnico";
         }
+        req.getSession().setAttribute("mensaje", mensaje);
         resp.sendRedirect("evaluarUnidad.jsp");
     }
 

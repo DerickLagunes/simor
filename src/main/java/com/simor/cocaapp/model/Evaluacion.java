@@ -23,12 +23,12 @@ public class Evaluacion implements Serializable {
     private int llantas_presion_trasera_izquierda_2;
     private int llantas_presion_trasera_derecha_1;
     private int llantas_presion_trasera_derecha_2;
-    private int llantas_profundidad_delantera_izquierda;
-    private int llantas_profundidad_delantera_derecha;
-    private int llantas_profundidad_trasera_izquierda_1;
-    private int llantas_profundidad_trasera_izquierda_2;
-    private int llantas_profundidad_trasera_derecha_1;
-    private int llantas_profundidad_trasera_derecha_2;
+    private float llantas_profundidad_delantera_izquierda;
+    private float llantas_profundidad_delantera_derecha;
+    private float llantas_profundidad_trasera_izquierda_1;
+    private float llantas_profundidad_trasera_izquierda_2;
+    private float llantas_profundidad_trasera_derecha_1;
+    private float llantas_profundidad_trasera_derecha_2;
     private int llantas_birlos_delantera_izquierda;
     private int llantas_birlos_delantera_derecha;
     private int llantas_birlos_trasera_izquierda;
@@ -244,51 +244,51 @@ public class Evaluacion implements Serializable {
         this.llantas_presion_trasera_derecha_2 = llantas_presion_trasera_derecha_2;
     }
 
-    public int getLlantas_profundidad_delantera_izquierda() {
+    public float getLlantas_profundidad_delantera_izquierda() {
         return llantas_profundidad_delantera_izquierda;
     }
 
-    public void setLlantas_profundidad_delantera_izquierda(int llantas_profundidad_delantera_izquierda) {
+    public void setLlantas_profundidad_delantera_izquierda(float llantas_profundidad_delantera_izquierda) {
         this.llantas_profundidad_delantera_izquierda = llantas_profundidad_delantera_izquierda;
     }
 
-    public int getLlantas_profundidad_delantera_derecha() {
+    public float getLlantas_profundidad_delantera_derecha() {
         return llantas_profundidad_delantera_derecha;
     }
 
-    public void setLlantas_profundidad_delantera_derecha(int llantas_profundidad_delantera_derecha) {
+    public void setLlantas_profundidad_delantera_derecha(float llantas_profundidad_delantera_derecha) {
         this.llantas_profundidad_delantera_derecha = llantas_profundidad_delantera_derecha;
     }
 
-    public int getLlantas_profundidad_trasera_izquierda_1() {
+    public float getLlantas_profundidad_trasera_izquierda_1() {
         return llantas_profundidad_trasera_izquierda_1;
     }
 
-    public void setLlantas_profundidad_trasera_izquierda_1(int llantas_profundidad_trasera_izquierda_1) {
+    public void setLlantas_profundidad_trasera_izquierda_1(float llantas_profundidad_trasera_izquierda_1) {
         this.llantas_profundidad_trasera_izquierda_1 = llantas_profundidad_trasera_izquierda_1;
     }
 
-    public int getLlantas_profundidad_trasera_izquierda_2() {
+    public float getLlantas_profundidad_trasera_izquierda_2() {
         return llantas_profundidad_trasera_izquierda_2;
     }
 
-    public void setLlantas_profundidad_trasera_izquierda_2(int llantas_profundidad_trasera_izquierda_2) {
+    public void setLlantas_profundidad_trasera_izquierda_2(float llantas_profundidad_trasera_izquierda_2) {
         this.llantas_profundidad_trasera_izquierda_2 = llantas_profundidad_trasera_izquierda_2;
     }
 
-    public int getLlantas_profundidad_trasera_derecha_1() {
+    public float getLlantas_profundidad_trasera_derecha_1() {
         return llantas_profundidad_trasera_derecha_1;
     }
 
-    public void setLlantas_profundidad_trasera_derecha_1(int llantas_profundidad_trasera_derecha_1) {
+    public void setLlantas_profundidad_trasera_derecha_1(float llantas_profundidad_trasera_derecha_1) {
         this.llantas_profundidad_trasera_derecha_1 = llantas_profundidad_trasera_derecha_1;
     }
 
-    public int getLlantas_profundidad_trasera_derecha_2() {
+    public float getLlantas_profundidad_trasera_derecha_2() {
         return llantas_profundidad_trasera_derecha_2;
     }
 
-    public void setLlantas_profundidad_trasera_derecha_2(int llantas_profundidad_trasera_derecha_2) {
+    public void setLlantas_profundidad_trasera_derecha_2(float llantas_profundidad_trasera_derecha_2) {
         this.llantas_profundidad_trasera_derecha_2 = llantas_profundidad_trasera_derecha_2;
     }
 
@@ -622,35 +622,35 @@ public class Evaluacion implements Serializable {
         minima delantera 3.2 mm
         minima trasera 1.6 mm
         */
-        if(this.llantas_profundidad_delantera_izquierda >= 32){
-            this.resultados.add(new Resultado(true,"Profundidad Delantera Izquierda","Llantas", "La profundidad es igual o mayor a 32 milímetros","Obtuvo: " + this.llantas_profundidad_delantera_izquierda + " mm"));
+        if(this.llantas_profundidad_delantera_izquierda >= 3.2){
+            this.resultados.add(new Resultado(true,"Profundidad Delantera Izquierda","Llantas", "La profundidad es igual o mayor a 3.2 milímetros","Obtuvo: " + this.llantas_profundidad_delantera_izquierda + " mm"));
         }else{
-            this.resultados.add(new Resultado(false,"Profundidad Delantera Izquierda","Llantas", "La profundidad es igual o mayor a 32 milímetros","Obtuvo: " + this.llantas_profundidad_delantera_izquierda + " mm"));
+            this.resultados.add(new Resultado(false,"Profundidad Delantera Izquierda","Llantas", "La profundidad es igual o mayor a 3.2 milímetros","Obtuvo: " + this.llantas_profundidad_delantera_izquierda + " mm"));
         }
-        if(this.llantas_profundidad_delantera_derecha >= 32){
-            this.resultados.add(new Resultado(true,"Profundidad Delantera Derecha","Llantas", "La profundidad es igual o mayor a 32 milímetros","Obtuvo: " + this.llantas_profundidad_delantera_derecha + " mm"));
+        if(this.llantas_profundidad_delantera_derecha >= 3.2){
+            this.resultados.add(new Resultado(true,"Profundidad Delantera Derecha","Llantas", "La profundidad es igual o mayor a 3.2 milímetros","Obtuvo: " + this.llantas_profundidad_delantera_derecha + " mm"));
         }else{
-            this.resultados.add(new Resultado(false,"Profundidad Delantera Derecha","Llantas", "La profundidad es igual o mayor a 32 milímetros","Obtuvo: " + this.llantas_profundidad_delantera_derecha + " mm"));
+            this.resultados.add(new Resultado(false,"Profundidad Delantera Derecha","Llantas", "La profundidad es igual o mayor a 3.2 milímetros","Obtuvo: " + this.llantas_profundidad_delantera_derecha + " mm"));
         }
-        if(this.llantas_profundidad_trasera_izquierda_1 >= 16){
-            this.resultados.add(new Resultado(true,"Profundidad Trasera Izquierda 1","Llantas", "La profundidad es igual o mayor a 16 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_izquierda_1 + " mm"));
+        if(this.llantas_profundidad_trasera_izquierda_1 >= 1.6){
+            this.resultados.add(new Resultado(true,"Profundidad Trasera Izquierda 1","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_izquierda_1 + " mm"));
         }else{
-            this.resultados.add(new Resultado(false,"Profundidad Trasera Izquierda 1","Llantas", "La profundidad es igual o mayor a 16 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_izquierda_1 + " mm"));
+            this.resultados.add(new Resultado(false,"Profundidad Trasera Izquierda 1","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_izquierda_1 + " mm"));
         }
-        if(this.llantas_profundidad_trasera_izquierda_2 >= 16){
-            this.resultados.add(new Resultado(true,"Profundidad Trasera Izquierda 2","Llantas", "La profundidad es igual o mayor a 16 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_izquierda_2 + " mm"));
+        if(this.llantas_profundidad_trasera_izquierda_2 >= 1.6){
+            this.resultados.add(new Resultado(true,"Profundidad Trasera Izquierda 2","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_izquierda_2 + " mm"));
         }else{
-            this.resultados.add(new Resultado(false,"Profundidad Trasera Izquierda 2","Llantas", "La profundidad es igual o mayor a 16 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_izquierda_2 + " mm"));
+            this.resultados.add(new Resultado(false,"Profundidad Trasera Izquierda 2","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_izquierda_2 + " mm"));
         }
-        if(this.llantas_profundidad_trasera_derecha_1 >= 16){
-            this.resultados.add(new Resultado(true,"Profundidad Trasera Derecha 1","Llantas", "La profundidad es igual o mayor a 16 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_derecha_1 + " mm"));
+        if(this.llantas_profundidad_trasera_derecha_1 >= 1.6){
+            this.resultados.add(new Resultado(true,"Profundidad Trasera Derecha 1","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_derecha_1 + " mm"));
         }else{
-            this.resultados.add(new Resultado(false,"Profundidad Trasera Derecha 1","Llantas", "La profundidad es igual o mayor a 16 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_derecha_1 + " mm"));
+            this.resultados.add(new Resultado(false,"Profundidad Trasera Derecha 1","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_derecha_1 + " mm"));
         }
-        if(this.llantas_profundidad_trasera_derecha_2 >= 16){
-            this.resultados.add(new Resultado(true,"Profundidad Trasera Derecha 2","Llantas", "La profundidad es igual o mayor a 16 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_derecha_2 + " mm"));
+        if(this.llantas_profundidad_trasera_derecha_2 >= 1.6){
+            this.resultados.add(new Resultado(true,"Profundidad Trasera Derecha 2","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_derecha_2 + " mm"));
         }else{
-            this.resultados.add(new Resultado(false,"Profundidad Trasera Derecha 2","Llantas", "La profundidad es igual o mayor a 16 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_derecha_2 + " mm"));
+            this.resultados.add(new Resultado(false,"Profundidad Trasera Derecha 2","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_derecha_2 + " mm"));
         }
 
         /*

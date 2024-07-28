@@ -96,22 +96,22 @@ public class EvaluacionDao {
                         int llantas_presion_trasera_derecha_2 = res.getInt("llantas_presion_trasera_derecha_2");
                         e.setLlantas_presion_trasera_derecha_2(llantas_presion_trasera_derecha_2);
 
-                        int llantas_profundidad_delantera_izquierda = res.getInt("llantas_profundidad_delantera_izquierda");
+                        float llantas_profundidad_delantera_izquierda = res.getFloat("llantas_profundidad_delantera_izquierda");
                         e.setLlantas_profundidad_delantera_izquierda(llantas_profundidad_delantera_izquierda);
 
-                        int llantas_profundidad_delantera_derecha = res.getInt("llantas_profundidad_delantera_derecha");
+                        float llantas_profundidad_delantera_derecha = res.getFloat("llantas_profundidad_delantera_derecha");
                         e.setLlantas_profundidad_delantera_derecha(llantas_profundidad_delantera_derecha);
 
-                        int llantas_profundidad_trasera_izquierda_1 = res.getInt("llantas_profundidad_trasera_izquierda_1");
+                        float llantas_profundidad_trasera_izquierda_1 = res.getFloat("llantas_profundidad_trasera_izquierda_1");
                         e.setLlantas_profundidad_trasera_izquierda_1(llantas_profundidad_trasera_izquierda_1);
 
-                        int llantas_profundidad_trasera_izquierda_2 = res.getInt("llantas_profundidad_trasera_izquierda_2");
+                        float llantas_profundidad_trasera_izquierda_2 = res.getFloat("llantas_profundidad_trasera_izquierda_2");
                         e.setLlantas_profundidad_trasera_izquierda_2(llantas_profundidad_trasera_izquierda_2);
 
-                        int llantas_profundidad_trasera_derecha_1 = res.getInt("llantas_profundidad_trasera_derecha_1");
+                        float llantas_profundidad_trasera_derecha_1 = res.getFloat("llantas_profundidad_trasera_derecha_1");
                         e.setLlantas_profundidad_trasera_derecha_1(llantas_profundidad_trasera_derecha_1);
 
-                        int llantas_profundidad_trasera_derecha_2 = res.getInt("llantas_profundidad_trasera_derecha_2");
+                        float llantas_profundidad_trasera_derecha_2 = res.getFloat("llantas_profundidad_trasera_derecha_2");
                         e.setLlantas_profundidad_trasera_derecha_2(llantas_profundidad_trasera_derecha_2);
 
                         int llantas_birlos_delantera_izquierda = res.getInt("llantas_birlos_delantera_izquierda");
@@ -225,12 +225,12 @@ public class EvaluacionDao {
                 stmt.setInt(14, evaluacion.getLlantas_presion_trasera_izquierda_2());
                 stmt.setInt(15, evaluacion.getLlantas_presion_trasera_derecha_1());
                 stmt.setInt(16, evaluacion.getLlantas_presion_trasera_derecha_2());
-                stmt.setInt(17, evaluacion.getLlantas_profundidad_delantera_izquierda());
-                stmt.setInt(18, evaluacion.getLlantas_profundidad_delantera_derecha());
-                stmt.setInt(19, evaluacion.getLlantas_profundidad_trasera_izquierda_1());
-                stmt.setInt(20, evaluacion.getLlantas_profundidad_trasera_izquierda_2());
-                stmt.setInt(21, evaluacion.getLlantas_profundidad_trasera_derecha_1());
-                stmt.setInt(22, evaluacion.getLlantas_profundidad_trasera_derecha_2());
+                stmt.setFloat(17, evaluacion.getLlantas_profundidad_delantera_izquierda());
+                stmt.setFloat(18, evaluacion.getLlantas_profundidad_delantera_derecha());
+                stmt.setFloat(19, evaluacion.getLlantas_profundidad_trasera_izquierda_1());
+                stmt.setFloat(20, evaluacion.getLlantas_profundidad_trasera_izquierda_2());
+                stmt.setFloat(21, evaluacion.getLlantas_profundidad_trasera_derecha_1());
+                stmt.setFloat(22, evaluacion.getLlantas_profundidad_trasera_derecha_2());
                 stmt.setInt(23, evaluacion.getLlantas_birlos_delantera_izquierda());
                 stmt.setInt(24, evaluacion.getLlantas_birlos_delantera_derecha());
                 stmt.setInt(25, evaluacion.getLlantas_birlos_trasera_izquierda());

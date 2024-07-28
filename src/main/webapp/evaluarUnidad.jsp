@@ -177,19 +177,19 @@
                             <div class="col-6 mb-3">
                                 <label class="form-label"><strong>Delantera Izquierda<i class="text-danger">*</i></strong></label>
                                 <div class="input-group">
-                                    <input type="number" min="70" id="presion_delantera_izquierda" name="presion_delantera_izquierda" required class="form-control" placeholder="PSI">
+                                    <input type="number" min="0" id="presion_delantera_izquierda" name="presion_delantera_izquierda" required class="form-control" placeholder="PSI">
                                 </div>
                                 <div class="input-group">
-                                    <input type="number" min="0" id="profundidad_delantera_izquierda" name="profundidad_delantera_izquierda" required class="form-control" placeholder="mm">
+                                    <input type="number" step="0.01" max="99.99" min="0" id="profundidad_delantera_izquierda" name="profundidad_delantera_izquierda" required class="form-control" placeholder="mm">
                                 </div>
                             </div>
                             <div class="col-6 mb-3">
                                 <label class="form-label"><strong>Delantera Derecha<i class="text-danger">*</i></strong></label>
                                 <div class="input-group">
-                                    <input type="number" min="70" id="presion_delantera_derecha" name="presion_delantera_derecha" required class="form-control" placeholder="PSI">
+                                    <input type="number" min="0" id="presion_delantera_derecha" name="presion_delantera_derecha" required class="form-control" placeholder="PSI">
                                 </div>
                                 <div class="input-group">
-                                    <input type="number" min="0" id="profundidad_delantera_derecha" name="profundidad_delantera_derecha" required class="form-control" placeholder="mm">
+                                    <input type="number" step="0.01" max="99.99" min="0" id="profundidad_delantera_derecha" name="profundidad_delantera_derecha" required class="form-control" placeholder="mm">
                                 </div>
                             </div>
                         </div>
@@ -201,18 +201,18 @@
                                     <label class="form-label"><strong>Traseras Izquierdas<i class="text-danger">*</i></strong></label>
                                     <div class="col-6 mb-3">
                                         <div class="input-group">
-                                            <input type="number" min="70" id="presion_trasera_izquierda_1" name="presion_trasera_izquierda_1" required class="form-control" placeholder="PSI">
+                                            <input type="number" min="0" id="presion_trasera_izquierda_1" name="presion_trasera_izquierda_1" required class="form-control" placeholder="PSI">
                                         </div>
                                         <div class="input-group">
-                                            <input type="number" min="0" id="profundidad_trasera_izquierda_1" name="profundidad_trasera_izquierda_1" required class="form-control" placeholder="mm">
+                                            <input type="number" step="0.01" max="99.99" min="0" id="profundidad_trasera_izquierda_1" name="profundidad_trasera_izquierda_1" required class="form-control" placeholder="mm">
                                         </div>
                                     </div>
                                     <div class="col-6 mb-3">
                                         <div class="input-group">
-                                            <input type="number" min="70" id="presion_trasera_izquierda_2" name="presion_trasera_izquierda_2" required class="form-control" placeholder="PSI">
+                                            <input type="number" min="0" id="presion_trasera_izquierda_2" name="presion_trasera_izquierda_2" required class="form-control" placeholder="PSI">
                                         </div>
                                         <div class="input-group">
-                                            <input type="number" min="0" id="profundidad_trasera_izquierda_2" name="profundidad_trasera_izquierda_2" required class="form-control" placeholder="mm">
+                                            <input type="number" step="0.01" max="99.99" min="0" id="profundidad_trasera_izquierda_2" name="profundidad_trasera_izquierda_2" required class="form-control" placeholder="mm">
                                         </div>
                                     </div>
                                 </div>
@@ -222,18 +222,18 @@
                                     <label class="form-label"><strong>Traseras Derechas<i class="text-danger">*</i></strong></label>
                                     <div class="col-6 mb-3">
                                         <div class="input-group">
-                                            <input type="number" min="70" id="presion_trasera_derecha_1" name="presion_trasera_derecha_1" required class="form-control" placeholder="PSI">
+                                            <input type="number" min="0" id="presion_trasera_derecha_1" name="presion_trasera_derecha_1" required class="form-control" placeholder="PSI">
                                         </div>
                                         <div class="input-group">
-                                            <input type="number" min="0" id="profundidad_trasera_derecha_1" name="profundidad_trasera_derecha_1" required class="form-control" placeholder="mm">
+                                            <input type="number" step="0.01" max="99.99" min="0" id="profundidad_trasera_derecha_1" name="profundidad_trasera_derecha_1" required class="form-control" placeholder="mm">
                                         </div>
                                     </div>
                                     <div class="col-6 mb-3">
                                         <div class="input-group">
-                                            <input type="number" min="70" id="presion_trasera_derecha_2" name="presion_trasera_derecha_2" required class="form-control" placeholder="PSI">
+                                            <input type="number" min="0" id="presion_trasera_derecha_2" name="presion_trasera_derecha_2" required class="form-control" placeholder="PSI">
                                         </div>
                                         <div class="input-group">
-                                            <input type="number" min="0" id="profundidad_trasera_derecha_2" name="profundidad_trasera_derecha_2" required class="form-control" placeholder="mm">
+                                            <input type="number" step="0.01" max="99.99" min="0" id="profundidad_trasera_derecha_2" name="profundidad_trasera_derecha_2" required class="form-control" placeholder="mm">
                                         </div>
                                     </div>
                                 </div>
