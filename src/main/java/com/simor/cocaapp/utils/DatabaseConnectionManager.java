@@ -8,8 +8,8 @@ import java.sql.SQLException;
 public class DatabaseConnectionManager {
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/cocacola";
     private static final String USERNAME = "root";
-    //private static final String PASSWORD = "root";
-    private static final String PASSWORD = "j}+xU1[#VIC8e>%n";
+    private static final String PASSWORD = "root";
+    //private static final String PASSWORD = "j}+xU1[#VIC8e>%n";
 
     private static final HikariConfig config = new HikariConfig();
     private static final HikariDataSource dataSource;

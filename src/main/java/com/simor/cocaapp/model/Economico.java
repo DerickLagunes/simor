@@ -9,7 +9,6 @@ public class Economico implements Serializable {
     private String id_economico;
     private int id_cedis;
     private ArrayList<Dictamen> dictamenes;
-
     private ArrayList<Evaluacion> evaluaciones;
     private int id_usuario;
 

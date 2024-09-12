@@ -1,20 +1,24 @@
 package com.simor.cocaapp.controller;
 
-import com.simor.cocaapp.model.Cedis;
+import com.simor.cocaapp.model.*;
+import com.simor.cocaapp.model.DAO.DictamenDao;
 import com.simor.cocaapp.model.DAO.EconomicoEvaluacionDao;
 import com.simor.cocaapp.model.DAO.EvaluacionDao;
-import com.simor.cocaapp.model.Economico;
-import com.simor.cocaapp.model.EconomicoEvaluacion;
-import com.simor.cocaapp.model.Evaluacion;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @WebServlet(name="EvaluacionServlet", value = "/evaluacion")
 public class EvaluacionServlet extends HttpServlet {
@@ -46,6 +50,8 @@ public class EvaluacionServlet extends HttpServlet {
         evaluacion.setLuces_galibo(Integer.parseInt(req.getParameter("luces_galibo")));
         evaluacion.setLuces_altas(Integer.parseInt(req.getParameter("luces_altas")));
         evaluacion.setLuces_bajas(Integer.parseInt(req.getParameter("luces_bajas")));
+        evaluacion.setLuces_direccionales_delanteras(Integer.parseInt(req.getParameter("luces_direccionales_delanteras")));
+        evaluacion.setLuces_direccionales_traseras(Integer.parseInt(req.getParameter("luces_direccionales_traseras")));
         /*
         demarcadoras:
             1 = izq fundida
@@ -133,6 +139,56 @@ public class EvaluacionServlet extends HttpServlet {
         evaluacion.setHuelgo_cuanto(Integer.parseInt(req.getParameter("huelgo_cuanto")));
         evaluacion.setEscape(Integer.parseInt(req.getParameter("escape")));
 
+        evaluacion.setManijas_de_puertas(Integer.parseInt(req.getParameter("manijas_de_puertas")));
+        evaluacion.setChavetas(Integer.parseInt(req.getParameter("chavetas")));
+        evaluacion.setChavetas_cuanto(Integer.parseInt(req.getParameter("chavetas_cuanto")));
+        evaluacion.setFaro_derecho(Integer.parseInt(req.getParameter("faro_derecho")));
+        evaluacion.setFaro_izquierdo(Integer.parseInt(req.getParameter("faro_izquierdo")));
+        evaluacion.setCompresor(Integer.parseInt(req.getParameter("compresor")));
+        evaluacion.setTiempo_de_carga_psi(Integer.parseInt(req.getParameter("tiempo_de_carga_psi")));
+        evaluacion.setTiempo_de_carga_tiempo(Integer.parseInt(req.getParameter("tiempo_de_carga_tiempo")));
+        evaluacion.setTanques_de_aire(Integer.parseInt(req.getParameter("tanques_de_aire")));
+        evaluacion.setHumo(Integer.parseInt(req.getParameter("humo")));
+        evaluacion.setGobernado(Integer.parseInt(req.getParameter("gobernado")));
+
+
+        //Archivos de imagen
+        try{
+            String UPLOAD_DIRECTORY = req.getServletContext().getRealPath("/") + "assets"+ File.separator+"evidencias";
+            String filePath1 = "";
+            String filePath2 = "";
+
+            try {
+                Part filePart = req.getPart("evidencia1");
+                String fileName = getSubmittedFileName(filePart);
+                String uniqueFileName = UUID.randomUUID().toString() + "_" + fileName;
+                filePath1 = UPLOAD_DIRECTORY + File.separator + uniqueFileName;
+                InputStream fileContent = filePart.getInputStream();
+                Files.copy(fileContent, Paths.get(filePath1));
+                evaluacion.setEvidencia1(filePath1);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                Part filePart = req.getPart("evidencia2");
+                String fileName = getSubmittedFileName(filePart);
+                String uniqueFileName = UUID.randomUUID().toString() + "_" + fileName;
+                filePath2 = UPLOAD_DIRECTORY + File.separator + uniqueFileName;
+                InputStream fileContent = filePart.getInputStream();
+                Files.copy(fileContent, Paths.get(filePath2));
+                evaluacion.setEvidencia2(filePath2);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+            req.getSession().setAttribute("mensaje","Hubo en error con el registro de evidencias, no se pueden guardar");
+        }
+
+        //Comentarios
+        evaluacion.setComentarios(req.getParameter("comentarios"));
+
+        //Usuario del economico
         evaluacion.setId_usuario(Integer.parseInt(req.getParameter("id_usuario_evaluador")));
 
         //Insertar esta info
@@ -169,5 +225,17 @@ public class EvaluacionServlet extends HttpServlet {
     }
 
     public void init() throws ServletException {
+    }
+
+    private String getSubmittedFileName(Part part) {
+        String header = part.getHeader("content-disposition");
+        String[] elements = header.split(";");
+        for (String element : elements) {
+            if (element.trim().startsWith("filename")) {
+                return element.substring(
+                        element.indexOf("=") + 1).trim().replace("\"", "");
+            }
+        }
+        return "";
     }
 }

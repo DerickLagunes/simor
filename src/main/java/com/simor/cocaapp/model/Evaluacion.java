@@ -54,14 +54,30 @@ public class Evaluacion implements Serializable {
     private int escape;
     private Timestamp fecha_de_evaluacion;
     private ArrayList<Resultado> resultados;
+    private int manijas_de_puertas;
+    private int chavetas;
+    private int chavetas_cuanto;
+    private int brazo_pitman;
+    private int faro_izquierdo;
+    private int faro_derecho;
+    private int compresor;
+    private int tiempo_de_carga_psi;
+    private float tiempo_de_carga_tiempo;
+    private int tanques_de_aire;
+    private int luces_direccionales_delanteras;
+    private int luces_direccionales_traseras;
+    private int humo;
+    private int gobernado;
+    private String evidencia1;
+    private String evidencia2;
+    private String comentarios;
 
     //Constructor
     public Evaluacion(){
         resultados = new ArrayList<>();
     }
-    //Getter and Setter
 
-
+    //Getter and Setters
     public int getId_evaluacion() {
         return id_evaluacion;
     }
@@ -444,6 +460,147 @@ public class Evaluacion implements Serializable {
         this.fecha_de_evaluacion = fecha_de_evaluacion;
     }
 
+    public void setResultados(ArrayList<Resultado> resultados) {
+        this.resultados = resultados;
+    }
+
+    public int getManijas_de_puertas() {
+        return manijas_de_puertas;
+    }
+
+    public void setManijas_de_puertas(int manijas_de_puertas) {
+        this.manijas_de_puertas = manijas_de_puertas;
+    }
+
+    public int getChavetas() {
+        return chavetas;
+    }
+
+    public void setChavetas(int chavetas) {
+        this.chavetas = chavetas;
+    }
+
+    public int getBrazo_pitman() {
+        return brazo_pitman;
+    }
+
+    public void setBrazo_pitman(int brazo_pitman) {
+        this.brazo_pitman = brazo_pitman;
+    }
+
+    public int getCompresor() {
+        return compresor;
+    }
+
+    public void setCompresor(int compresor) {
+        this.compresor = compresor;
+    }
+
+
+    public int getLuces_direccionales_delanteras() {
+        return luces_direccionales_delanteras;
+    }
+
+    public void setLuces_direccionales_delanteras(int getLuces_direccionales_delanteras) {
+        this.luces_direccionales_delanteras = getLuces_direccionales_delanteras;
+    }
+
+    public int getTiempo_de_carga_psi() {
+        return tiempo_de_carga_psi;
+    }
+
+    public void setTiempo_de_carga_psi(int tiempo_de_carga_psi) {
+        this.tiempo_de_carga_psi = tiempo_de_carga_psi;
+    }
+
+    public float getTiempo_de_carga_tiempo() {
+        return tiempo_de_carga_tiempo;
+    }
+
+    public void setTiempo_de_carga_tiempo(float tiempo_de_carga_tiempo) {
+        this.tiempo_de_carga_tiempo = tiempo_de_carga_tiempo;
+    }
+
+    public int getLuces_direccionales_traseras() {
+        return luces_direccionales_traseras;
+    }
+
+    public void setLuces_direccionales_traseras(int getLuces_direccionales_traseras) {
+        this.luces_direccionales_traseras = getLuces_direccionales_traseras;
+    }
+
+    public int getFaro_izquierdo() {
+        return faro_izquierdo;
+    }
+
+    public void setFaro_izquierdo(int faro_izquierdo) {
+        this.faro_izquierdo = faro_izquierdo;
+    }
+
+    public int getFaro_derecho() {
+        return faro_derecho;
+    }
+
+    public void setFaro_derecho(int faro_derecho) {
+        this.faro_derecho = faro_derecho;
+    }
+
+    public int getHumo() {
+        return humo;
+    }
+
+    public void setHumo(int humo) {
+        this.humo = humo;
+    }
+
+    public int getGobernado() {
+        return gobernado;
+    }
+
+    public void setGobernado(int gobernado) {
+        this.gobernado = gobernado;
+    }
+
+    public String getEvidencia1() {
+        return evidencia1;
+    }
+
+    public void setEvidencia1(String evidencia1) {
+        this.evidencia1 = evidencia1;
+    }
+
+    public String getEvidencia2() {
+        return evidencia2;
+    }
+
+    public void setEvidencia2(String evidencia2) {
+        this.evidencia2 = evidencia2;
+    }
+
+    public String getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(String comentarios) {
+        this.comentarios = comentarios;
+    }
+
+    public int getTanques_de_aire() {
+        return tanques_de_aire;
+    }
+
+    public void setTanques_de_aire(int tanques_de_aire) {
+        this.tanques_de_aire = tanques_de_aire;
+    }
+
+    public int getChavetas_cuanto() {
+        return chavetas_cuanto;
+    }
+
+    public void setChavetas_cuanto(int chavetas_cuanto) {
+        this.chavetas_cuanto = chavetas_cuanto;
+    }
+
     public ArrayList<Resultado> getResultados() {
         /*
         Galibo, altas y bajas:
@@ -480,6 +637,33 @@ public class Evaluacion implements Serializable {
             this.resultados.add(new Resultado(false,"Luces Bajas","Luces", "Ambas luces funcionan","Ambas fundidas"));
         }else{
             this.resultados.add(new Resultado(true,"Luces Bajas","Luces", "Ambas luces funcionan","Aprobado"));
+        }
+
+        /*
+        direccionales:
+            1 = izq fundida
+            2 = derecha fundida
+            3 = ambas fundidas
+            4 = aprobadas
+        */
+        if(this.luces_direccionales_delanteras == 1){
+            this.resultados.add(new Resultado(false,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Izquierda fundida"));
+        } else if (this.luces_direccionales_delanteras == 2) {
+            this.resultados.add(new Resultado(false,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Derecha fundida"));
+        } else if (this.luces_direccionales_delanteras == 3) {
+            this.resultados.add(new Resultado(false,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Ambas fundidas"));
+        }else{
+            this.resultados.add(new Resultado(true,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Aprobado"));
+        }
+
+        if(this.luces_direccionales_traseras == 1){
+            this.resultados.add(new Resultado(false,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Izquierda fundida"));
+        } else if (this.luces_direccionales_traseras == 2) {
+            this.resultados.add(new Resultado(false,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Derecha fundida"));
+        } else if (this.luces_direccionales_traseras == 3) {
+            this.resultados.add(new Resultado(false,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Ambas fundidas"));
+        }else{
+            this.resultados.add(new Resultado(true,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Aprobado"));
         }
 
         /*
@@ -524,6 +708,26 @@ public class Evaluacion implements Serializable {
             this.resultados.add(new Resultado(false,"Luces Indicadoras","Luces", "Todas las luces funcionan","3 fundidas"));
         }else{
             this.resultados.add(new Resultado(true,"Luces Indicadoras","Luces", "Todas las luces funcionan","Aprobadas"));
+        }
+
+        //Direccionales
+        if(this.luces_direccionales_delanteras == 1){
+            this.resultados.add(new Resultado(false,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Izquierda fundida"));
+        } else if (this.luces_direccionales_delanteras == 2) {
+            this.resultados.add(new Resultado(false,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Derecha fundida"));
+        } else if (this.luces_direccionales_delanteras == 3) {
+            this.resultados.add(new Resultado(false,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Ambas fundidas"));
+        }else{
+            this.resultados.add(new Resultado(true,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Aprobadas"));
+        }
+        if(this.luces_direccionales_traseras == 1){
+            this.resultados.add(new Resultado(false,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Izquierda fundida"));
+        } else if (this.luces_direccionales_traseras == 2) {
+            this.resultados.add(new Resultado(false,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Derecha fundida"));
+        } else if (this.luces_direccionales_traseras == 3) {
+            this.resultados.add(new Resultado(false,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Ambas fundidas"));
+        }else{
+            this.resultados.add(new Resultado(true,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Aprobadas"));
         }
 
 
@@ -790,7 +994,29 @@ public class Evaluacion implements Serializable {
         if(this.huelgo == 1){
             this.resultados.add(new Resultado(true,"Huelgo","Otros", "Huelgo en buen estado","Aprobado"));
         }else{
-            this.resultados.add(new Resultado(false,"Huelgo","Llantas", "Huelgo en buen estado","Obtuvo: " + this.huelgo_cuanto));
+            this.resultados.add(new Resultado(false,"Huelgo","Otros", "Huelgo en buen estado","Obtuvo: " + this.huelgo_cuanto));
+        }
+
+         /*
+        Humo:
+            1 = No Aprobado
+            2 = Aprobado
+        */
+        if(this.humo == 1){
+            this.resultados.add(new Resultado(false,"Humo","Otros", "Huelgo en buen estado","No Aprobado"));
+        }else{
+            this.resultados.add(new Resultado(true,"Humo","Otros", "Huelgo en buen estado","Aprobado"));
+        }
+
+        /*
+        Gobernado:
+            1 = No Aprobado
+            2 = Aprobado
+        */
+        if(this.gobernado == 1){
+            this.resultados.add(new Resultado(false,"Gobernado","Otros", "Gobernado en buen estado","No Aprobado"));
+        }else{
+            this.resultados.add(new Resultado(true,"Gobernado","Otros", "Gobernado en buen estado","Aprobado"));
         }
 
         /*
@@ -805,6 +1031,88 @@ public class Evaluacion implements Serializable {
             this.resultados.add(new Resultado(false,"Escape", "Otros", "Escape en buen estado","Faltante"));
         } else{
             this.resultados.add(new Resultado(true,"Escape","Otros", "Escape en buen estado","Aprobado"));
+        }
+
+        /*
+        tanque_de_aire:
+            1 = No Aprobado
+            2 = Aprobado
+        */
+        if(this.tanques_de_aire == 1){
+            this.resultados.add(new Resultado(false,"Tanques de aire","Otros", "Tanque de aire en buen estado","No Aprobado (Con agua)"));
+        }else{
+            this.resultados.add(new Resultado(true,"Tanques de aire","Otros", "Tanque de aire en buen estado","Aprobado"));
+        }
+
+        /*
+        compresor:
+            1 = No corta
+            2 = No Aprobado
+            3 = Aprobado
+        */
+        if(this.compresor == 1){
+            this.resultados.add(new Resultado(false,"Compresor","Otros", "Compresor en buen estado","No corta (No aprobado)"));
+        }else if(this.compresor == 2){
+            this.resultados.add(new Resultado(false,"Compresor","Otros", "Compresor en buen estado","No Aprobado"));
+        } else {
+            this.resultados.add(new Resultado(true,"Compresor","Otros", "Compresor en buen estado","Aprobado"));
+        }
+
+        /*
+        faros:
+            1 = Flojo
+            2 = Roto
+            3 = Aprobado
+        */
+        if(this.faro_derecho == 1){
+            this.resultados.add(new Resultado(false,"Faro derecho","Otros", "Faro derecho en buen estado","Flojo (No aprobado)"));
+        }else if(this.faro_derecho == 2){
+            this.resultados.add(new Resultado(false,"Faro derecho","Otros", "Faro derecho en buen estado","Roto (No Aprobado)"));
+        } else {
+            this.resultados.add(new Resultado(true,"Faro derecho","Otros", "Faro derecho en buen estado","Aprobado"));
+        }
+        if(this.faro_izquierdo == 1){
+            this.resultados.add(new Resultado(false,"Faro izquierdo","Otros", "Faro izquierdo en buen estado","Flojo (No aprobado)"));
+        }else if(this.faro_izquierdo == 2){
+            this.resultados.add(new Resultado(false,"Faro izquierdo","Otros", "Faro izquierdo en buen estado","Roto (No Aprobado)"));
+        } else {
+            this.resultados.add(new Resultado(true,"Faro izquierdo","Otros", "Faro izquierdo en buen estado","Aprobado"));
+        }
+
+        /*
+        brazo pitman:
+            1 = Golpeado No Aprobado
+            2 = Aprobado
+        */
+        if(this.brazo_pitman == 1){
+            this.resultados.add(new Resultado(false,"Brazo Pitman","Otros", "Brazo Pitman en buen estado","Golpeado (No aprobado)"));
+        } else {
+            this.resultados.add(new Resultado(true,"Brazo Pitman","Otros", "Brazo Pitman en buen estado","Aprobado"));
+        }
+
+        /*
+        manijas:
+            1 = 1 rota
+            2 = 2 rotas
+            3 = Aprobadas
+        */
+        if(this.manijas_de_puertas == 1){
+            this.resultados.add(new Resultado(false,"Manijas de puertas","Otros", "Manijas de puertas en buen estado","1 rota (No aprobado)"));
+        } else if(this.manijas_de_puertas == 2) {
+            this.resultados.add(new Resultado(false,"Manijas de puertas","Otros", "Manijas de puertas en buen estado","2 rotas (No aprobado)"));
+        } else {
+            this.resultados.add(new Resultado(true,"Manijas de puertas","Otros", "Manijas de puertas en buen estado","Aprobadas"));
+        }
+
+        /*
+        Chavetas:
+            1 = Aprobadas
+            2 = cuanto
+        */
+        if(this.chavetas == 1){
+            this.resultados.add(new Resultado(true,"Chavetas","Otros", "Chavetas en buen estado","Aprobadas"));
+        }else{
+            this.resultados.add(new Resultado(false,"Chavetas","Otros", "Chavetas en buen estado","Obtuvo: " + this.chavetas_cuanto));
         }
 
         this.resultados = resultados;

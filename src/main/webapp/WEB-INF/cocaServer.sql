@@ -140,3 +140,31 @@ INSERT INTO usuarios (nombre_usuario, contrasena, tipo_usuario) VALUES
 ("TRAMUSA-7",  sha2("T322464",256),"cliente"),
 ("TJL-3",  sha2("T322464",256),"cliente"),
 ("GUEMES-6",  sha2("G322464",256),"cliente");
+use cocacola;
+select llantas_profundidad_delantera_derecha from evaluacion;
+
+alter table evaluacion modify llantas_profundidad_delantera_izquierda DECIMAL(4,2);
+alter table evaluacion modify llantas_profundidad_delantera_derecha DECIMAL(4,2);
+alter table evaluacion modify llantas_profundidad_trasera_izquierda_1 DECIMAL(4,2);
+alter table evaluacion modify llantas_profundidad_trasera_izquierda_2 DECIMAL(4,2);
+alter table evaluacion modify llantas_profundidad_trasera_derecha_1 DECIMAL(4,2);
+alter table evaluacion modify llantas_profundidad_trasera_derecha_2 DECIMAL(4,2);
+
+
+ALTER TABLE evaluacion
+    ADD COLUMN manijas_de_puertas INT DEFAULT 0,
+    ADD COLUMN chavetas INT DEFAULT 0,
+    ADD COLUMN brazo_pitman INT DEFAULT 0,
+    ADD COLUMN faro_izquierdo INT DEFAULT 0,
+    ADD COLUMN faro_derecho INT DEFAULT 0,
+    ADD COLUMN compresor INT DEFAULT 0,
+    ADD COLUMN tiempo_de_carga_psi INT DEFAULT 0,
+    ADD COLUMN tiempo_de_carga_tiempo INT DEFAULT 0,
+    ADD COLUMN luces_direccionales_delanteras INT DEFAULT 0,
+    ADD COLUMN luces_direccionales_traseras INT DEFAULT 0,
+    ADD COLUMN humo INT DEFAULT 0,
+    ADD COLUMN gobernado INT DEFAULT 0,
+    ADD COLUMN evidencia1 VARCHAR(512) DEFAULT '',
+    ADD COLUMN evidencia2 VARCHAR(512) DEFAULT '',
+    ADD COLUMN comentarios VARCHAR(512) DEFAULT '';
+    

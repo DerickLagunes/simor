@@ -182,6 +182,11 @@ public class EvaluacionDao {
 
                         int escape = res.getInt("escape");
                         e.setEscape(escape);
+
+                        // WIP, luces_direccionales_delanteras, luces_direccionales_traseras
+
+                        //manijas_de_puertas, chavetas, chavetas_cuanto, faro_derecho, faro_izquierdo, compresor, tiempo_de_carga_psi, tiempo_de_carga_tiempo, tanques_de_aire, humo, gobernado,\n" +
+                        //                "    evidencia1, evidencia2, comentarios\n"+
                     }
                 }
             }
@@ -195,7 +200,7 @@ public class EvaluacionDao {
     public int insert(Evaluacion evaluacion) {
         int id_evaluacion = 0;
         String query = "INSERT INTO evaluacion (\n" +
-                "    luces_galibo, luces_altas, luces_bajas, luces_demarcadoras_delanteras, luces_demarcadoras_traseras,\n" +
+                "    luces_galibo, luces_altas, luces_bajas, luces_direccionales_delanteras, luces_direccionales_traseras, luces_demarcadoras_delanteras, luces_demarcadoras_traseras,\n" +
                 "    luces_indicadoras, llantas_rines_delanteros, llantas_rines_traseros, llantas_masas_delanteras, llantas_masas_traseras,\n" +
                 "    llantas_presion_delantera_izquierda, llantas_presion_delantera_derecha, llantas_presion_trasera_izquierda_1, llantas_presion_trasera_izquierda_2,\n" +
                 "    llantas_presion_trasera_derecha_1, llantas_presion_trasera_derecha_2, llantas_profundidad_delantera_izquierda, llantas_profundidad_delantera_derecha,\n" +
@@ -204,57 +209,76 @@ public class EvaluacionDao {
                 "    llantas_birlos_delantera_izquierda_num, llantas_birlos_delantera_derecha_num, llantas_birlos_trasera_izquierda_num, llantas_birlos_trasera_derecha_num,\n" +
                 "    llantas_tuercas_delantera_izquierda, llantas_tuercas_delantera_derecha, llantas_tuercas_trasera_izquierda, llantas_tuercas_trasera_derecha,\n" +
                 "    llantas_tuercas_delantera_izquierda_num, llantas_tuercas_delantera_derecha_num, llantas_tuercas_trasera_izquierda_num, llantas_tuercas_trasera_derecha_num,\n" +
-                "    caja_direccion, deposito_aceite, parabrisas, limpiaparabrisas, huelgo, huelgo_cuanto, escape\n" +
-                ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                "    caja_direccion, deposito_aceite, parabrisas, limpiaparabrisas, huelgo, huelgo_cuanto, escape,\n" +
+                "    manijas_de_puertas, chavetas, chavetas_cuanto, faro_derecho, faro_izquierdo, compresor, tiempo_de_carga_psi, tiempo_de_carga_tiempo, tanques_de_aire, humo, gobernado,\n" +
+                "    evidencia1, evidencia2, comentarios\n"+
+                ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
         try (Connection con=DatabaseConnectionManager.getConnection()) {
             try (PreparedStatement stmt = con.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
                 stmt.setInt(1, evaluacion.getLuces_galibo());
                 stmt.setInt(2, evaluacion.getLuces_altas());
                 stmt.setInt(3, evaluacion.getLuces_bajas());
-                stmt.setInt(4, evaluacion.getLuces_demarcadoras_delanteras());
-                stmt.setInt(5, evaluacion.getLuces_demarcadoras_traseras());
-                stmt.setInt(6, evaluacion.getLuces_indicadoras());
+                stmt.setInt(4, evaluacion.getLuces_direccionales_delanteras());
+                stmt.setInt(5, evaluacion.getLuces_direccionales_traseras());
+                stmt.setInt(6, evaluacion.getLuces_demarcadoras_delanteras());
+                stmt.setInt(7, evaluacion.getLuces_demarcadoras_traseras());
+                stmt.setInt(8, evaluacion.getLuces_indicadoras());
 
-                stmt.setInt(7, evaluacion.getLlantas_rines_delanteros());
-                stmt.setInt(8, evaluacion.getLlantas_rines_traseros());
-                stmt.setInt(9, evaluacion.getLlantas_masas_delanteras());
-                stmt.setInt(10, evaluacion.getLlantas_masas_traseras());
-                stmt.setInt(11, evaluacion.getLlantas_presion_delantera_izquierda());
-                stmt.setInt(12, evaluacion.getLlantas_presion_delantera_derecha());
-                stmt.setInt(13, evaluacion.getLlantas_presion_trasera_izquierda_1());
-                stmt.setInt(14, evaluacion.getLlantas_presion_trasera_izquierda_2());
-                stmt.setInt(15, evaluacion.getLlantas_presion_trasera_derecha_1());
-                stmt.setInt(16, evaluacion.getLlantas_presion_trasera_derecha_2());
-                stmt.setFloat(17, evaluacion.getLlantas_profundidad_delantera_izquierda());
-                stmt.setFloat(18, evaluacion.getLlantas_profundidad_delantera_derecha());
-                stmt.setFloat(19, evaluacion.getLlantas_profundidad_trasera_izquierda_1());
-                stmt.setFloat(20, evaluacion.getLlantas_profundidad_trasera_izquierda_2());
-                stmt.setFloat(21, evaluacion.getLlantas_profundidad_trasera_derecha_1());
-                stmt.setFloat(22, evaluacion.getLlantas_profundidad_trasera_derecha_2());
-                stmt.setInt(23, evaluacion.getLlantas_birlos_delantera_izquierda());
-                stmt.setInt(24, evaluacion.getLlantas_birlos_delantera_derecha());
-                stmt.setInt(25, evaluacion.getLlantas_birlos_trasera_izquierda());
-                stmt.setInt(26, evaluacion.getLlantas_birlos_trasera_derecha());
-                stmt.setInt(27, evaluacion.getLlantas_birlos_delantera_izquierda_num());
-                stmt.setInt(28, evaluacion.getLlantas_birlos_delantera_derecha_num());
-                stmt.setInt(29, evaluacion.getLlantas_birlos_trasera_izquierda_num());
-                stmt.setInt(30, evaluacion.getLlantas_birlos_trasera_derecha_num());
-                stmt.setInt(31, evaluacion.getLlantas_tuercas_delantera_izquierda());
-                stmt.setInt(32, evaluacion.getLlantas_tuercas_delantera_derecha());
-                stmt.setInt(33, evaluacion.getLlantas_tuercas_trasera_izquierda());
-                stmt.setInt(34, evaluacion.getLlantas_tuercas_trasera_derecha());
-                stmt.setInt(35, evaluacion.getLlantas_tuercas_delantera_izquierda_num());
-                stmt.setInt(36, evaluacion.getLlantas_tuercas_delantera_derecha_num());
-                stmt.setInt(37, evaluacion.getLlantas_tuercas_trasera_izquierda_num());
-                stmt.setInt(38, evaluacion.getLlantas_tuercas_trasera_derecha_num());
+                stmt.setInt(9, evaluacion.getLlantas_rines_delanteros());
+                stmt.setInt(10, evaluacion.getLlantas_rines_traseros());
+                stmt.setInt(11, evaluacion.getLlantas_masas_delanteras());
+                stmt.setInt(12, evaluacion.getLlantas_masas_traseras());
+                stmt.setInt(13, evaluacion.getLlantas_presion_delantera_izquierda());
+                stmt.setInt(14, evaluacion.getLlantas_presion_delantera_derecha());
+                stmt.setInt(15, evaluacion.getLlantas_presion_trasera_izquierda_1());
+                stmt.setInt(16, evaluacion.getLlantas_presion_trasera_izquierda_2());
+                stmt.setInt(17, evaluacion.getLlantas_presion_trasera_derecha_1());
+                stmt.setInt(18, evaluacion.getLlantas_presion_trasera_derecha_2());
+                stmt.setFloat(19, evaluacion.getLlantas_profundidad_delantera_izquierda());
+                stmt.setFloat(20, evaluacion.getLlantas_profundidad_delantera_derecha());
+                stmt.setFloat(21, evaluacion.getLlantas_profundidad_trasera_izquierda_1());
+                stmt.setFloat(22, evaluacion.getLlantas_profundidad_trasera_izquierda_2());
+                stmt.setFloat(23, evaluacion.getLlantas_profundidad_trasera_derecha_1());
+                stmt.setFloat(24, evaluacion.getLlantas_profundidad_trasera_derecha_2());
+                stmt.setInt(25, evaluacion.getLlantas_birlos_delantera_izquierda());
+                stmt.setInt(26, evaluacion.getLlantas_birlos_delantera_derecha());
+                stmt.setInt(27, evaluacion.getLlantas_birlos_trasera_izquierda());
+                stmt.setInt(28, evaluacion.getLlantas_birlos_trasera_derecha());
+                stmt.setInt(29, evaluacion.getLlantas_birlos_delantera_izquierda_num());
+                stmt.setInt(30, evaluacion.getLlantas_birlos_delantera_derecha_num());
+                stmt.setInt(31, evaluacion.getLlantas_birlos_trasera_izquierda_num());
+                stmt.setInt(32, evaluacion.getLlantas_birlos_trasera_derecha_num());
+                stmt.setInt(33, evaluacion.getLlantas_tuercas_delantera_izquierda());
+                stmt.setInt(34, evaluacion.getLlantas_tuercas_delantera_derecha());
+                stmt.setInt(35, evaluacion.getLlantas_tuercas_trasera_izquierda());
+                stmt.setInt(36, evaluacion.getLlantas_tuercas_trasera_derecha());
+                stmt.setInt(37, evaluacion.getLlantas_tuercas_delantera_izquierda_num());
+                stmt.setInt(38, evaluacion.getLlantas_tuercas_delantera_derecha_num());
+                stmt.setInt(39, evaluacion.getLlantas_tuercas_trasera_izquierda_num());
+                stmt.setInt(40, evaluacion.getLlantas_tuercas_trasera_derecha_num());
 
-                stmt.setInt(39, evaluacion.getCaja_direccion());
-                stmt.setInt(40, evaluacion.getDeposito_aceite());
-                stmt.setInt(41, evaluacion.getParabrisas());
-                stmt.setInt(42, evaluacion.getLimpiaparabrisas());
-                stmt.setInt(43, evaluacion.getHuelgo());
-                stmt.setInt(44, evaluacion.getHuelgo_cuanto());
-                stmt.setInt(45, evaluacion.getEscape());
+                stmt.setInt(41, evaluacion.getCaja_direccion());
+                stmt.setInt(42, evaluacion.getDeposito_aceite());
+                stmt.setInt(43, evaluacion.getParabrisas());
+                stmt.setInt(44, evaluacion.getLimpiaparabrisas());
+                stmt.setInt(45, evaluacion.getHuelgo());
+                stmt.setInt(46, evaluacion.getHuelgo_cuanto());
+                stmt.setInt(47, evaluacion.getEscape());
+                stmt.setInt(48, evaluacion.getManijas_de_puertas());
+                stmt.setInt(49, evaluacion.getChavetas());
+                stmt.setInt(50, evaluacion.getChavetas_cuanto());
+                stmt.setInt(51, evaluacion.getFaro_derecho());
+                stmt.setInt(52, evaluacion.getFaro_izquierdo());
+                stmt.setInt(53, evaluacion.getCompresor());
+                stmt.setInt(54, evaluacion.getTiempo_de_carga_psi());
+                stmt.setFloat(55, evaluacion.getTiempo_de_carga_tiempo());
+                stmt.setInt(56, evaluacion.getTanques_de_aire());
+                stmt.setInt(57, evaluacion.getHumo());
+                stmt.setInt(58, evaluacion.getGobernado());
+
+                stmt.setString(59, evaluacion.getEvidencia1());
+                stmt.setString(60, evaluacion.getEvidencia2());
+                stmt.setString(61, evaluacion.getComentarios());
 
                 if(stmt.executeUpdate()>0){
                     // Obtiene las claves generadas

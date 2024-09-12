@@ -84,6 +84,30 @@
                             </select>
                         </div>
                         </div>
+                        <!-- Luces Direccionales -->
+                        <div class="row">
+                            <div class="subsection-title">Demarcadoras</div>
+                            <div class="col-md-6 mb-3">
+                                <label for="luces_direccionales_delanteras" class="form-label"><strong>Delanteras<i class="text-danger">*</i></strong></label>
+                                <select class="form-select" id="luces_direccionales_delanteras" name="luces_direccionales_delanteras" required>
+                                    <option value="" disabled selected>Seleccione...</option>
+                                    <option value="1">Delantera izquierda fundida</option>
+                                    <option value="2">Delantera derecha fundida</option>
+                                    <option value="3">Ambas fundidas</option>
+                                    <option value="4">Aprobadas</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="luces_direccionales_traseras" class="form-label"><strong>Traseras<i class="text-danger">*</i></strong></label>
+                                <select class="form-select" id="luces_direccionales_traseras" name="luces_direccionales_traseras" required>
+                                    <option value="" disabled selected>Seleccione...</option>
+                                    <option value="1">Trasera izquierda fundida</option>
+                                    <option value="2">Trasera derecha fundida</option>
+                                    <option value="3">Ambas fundidas</option>
+                                    <option value="4">Aprobadas</option>
+                                </select>
+                            </div>
+                        </div>
                         <!-- Luces Demarcadoras -->
                         <div class="row">
                             <div class="subsection-title">Demarcadoras</div>
@@ -460,6 +484,129 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- manijas_de_puertas -->
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="manijas_de_puertas" class="form-label"><strong>Manijas de las puertas<i class="text-danger">*</i></strong></label>
+                                <select class="form-select" id="manijas_de_puertas" name="manijas_de_puertas" required>
+                                    <option value="" disabled selected>Seleccione...</option>
+                                    <option value="1">1 rota</option>
+                                    <option value="2">2 rotas</option>
+                                    <option value="3">Aprobadas</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- chavetas -->
+                        <div class="row">
+                            <label for="chavetas" class="form-label"><strong>Chavetas<i class="text-danger">*</i></strong></label>
+                            <div class="col-6 mb-3">
+                                <select class="form-select" id="chavetas" name="chavetas" required>
+                                    <option value="" disabled selected>Seleccione...</option>
+                                    <option value="1">Aprobadas</option>
+                                    <option value="2">Faltantes (Indicar cuantas)</option>
+                                </select>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <div class="input-group">
+                                    <input id="chavetas_cuanto" name="chavetas_cuanto" type="number" min="0" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- brazo_pitman -->
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="brazo_pitman" class="form-label"><strong>Brazo Pitman<i class="text-danger">*</i></strong></label>
+                                <select class="form-select" id="brazo_pitman" name="brazo_pitman" required>
+                                    <option value="" disabled selected>Seleccione...</option>
+                                    <option value="1">Golpeado</option>
+                                    <option value="2">Aprobado</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- faros -->
+                        <div class="row">
+                            <div class="subsection-title">Faros</div>
+                            <div class="col-md-6 mb-3">
+                                <label for="faro_izquierdo" class="form-label"><strong>Izquierdo<i class="text-danger">*</i></strong></label>
+                                <select class="form-select" id="faro_izquierdo" name="faro_izquierdo" required>
+                                    <option value="" disabled selected>Seleccione...</option>
+                                    <option value="1">Flojo</option>
+                                    <option value="2">Roto</option>
+                                    <option value="3">Aprobado</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="faro_derecho" class="form-label"><strong>Derecho<i class="text-danger">*</i></strong></label>
+                                <select class="form-select" id="faro_derecho" name="faro_derecho" required>
+                                    <option value="" disabled selected>Seleccione...</option>
+                                    <option value="1">Flojo</option>
+                                    <option value="2">Roto</option>
+                                    <option value="3">Aprobado</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- compresor -->
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="compresor" class="form-label"><strong>Compresor<i class="text-danger">*</i></strong></label>
+                                <select class="form-select" id="compresor" name="compresor" required>
+                                    <option value="" disabled selected>Seleccione...</option>
+                                    <option value="1">No corta</option>
+                                    <option value="2">No Aprobado</option>
+                                    <option value="3">Aprobado</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- tiempo_de_carga -->
+                        <div class="row">
+                            <div class="subsection-title">Tiempo de Carga</div>
+                            <div class="col-md-6 mb-3">
+                                <label for="tiempo_de_carga_psi" class="form-label"><strong>PSI<i class="text-danger">*</i></strong></label>
+                                <div class="input-group">
+                                    <input type="number" min="0" id="tiempo_de_carga_psi" name="tiempo_de_carga_psi" required class="form-control" placeholder="PSI">
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="tiempo_de_carga_tiempo" class="form-label"><strong>Tiempo<i class="text-danger">*</i></strong></label>
+                                <div class="input-group">
+                                    <input type="number" step="0.01" max="99.99" min="0" id="tiempo_de_carga_tiempo" name="tiempo_de_carga_tiempo" required class="form-control" placeholder="En minutos">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- tanques_de_aire -->
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="tanques_de_aire" class="form-label"><strong>Tanques de aire<i class="text-danger">*</i></strong></label>
+                                <select class="form-select" id="tanques_de_aire" name="tanques_de_aire" required>
+                                    <option value="" disabled selected>Seleccione...</option>
+                                    <option value="1">No Aprobados (Con agua)</option>
+                                    <option value="2">Aprobados</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- humo -->
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="humo" class="form-label"><strong>Humo<i class="text-danger">*</i></strong></label>
+                                <select class="form-select" id="humo" name="humo" required>
+                                    <option value="" disabled selected>Seleccione...</option>
+                                    <option value="1">No Aprobado</option>
+                                    <option value="2">Aprobado</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- gobernado -->
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="gobernado" class="form-label"><strong>Gobernado<i class="text-danger">*</i></strong></label>
+                                <select class="form-select" id="gobernado" name="gobernado" required>
+                                    <option value="" disabled selected>Seleccione...</option>
+                                    <option value="1">No Aprobado</option>
+                                    <option value="2">Aprobado</option>
+                                </select>
+                            </div>
+                        </div>
                         <!-- Escape -->
                         <div class="row">
                             <div class="mb-3">
@@ -470,6 +617,32 @@
                                     <option value="2">Faltante</option>
                                     <option value="3">Roto</option>
                                 </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Comienza Evidencias -->
+                    <div class="section-border">
+                        <div class="section-title">Evidencias y Comentarios</div>
+                        <!-- evidencias -->
+                        <div class="row">
+                            <div class="subsection-title">Evidencias</div>
+                            <div class="col-md-6 mb-3">
+                                <label for="evidencia1" class="form-label"><strong>Evidencia 1<i class="text-danger">*</i></strong></label>
+                                <div class="input-group">
+                                    <input type="file" id="evidencia1" name="evidencia1" accept="image/png, image/jpeg" required class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="evidencia2" class="form-label"><strong>Evidencia 2<i class="text-danger">*</i></strong></label>
+                                <div class="input-group">
+                                    <input type="file" id="evidencia2" name="evidencia2" accept="image/png, image/jpeg" required class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label for="comentarios" class="form-label"><strong>Comentarios</strong></label>
+                                <textarea class="form-control" id="comentarios" name="comentarios" rows="4" placeholder="Escribe tus comentarios aquí..."></textarea>
                             </div>
                         </div>
                     </div>
@@ -608,6 +781,22 @@
             var input = document.getElementById('huelgo_cuanto');
             input.removeAttribute("disabled");
             if(huelgo.value == 2){
+                input.focus();
+            }else{
+                input.value = 0;
+                input.setAttribute("disabled","true");
+            }
+        });
+
+
+        var chavetas = document.getElementById('chavetas');
+        document.getElementById('chavetas_cuanto').setAttribute("disabled","true");
+
+        // Agrega un event listener para el evento 'change'
+        chavetas.addEventListener('change', function() {
+            var input = document.getElementById('chavetas_cuanto');
+            input.removeAttribute("disabled");
+            if(chavetas.value == 2){
                 input.focus();
             }else{
                 input.value = 0;
