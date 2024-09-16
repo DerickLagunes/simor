@@ -65,13 +65,13 @@ public class DictamenEspecificoServlet extends HttpServlet {
             Dictamen dictamen = new Dictamen();
             DictamenDao dd = new DictamenDao();
             if(!folio_humo.equals("") || !folio_fisico.equals("")){
-                dictamen.setFolio1(folio_humo);
-                dictamen.setFolio2(folio_fisico);
-                dictamen.setArchivo1(filePath1);
-                dictamen.setArchivo2(filePath2);
+                dictamen.setFolio_humo_1(folio_humo);
+                dictamen.setFolio_fisico_1(folio_fisico);
+                dictamen.setArchivo_humo_1(filePath1);
+                dictamen.setArchivo_fisico_1(filePath2);
 
                 //Insertar dictamen en la base de datos
-                dictamen.setId_dictamen(dd.insert(dictamen));
+                dictamen.setId_dictamen(dd.insert(dictamen, economico));
                 dd.insertRelation(dictamen,economico);
             }
             ///////////////////////////////////////////////

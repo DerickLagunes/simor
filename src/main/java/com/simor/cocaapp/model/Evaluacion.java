@@ -1003,9 +1003,9 @@ public class Evaluacion implements Serializable {
             2 = Aprobado
         */
         if(this.humo == 1){
-            this.resultados.add(new Resultado(false,"Humo","Otros", "Huelgo en buen estado","No Aprobado"));
+            this.resultados.add(new Resultado(false,"Humo","Otros", "Humo en buen estado","No Aprobado"));
         }else{
-            this.resultados.add(new Resultado(true,"Humo","Otros", "Huelgo en buen estado","Aprobado"));
+            this.resultados.add(new Resultado(true,"Humo","Otros", "Humo en buen estado","Aprobado"));
         }
 
         /*
@@ -1014,9 +1014,9 @@ public class Evaluacion implements Serializable {
             2 = Aprobado
         */
         if(this.gobernado == 1){
-            this.resultados.add(new Resultado(false,"Gobernado","Otros", "Gobernado en buen estado","No Aprobado"));
+            this.resultados.add(new Resultado(false,"Governado","Otros", "Governado en buen estado","No Aprobado"));
         }else{
-            this.resultados.add(new Resultado(true,"Gobernado","Otros", "Gobernado en buen estado","Aprobado"));
+            this.resultados.add(new Resultado(true,"Governado","Otros", "Governado en buen estado","Aprobado"));
         }
 
         /*
@@ -1032,6 +1032,31 @@ public class Evaluacion implements Serializable {
         } else{
             this.resultados.add(new Resultado(true,"Escape","Otros", "Escape en buen estado","Aprobado"));
         }
+
+        /*
+        Tiempo de carga
+        psi y tiempo
+         */
+        //psi debe ser entre 70 y 120 psi
+        if(this.tiempo_de_carga_psi < 70 || this.tiempo_de_carga_psi > 120) {
+            //Además no puede superar los 2 minutos de recarga
+            if(this.tiempo_de_carga_tiempo > 2.0){
+                this.resultados.add(new Resultado(false,"Tiempo de carga", "Otros",
+                        "Entre 70 y 120 PSI y tiempo de carga máximo de 2 minutos",
+                        "PSI: " + this.tiempo_de_carga_psi + "\n Tiempo de carga: " + this.tiempo_de_carga_tiempo + " minutos"));
+            }
+        }else{
+            if(this.tiempo_de_carga_tiempo > 2.0){
+                this.resultados.add(new Resultado(false,"Tiempo de carga", "Otros",
+                        "Entre 70 y 120 PSI y tiempo de carga máximo de 2 minutos",
+                        "PSI: " + this.tiempo_de_carga_psi + "\n Tiempo de carga: " + this.tiempo_de_carga_tiempo + " minutos"));
+            }else{
+                this.resultados.add(new Resultado(true,"Tiempo de carga", "Otros",
+                        "Entre 70 y 120 PSI y tiempo de carga máximo de 2 minutos",
+                        "PSI y tiempo de carga en minutos correctos"));
+            }
+        }
+
 
         /*
         tanque_de_aire:
@@ -1114,6 +1139,7 @@ public class Evaluacion implements Serializable {
         }else{
             this.resultados.add(new Resultado(false,"Chavetas","Otros", "Chavetas en buen estado","Obtuvo: " + this.chavetas_cuanto));
         }
+
 
         this.resultados = resultados;
         return resultados;

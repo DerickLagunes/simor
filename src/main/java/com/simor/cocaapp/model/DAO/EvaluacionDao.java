@@ -183,10 +183,55 @@ public class EvaluacionDao {
                         int escape = res.getInt("escape");
                         e.setEscape(escape);
 
-                        // WIP, luces_direccionales_delanteras, luces_direccionales_traseras
+                        // WIP
+                        int luces_direccionales_delanteras = res.getInt("luces_direccionales_delanteras");
+                        e.setLuces_direccionales_delanteras(luces_direccionales_delanteras);
 
-                        //manijas_de_puertas, chavetas, chavetas_cuanto, faro_derecho, faro_izquierdo, compresor, tiempo_de_carga_psi, tiempo_de_carga_tiempo, tanques_de_aire, humo, gobernado,\n" +
-                        //                "    evidencia1, evidencia2, comentarios\n"+
+                        int luces_direccionales_traseras = res.getInt("luces_direccionales_traseras");
+                        e.setLuces_direccionales_traseras(luces_direccionales_traseras);
+
+                        int manijas_de_puertas = res.getInt("manijas_de_puertas");
+                        e.setManijas_de_puertas(manijas_de_puertas);
+
+                        int chavetas = res.getInt("chavetas");
+                        e.setChavetas(chavetas);
+
+                        int chavetas_cuanto = res.getInt("chavetas_cuanto");
+                        e.setChavetas_cuanto(chavetas_cuanto);
+
+                        int faro_derecho = res.getInt("faro_derecho");
+                        e.setFaro_derecho(faro_derecho);
+
+                        int faro_izquierdo = res.getInt("faro_izquierdo");
+                        e.setFaro_izquierdo(faro_izquierdo);
+
+                        int compresor = res.getInt("compresor");
+                        e.setCompresor(compresor);
+
+                        int tiempo_de_carga_psi = res.getInt("tiempo_de_carga_psi");
+                        e.setTiempo_de_carga_psi(tiempo_de_carga_psi);
+
+                        float tiempo_de_carga_tiempo = res.getFloat("tiempo_de_carga_tiempo");
+                        e.setTiempo_de_carga_tiempo(tiempo_de_carga_tiempo);
+
+                        int tanques_de_aire = res.getInt("tanques_de_aire");
+                        e.setTanques_de_aire(tanques_de_aire);
+
+                        int humo = res.getInt("humo");
+                        e.setHumo(humo);
+
+                        int gobernado = res.getInt("gobernado");
+                        e.setGobernado(gobernado);
+
+                        String evidencia1 = res.getString("evidencia1");
+                        e.setEvidencia1(evidencia1);
+
+                        String evidencia2 = res.getString("evidencia2");
+                        e.setEvidencia2(evidencia2);
+
+                        String comentarios = res.getString("comentarios");
+                        e.setComentarios(comentarios);
+
                     }
                 }
             }

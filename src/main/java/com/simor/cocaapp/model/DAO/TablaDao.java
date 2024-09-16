@@ -7,22 +7,41 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.text.Normalizer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class TablaDao {
 
-    public ArrayList<Tabla> get(int start, int length, String searchTerm, String orderColumn, String orderDir){
+    public ArrayList<Tabla> get(int start, int length, String searchTerm, String orderColumn, String orderDir, String filtro, int valor, boolean tipo){
         ArrayList<Tabla> lista = new ArrayList<>();
-        String query = "SELECT ee.fecha_de_evaluacion, e.placa, e.id_economico, e.id_cedis, c.nombre_cedis, c.region, " +
-                "ee.id_evaluacion, d.id_dictamen, d.folio_humo, d.folio_fisico, d.archivo_humo, d.archivo_fisico, ev.id_evaluacion " +
-                "FROM economicos AS e " +
-                "JOIN cedis AS c ON e.id_cedis = c.id_cedis " +
-                "LEFT JOIN economico_evaluacion AS ee on e.id_economico = ee.id_economico " +
-                "LEFT JOIN evaluacion as ev on ev.id_evaluacion = ee.id_evaluacion " +
-                "LEFT JOIN dictamen_economico de on e.id_economico = de.id_economico " +
-                "LEFT JOIN dictamen d on de.id_dictamen = d.id_dictamen " +
-                "WHERE e.placa LIKE ? OR e.id_economico LIKE ? OR e.id_cedis LIKE ? " +
-                "OR ee.fecha_de_evaluacion LIKE ? OR c.region LIKE ? "+
-                "ORDER BY " + orderColumn + " " + orderDir + " LIMIT ? OFFSET ? ;";
+        String query;
+        if(filtro.isEmpty()){
+            query =  "SELECT ee.fecha_de_evaluacion, e.placa, e.id_economico, e.id_cedis, c.nombre_cedis, c.region, " +
+                    "ee.id_evaluacion, d.id_dictamen, d.folio_humo_1, d.folio_fisico_1, d.archivo_humo_1, d.archivo_fisico_1, d.folio_humo_2, d.folio_fisico_2, d.archivo_humo_2, d.archivo_fisico_2, ev.id_evaluacion " +
+                    "FROM economicos AS e " +
+                    "JOIN cedis AS c ON e.id_cedis = c.id_cedis " +
+                    "LEFT JOIN economico_evaluacion AS ee on e.id_economico = ee.id_economico " +
+                    "LEFT JOIN evaluacion as ev on ev.id_evaluacion = ee.id_evaluacion " +
+                    "LEFT JOIN dictamen_economico de on e.id_economico = de.id_economico " +
+                    "LEFT JOIN dictamen d on de.id_dictamen = d.id_dictamen " +
+                    "WHERE e.placa LIKE ? OR e.id_economico LIKE ? OR e.id_cedis LIKE ? " +
+                    "OR ee.fecha_de_evaluacion LIKE ? OR c.region LIKE ? "+
+                    "ORDER BY " + orderColumn + " " + orderDir + " LIMIT ? OFFSET ? ;";
+        } else {
+            String x = tipo?"LIKE":"NOT LIKE";
+            query =  "SELECT ee.fecha_de_evaluacion, e.placa, e.id_economico, e.id_cedis, c.nombre_cedis, c.region, " +
+                    "ee.id_evaluacion, d.id_dictamen, d.folio_humo_1, d.folio_fisico_1, d.archivo_humo_1, d.archivo_fisico_1, d.folio_humo_2, d.folio_fisico_2, d.archivo_humo_2, d.archivo_fisico_2, ev.id_evaluacion " +
+                    "FROM economicos AS e " +
+                    "JOIN cedis AS c ON e.id_cedis = c.id_cedis " +
+                    "LEFT JOIN economico_evaluacion AS ee on e.id_economico = ee.id_economico " +
+                    "LEFT JOIN evaluacion as ev on ev.id_evaluacion = ee.id_evaluacion " +
+                    "LEFT JOIN dictamen_economico de on e.id_economico = de.id_economico " +
+                    "LEFT JOIN dictamen d on de.id_dictamen = d.id_dictamen " +
+                    "WHERE (e.placa LIKE ? OR e.id_economico LIKE ? OR e.id_cedis LIKE ? " +
+                    "OR ee.fecha_de_evaluacion LIKE ? OR c.region LIKE ?) AND ev."+filtro+" " + x + " ? " +
+                    "ORDER BY " + orderColumn + " " + orderDir + " LIMIT ? OFFSET ? ;";
+        }
 
         try{
             Connection con = DatabaseConnectionManager.getConnection();
@@ -33,8 +52,15 @@ public class TablaDao {
             ps.setString(3, searchPattern);
             ps.setString(4, searchPattern);
             ps.setString(5, searchPattern);
-            ps.setInt(6, length);
-            ps.setInt(7, start);
+            if(filtro.isEmpty()){
+                ps.setInt(6, length);
+                ps.setInt(7, start);
+            }else{
+                ps.setString(6, "%" + valor + "%");
+                ps.setInt(7, length);
+                ps.setInt(8, start);
+            }
+
 
             ResultSet rs = ps.executeQuery();
 
@@ -78,16 +104,24 @@ public class TablaDao {
                 evaluacion.setFecha_de_evaluacion(fecha_de_evaluacion);
 
                 int id_dictamen = rs.getInt("id_dictamen");
-                String folio_humo = rs.getString("folio_humo");
-                String folio_fisico = rs.getString("folio_fisico");
-                String archivo_humo = rs.getString("archivo_humo");
-                String archivo_fisico = rs.getString("archivo_fisico");
+                String folio_humo_1 = rs.getString("folio_humo_1");
+                String folio_fisico_1 = rs.getString("folio_fisico_1");
+                String archivo_humo_1 = rs.getString("archivo_humo_1");
+                String archivo_fisico_1 = rs.getString("archivo_fisico_1");
+                String folio_humo_2 = rs.getString("folio_humo_2");
+                String folio_fisico_2 = rs.getString("folio_fisico_2");
+                String archivo_humo_2 = rs.getString("archivo_humo_2");
+                String archivo_fisico_2 = rs.getString("archivo_fisico_2");
 
                 dictamen.setId_dictamen(id_dictamen);
-                dictamen.setFolio1(folio_humo);
-                dictamen.setFolio2(folio_fisico);
-                dictamen.setArchivo1(archivo_humo);
-                dictamen.setArchivo2(archivo_fisico);
+                dictamen.setFolio_humo_1(folio_humo_1);
+                dictamen.setFolio_fisico_1(folio_fisico_1);
+                dictamen.setArchivo_humo_1(archivo_humo_1);
+                dictamen.setArchivo_fisico_1(archivo_fisico_1);
+                dictamen.setFolio_humo_2(folio_humo_2);
+                dictamen.setFolio_fisico_2(folio_fisico_2);
+                dictamen.setArchivo_humo_2(archivo_humo_2);
+                dictamen.setArchivo_fisico_2(archivo_fisico_2);
 
                 tabla.getEconomico().getEvaluaciones().add(evaluacion);
                 tabla.getEconomico().getDictamenes().add(dictamen);
@@ -108,17 +142,32 @@ public class TablaDao {
         return lista;
     }
 
-    public int countAll(String searchTerm){
+    public int countAll(String searchTerm, String filtro, int valor, boolean tipo){
         int res = 0;
-        String query = "SELECT COUNT(DISTINCT e.id_economico) AS res FROM economicos AS e " +
-                "JOIN cedis AS c ON e.id_cedis = c.id_cedis " +
-                "LEFT JOIN economico_evaluacion AS ee on e.id_economico = ee.id_economico " +
-                "LEFT JOIN evaluacion AS ev on ev.id_evaluacion = ee.id_evaluacion " +
-                "LEFT JOIN dictamen_economico de on e.id_economico = de.id_economico " +
-                "LEFT JOIN dictamen d on de.id_dictamen = d.id_dictamen " +
-                "WHERE e.placa LIKE ? OR e.id_economico LIKE ? OR e.id_cedis LIKE ? " +
-                "OR ee.fecha_de_evaluacion LIKE ? OR c.region LIKE ?";
+        String query;
+        if(filtro.isEmpty()) {
+            query = "SELECT COUNT(DISTINCT e.id_economico) AS res FROM economicos AS e " +
+                    "JOIN cedis AS c ON e.id_cedis = c.id_cedis " +
+                    "LEFT JOIN economico_evaluacion AS ee on e.id_economico = ee.id_economico " +
+                    "LEFT JOIN evaluacion AS ev on ev.id_evaluacion = ee.id_evaluacion " +
+                    "LEFT JOIN dictamen_economico de on e.id_economico = de.id_economico " +
+                    "LEFT JOIN dictamen d on de.id_dictamen = d.id_dictamen " +
+                    "WHERE e.placa LIKE ? OR e.id_economico LIKE ? OR e.id_cedis LIKE ? " +
+                    "OR ee.fecha_de_evaluacion LIKE ? OR c.region LIKE ?";
+        } else{
+            String x = tipo?"LIKE":"NOT LIKE";
+            query = "SELECT COUNT(DISTINCT e.id_economico) AS res FROM economicos AS e " +
+                    "JOIN cedis AS c ON e.id_cedis = c.id_cedis " +
+                    "LEFT JOIN economico_evaluacion AS ee on e.id_economico = ee.id_economico " +
+                    "LEFT JOIN evaluacion AS ev on ev.id_evaluacion = ee.id_evaluacion " +
+                    "LEFT JOIN dictamen_economico de on e.id_economico = de.id_economico " +
+                    "LEFT JOIN dictamen d on de.id_dictamen = d.id_dictamen " +
+                    "WHERE (e.placa LIKE ? OR e.id_economico LIKE ? OR e.id_cedis LIKE ? " +
+                    "OR ee.fecha_de_evaluacion LIKE ? OR c.region LIKE ?) AND ev." + filtro + " "+x+" ?";
+        }
+
         try{
+            System.out.println(query);
             Connection con = DatabaseConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(query);
             String searchPattern = "%" + searchTerm + "%";
@@ -127,6 +176,9 @@ public class TablaDao {
             ps.setString(3, searchPattern);
             ps.setString(4, searchPattern);
             ps.setString(5, searchPattern);
+            if(!filtro.isEmpty()) {
+                ps.setString(6, "%" + valor + "%");
+            }
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
                 res = rs.getInt("res");
@@ -141,19 +193,35 @@ public class TablaDao {
     }
 
 
-    public ArrayList<Tabla> get(int id, int start, int length, String searchTerm, String orderColumn, String orderDir) {
+    public ArrayList<Tabla> get(int id, int start, int length, String searchTerm, String orderColumn, String orderDir, String filtro, int valor, boolean tipo) {
         ArrayList<Tabla> lista = new ArrayList<>();
-        String query = "SELECT ee.fecha_de_evaluacion, e.placa, e.id_economico, e.id_cedis, c.nombre_cedis, c.region, " +
-                "ee.id_evaluacion, d.id_dictamen, d.folio_humo, d.folio_fisico, d.archivo_humo, d.archivo_fisico, ev.id_evaluacion " +
-                "FROM economicos AS e " +
-                "JOIN cedis AS c ON e.id_cedis = c.id_cedis " +
-                "LEFT JOIN economico_evaluacion AS ee on e.id_economico = ee.id_economico " +
-                "LEFT JOIN evaluacion as ev on ev.id_evaluacion = ee.id_evaluacion " +
-                "LEFT JOIN dictamen_economico de on e.id_economico = de.id_economico " +
-                "LEFT JOIN dictamen d on de.id_dictamen = d.id_dictamen " +
-                "WHERE e.id_usuario = ? AND (e.placa LIKE ? OR e.id_economico LIKE ? OR e.id_cedis LIKE ? " +
-                "OR ee.fecha_de_evaluacion LIKE ? OR c.region LIKE ?) "+
-                "ORDER BY " + orderColumn + " " + orderDir + " LIMIT ? OFFSET ? ;";
+        String query;
+        if(filtro.isEmpty()){
+            query =  "SELECT ee.fecha_de_evaluacion, e.placa, e.id_economico, e.id_cedis, c.nombre_cedis, c.region, " +
+                    "ee.id_evaluacion, d.id_dictamen, d.folio_humo_1, d.folio_fisico_1, d.archivo_humo_1, d.archivo_fisico_1, d.folio_humo_2, d.folio_fisico_2, d.archivo_humo_2, d.archivo_fisico_2, ev.id_evaluacion " +
+                    "FROM economicos AS e " +
+                    "JOIN cedis AS c ON e.id_cedis = c.id_cedis " +
+                    "LEFT JOIN economico_evaluacion AS ee on e.id_economico = ee.id_economico " +
+                    "LEFT JOIN evaluacion as ev on ev.id_evaluacion = ee.id_evaluacion " +
+                    "LEFT JOIN dictamen_economico de on e.id_economico = de.id_economico " +
+                    "LEFT JOIN dictamen d on de.id_dictamen = d.id_dictamen " +
+                    "WHERE  e.id_usuario = ? AND (e.placa LIKE ? OR e.id_economico LIKE ? OR e.id_cedis LIKE ? " +
+                    "OR ee.fecha_de_evaluacion LIKE ? OR c.region LIKE ?) "+
+                    "ORDER BY " + orderColumn + " " + orderDir + " LIMIT ? OFFSET ? ;";
+        } else {
+            String x = tipo?"LIKE":"NOT LIKE";
+            query =  "SELECT ee.fecha_de_evaluacion, e.placa, e.id_economico, e.id_cedis, c.nombre_cedis, c.region, " +
+                    "ee.id_evaluacion, d.id_dictamen, d.folio_humo_1, d.folio_fisico_1, d.archivo_humo_1, d.archivo_fisico_1, d.folio_humo_2, d.folio_fisico_2, d.archivo_humo_2, d.archivo_fisico_2, ev.id_evaluacion " +
+                    "FROM economicos AS e " +
+                    "JOIN cedis AS c ON e.id_cedis = c.id_cedis " +
+                    "LEFT JOIN economico_evaluacion AS ee on e.id_economico = ee.id_economico " +
+                    "LEFT JOIN evaluacion as ev on ev.id_evaluacion = ee.id_evaluacion " +
+                    "LEFT JOIN dictamen_economico de on e.id_economico = de.id_economico " +
+                    "LEFT JOIN dictamen d on de.id_dictamen = d.id_dictamen " +
+                    "WHERE e.id_usuario = ? AND (e.placa LIKE ? OR e.id_economico LIKE ? OR e.id_cedis LIKE ? " +
+                    "OR ee.fecha_de_evaluacion LIKE ? OR c.region LIKE ?) AND ev."+filtro+" " + x + " ? " +
+                    "ORDER BY " + orderColumn + " " + orderDir + " LIMIT ? OFFSET ? ;";
+        }
 
         try{
             Connection con = DatabaseConnectionManager.getConnection();
@@ -210,16 +278,24 @@ public class TablaDao {
                 evaluacion.setFecha_de_evaluacion(fecha_de_evaluacion);
 
                 int id_dictamen = rs.getInt("id_dictamen");
-                String folio_humo = rs.getString("folio_humo");
-                String folio_fisico = rs.getString("folio_fisico");
-                String archivo_humo = rs.getString("archivo_humo");
-                String archivo_fisico = rs.getString("archivo_fisico");
+                String folio_humo_1 = rs.getString("folio_humo_1");
+                String folio_fisico_1 = rs.getString("folio_fisico_1");
+                String archivo_humo_1 = rs.getString("archivo_humo_1");
+                String archivo_fisico_1 = rs.getString("archivo_fisico_1");
+                String folio_humo_2 = rs.getString("folio_humo_2");
+                String folio_fisico_2 = rs.getString("folio_fisico_2");
+                String archivo_humo_2 = rs.getString("archivo_humo_2");
+                String archivo_fisico_2 = rs.getString("archivo_fisico_2");
 
                 dictamen.setId_dictamen(id_dictamen);
-                dictamen.setFolio1(folio_humo);
-                dictamen.setFolio2(folio_fisico);
-                dictamen.setArchivo1(archivo_humo);
-                dictamen.setArchivo2(archivo_fisico);
+                dictamen.setFolio_humo_1(folio_humo_1);
+                dictamen.setFolio_fisico_1(folio_fisico_1);
+                dictamen.setArchivo_humo_1(archivo_humo_1);
+                dictamen.setArchivo_fisico_1(archivo_fisico_1);
+                dictamen.setFolio_humo_1(folio_humo_2);
+                dictamen.setFolio_fisico_1(folio_fisico_2);
+                dictamen.setArchivo_humo_1(archivo_humo_2);
+                dictamen.setArchivo_fisico_1(archivo_fisico_2);
 
                 tabla.getEconomico().getEvaluaciones().add(evaluacion);
                 tabla.getEconomico().getDictamenes().add(dictamen);
@@ -240,16 +316,30 @@ public class TablaDao {
         return lista;
     }
 
-    public int countAll(int id, String searchTerm) {
+    public int countAll(int id, String searchTerm, String filtro, int valor ,boolean tipo) {
         int res = 0;
-        String query = "SELECT COUNT(DISTINCT e.id_economico) AS res FROM economicos AS e " +
-                "JOIN cedis AS c ON e.id_cedis = c.id_cedis " +
-                "LEFT JOIN economico_evaluacion AS ee on e.id_economico = ee.id_economico " +
-                "LEFT JOIN evaluacion AS ev on ev.id_evaluacion = ee.id_evaluacion " +
-                "LEFT JOIN dictamen_economico de on e.id_economico = de.id_economico " +
-                "LEFT JOIN dictamen d on de.id_dictamen = d.id_dictamen " +
-                "WHERE e.id_usuario = ? AND (e.placa LIKE ? OR e.id_economico LIKE ? OR e.id_cedis LIKE ? " +
-                "OR ee.fecha_de_evaluacion LIKE ? OR c.region LIKE ?)";
+        String query;
+        if(filtro.isEmpty()) {
+            query = "SELECT COUNT(DISTINCT e.id_economico) AS res FROM economicos AS e " +
+                    "JOIN cedis AS c ON e.id_cedis = c.id_cedis " +
+                    "LEFT JOIN economico_evaluacion AS ee on e.id_economico = ee.id_economico " +
+                    "LEFT JOIN evaluacion AS ev on ev.id_evaluacion = ee.id_evaluacion " +
+                    "LEFT JOIN dictamen_economico de on e.id_economico = de.id_economico " +
+                    "LEFT JOIN dictamen d on de.id_dictamen = d.id_dictamen " +
+                    "WHERE e.id_usuario = ? AND (e.placa LIKE ? OR e.id_economico LIKE ? OR e.id_cedis LIKE ? " +
+                    "OR ee.fecha_de_evaluacion LIKE ? OR c.region LIKE ?)";
+        } else{
+            String x = tipo?"LIKE":"NOT LIKE";
+            query = "SELECT COUNT(DISTINCT e.id_economico) AS res FROM economicos AS e " +
+                    "JOIN cedis AS c ON e.id_cedis = c.id_cedis " +
+                    "LEFT JOIN economico_evaluacion AS ee on e.id_economico = ee.id_economico " +
+                    "LEFT JOIN evaluacion AS ev on ev.id_evaluacion = ee.id_evaluacion " +
+                    "LEFT JOIN dictamen_economico de on e.id_economico = de.id_economico " +
+                    "LEFT JOIN dictamen d on de.id_dictamen = d.id_dictamen " +
+                    "WHERE e.id_usuario = ? AND (e.placa LIKE ? OR e.id_economico LIKE ? OR e.id_cedis LIKE ? " +
+                    "OR ee.fecha_de_evaluacion LIKE ? OR c.region LIKE ?) AND ev." + filtro + " "+x+" ?";
+        }
+
         try{
             Connection con = DatabaseConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(query);

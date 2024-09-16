@@ -104,16 +104,12 @@ public class EconomicoDao {
                 stmt.setInt(4, economico.getId_usuario());
                 if(stmt.executeUpdate()>0) {
                     // Obtiene las claves generadas
-                    ResultSet generatedKeys = stmt.getGeneratedKeys();
-                    if (generatedKeys.next()) {
-                        id_economico = generatedKeys.getString(1);
-                    }
-                    generatedKeys.close();
+                    id_economico = economico.getId_economico();
                 }
             }
         }catch (SQLException e){
             e.printStackTrace();
         }
-        return id_economico;
+        return economico.getId_economico();
     }
 }

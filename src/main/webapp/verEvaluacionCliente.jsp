@@ -33,6 +33,29 @@
                     </div>
                 </div>
                 <div class="section-border">
+                    <div class="section-title">Evidencias y comentarios</div>
+                    <div class="row">
+                        <figure class="figure">
+                            <img src="${evaluacion.evidencia1}" class="figure-img img-fluid rounded" alt="Evidencia 1">
+                            <figcaption class="figure-caption text-center"><strong>Evidencia 1</strong></figcaption>
+                        </figure>
+                        <div class="col-6 mb-3">
+                            <figure class="figure">
+                                <img src="${evaluacion.evidencia2}" class="figure-img img-fluid rounded" alt="Evidencia 1">
+                                <figcaption class="figure-caption text-center"><strong>Evidencia 2</strong></figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3">
+                            <h5>Comentarios del Técnico:</h5>
+                            <div id="comentariosDisplay" class="border p-3">
+                                <span>${evaluacion.comentarios}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-border">
                     <div class="section-title">Reporte de elementos <strong class="text-danger">NO Aprobados</strong></div>
                     <div class="row">
                         <p class="mb-3">Tras realizar la inspección del económico, el técnico verificador encontró lo siguiente:</p>

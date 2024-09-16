@@ -24,6 +24,12 @@ public class VerEvaluacionServlet extends HttpServlet {
         Evaluacion evaluacion = dao.getOne(id_evaluacion);
         HttpSession sesion = req.getSession();
 
+        String basePath = req.getServletContext().getRealPath("/");
+        String filePath1 = evaluacion.getEvidencia1().replace(basePath,"");
+        String filePath2 = evaluacion.getEvidencia2().replace(basePath,"");
+        evaluacion.setEvidencia1(filePath1);
+        evaluacion.setEvidencia2(filePath2);
+
         //Pasar Datos del economico
         Data d = new Data();
         d = dao.getEconomico(id_evaluacion);

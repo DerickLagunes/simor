@@ -13,17 +13,32 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             </c:if>
+            <c:if test="${not empty dictamen.folio_humo_1}">
                 <div class="section-border">
-                    <div class="section-title">Dictamen para ${id_economico}</div>
+                    <div class="section-title">Dictamenes para el primer semestre de ${id_economico}</div>
                     <div class="row">
-                        <h4 class="mb-3">Folio: ${dictamen.folio1}</h4>
-                        <iframe class="mb-3" src="${dictamen.archivo1}" width="100%" height="600px" style="border: none;"></iframe>
+                        <h4 class="mb-3">Folio: ${dictamen.folio_humo_1}</h4>
+                        <iframe class="mb-3" src="${dictamen.archivo_humo_1}" width="100%" height="600px" style="border: none;"></iframe>
                         <br><br>
                         <br><br>
-                        <h4 class="mb-3">Folio: ${dictamen.folio2}</h4>
-                        <iframe class="mb-3" src="${dictamen.archivo2}" width="100%" height="600px" style="border: none;"></iframe>
+                        <h4 class="mb-3">Folio: ${dictamen.folio_fisico_1}</h4>
+                        <iframe class="mb-3" src="${dictamen.archivo_fisico_1}" width="100%" height="600px" style="border: none;"></iframe>
                     </div>
                 </div>
+            </c:if>
+            <c:if test="${not empty dictamen.folio_humo_2}">
+                <div class="section-border">
+                    <div class="section-title">Dictamenes para el segundo semestre de ${id_economico}</div>
+                    <div class="row">
+                        <h4 class="mb-3">Folio: ${dictamen.folio_humo_2}</h4>
+                        <iframe class="mb-3" src="${dictamen.archivo_humo_2}" width="100%" height="600px" style="border: none;"></iframe>
+                        <br><br>
+                        <br><br>
+                        <h4 class="mb-3">Folio: ${dictamen.folio_fisico_2}</h4>
+                        <iframe class="mb-3" src="${dictamen.archivo_fisico_2}" width="100%" height="600px" style="border: none;"></iframe>
+                    </div>
+                </div>
+            </c:if>
             </div>
         </div>
     </div>

@@ -21,11 +21,16 @@ public class VerDictamenClienteServlet extends HttpServlet {
         Dictamen dictamen = dao.getOne(id_dictamen);
 
         String basePath = req.getServletContext().getRealPath("/");
-        String filePath1 = dictamen.getArchivo1().replace(basePath,"");
-        String filePath2 = dictamen.getArchivo2().replace(basePath,"");
-
-        dictamen.setArchivo1(filePath1);
-        dictamen.setArchivo2(filePath2);
+        String filePath1 = dictamen.getArchivo_humo_1().replace(basePath,"");
+        String filePath2 = dictamen.getArchivo_fisico_1().replace(basePath,"");
+        if(dictamen.getArchivo_humo_2()!=null){
+            String filePath3 = dictamen.getArchivo_humo_2().replace(basePath,"");
+            String filePath4 = dictamen.getArchivo_fisico_2().replace(basePath,"");
+            dictamen.setArchivo_humo_2(filePath3);
+            dictamen.setArchivo_fisico_2(filePath4);
+        }
+        dictamen.setArchivo_humo_1(filePath1);
+        dictamen.setArchivo_fisico_1(filePath2);
 
         HttpSession sesion = req.getSession();
         sesion.setAttribute("dictamen",dictamen);

@@ -11,12 +11,20 @@
 <script src="${pageContext.request.contextPath}/assets/js/es-MX.json"></script>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const table = document.getElementById('tabla_economicos');
-        new DataTable(table, {
+        // Inicializar DataTable y almacenar la instancia
+        const table = new DataTable(document.getElementById('tabla_economicos'), {
             language: {
                 url: '${pageContext.request.contextPath}/assets/js/es-MX.json'
             },
-            ajax: '${pageContext.request.contextPath}/verEconomicos',
+            ajax: {
+                url: '${pageContext.request.contextPath}/verEconomicos',
+                type: 'GET',
+                data: function(d){
+                    // Parámetros de los filtros
+                    d.filtro = document.getElementById('filtro').value;
+                    d.valor = document.getElementById('valor').value;
+                }
+            },
             processing: true,
             serverSide: true,
             columns: [
@@ -26,6 +34,11 @@
                 {data: 'cedis.region'},
                 {data: 'consultar_evaluacion'}
             ]
+        });
+
+        // Al hacer clic en el botón de "Aplicar filtros"
+        document.getElementById('filtrar').addEventListener('click', function() {
+            table.ajax.reload(); // Recargar la tabla con los nuevos filtros
         });
     });
 </script>

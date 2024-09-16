@@ -82,8 +82,20 @@
                                 </div>
                                 <div class="archivo mb-3">
                                     <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="semestre" class="form-label">Escoger Semestre<i class="text-danger">*</i></label>
+                                            <select class="form-select archi" id="semestre" name="semestre" >
+                                                <option value="">Selecciona el semestre</option>
+                                                <option value="1">Primer Semestre</option>
+                                                <option value="2">Segundo Semestre</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="archivo mb-3">
+                                    <div class="row">
                                         <div class="col-6">
-                                            <label for="folio_humo" class="form-label">Folio del primer dictamen<i class="text-danger">*</i></label>
+                                            <label for="folio_humo" class="form-label">Folio del dictamen de humo<i class="text-danger">*</i></label>
                                             <input type="text" class="form-control archi" id="folio_humo"
                                                    name="folio_humo" maxlength="20" aria-describedby="folio_humo_ayuda">
                                             <div id="folio_humo_ayuda" class="form-text">Escribe aquí <i class="bi-arrow-up"></i> el folio del dictamen de humo.</div>
@@ -114,7 +126,7 @@
                                                 <input type="file" accept="application/pdf" class="form-control archi" id="archivo_fisico"
                                                        name="archivo_fisico" aria-describedby="archivo_fisico_ayuda">
                                             </div>
-                                            <div id="archivo_fisico_ayuda" class="form-text">Sube aqui <i class="bi-upload"></i> el archivo PDF del dictamen físico.</div>
+                                            <div id="archivo_fisico_ayuda" class="form-text">Sube aquí <i class="bi-upload"></i> el archivo PDF del dictamen físico.</div>
                                         </div>
                                     </div>
                                 </div>

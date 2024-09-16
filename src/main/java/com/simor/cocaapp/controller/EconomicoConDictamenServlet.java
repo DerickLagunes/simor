@@ -34,6 +34,12 @@ public class EconomicoConDictamenServlet extends HttpServlet {
         String placa = req.getParameter("placa");
         String economico_cedis = req.getParameter("economico_cedis");
         String cliente = req.getParameter("id_usuario");
+
+        int semestre = 1;
+        if(!req.getParameter("semestre").isEmpty()){
+            semestre = Integer.parseInt(req.getParameter("semestre"));
+        }
+
         String mensaje ="";
 
         Economico economico = new Economico();
@@ -44,7 +50,8 @@ public class EconomicoConDictamenServlet extends HttpServlet {
 
         EconomicoDao dao = new EconomicoDao();
         try {
-            dao.insertWKey(economico);
+            String algo = dao.insertWKey(economico);
+            economico.setId_economico(algo);
             mensaje = "Económico registrado exitosamente";
         }catch(Exception e) {
             mensaje = "La unidad económica ya existe";
@@ -84,13 +91,20 @@ public class EconomicoConDictamenServlet extends HttpServlet {
             Dictamen dictamen = new Dictamen();
             DictamenDao dd = new DictamenDao();
 
-            dictamen.setFolio1(folio_humo);
-            dictamen.setFolio2(folio_fisico);
-            dictamen.setArchivo1(filePath1);
-            dictamen.setArchivo2(filePath2);
+            if(semestre == 1){
+                dictamen.setFolio_humo_1(folio_humo);
+                dictamen.setFolio_fisico_1(folio_fisico);
+                dictamen.setArchivo_humo_1(filePath1);
+                dictamen.setArchivo_fisico_1(filePath2);
+            } else if(semestre == 2){
+                dictamen.setFolio_humo_2(folio_humo);
+                dictamen.setFolio_fisico_2(folio_fisico);
+                dictamen.setArchivo_humo_2(filePath1);
+                dictamen.setArchivo_fisico_2(filePath2);
+            }
 
             //Insertar dictamen en la base de datos
-            dictamen.setId_dictamen(dd.insert(dictamen));
+            dictamen.setId_dictamen(dd.insert(dictamen, economico));
             dd.insertRelation(dictamen,economico);
             mensaje += ", El dictamen fue insertado correctamente";
         }

@@ -14,7 +14,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 </c:if>
-                <form id="form" method="post" action="evaluacion">
+                <form id="form" method="post" action="evaluacion" enctype="multipart/form-data">
                     <!-- Inicia sección de CEDIS y Unidad -->
                     <div class="section-border">
                         <div class="section-title">Nueva evaluación de económico</div>
@@ -49,7 +49,7 @@
                     </div>
                     <!-- Inicia sección de Luces -->
                     <div class="section-border">
-                        <div class="section-title">Luces</div>
+                        <div class="section-title">Luces <i class="bi bi-info-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="Mejoran la visibilidad y seguridad en la carretera, indicando maniobras y asegurando la visibilidad en condiciones adversas."></i></div>
                         <!-- Luces Galibo -->
                         <div class="mb-3">
                             <label for="luces_galibo" class="form-label"><strong>Galibo<i class="text-danger">*</i></strong></label>
@@ -86,7 +86,7 @@
                         </div>
                         <!-- Luces Direccionales -->
                         <div class="row">
-                            <div class="subsection-title">Demarcadoras</div>
+                            <div class="subsection-title">Direccionales</div>
                             <div class="col-md-6 mb-3">
                                 <label for="luces_direccionales_delanteras" class="form-label"><strong>Delanteras<i class="text-danger">*</i></strong></label>
                                 <select class="form-select" id="luces_direccionales_delanteras" name="luces_direccionales_delanteras" required>
@@ -146,7 +146,7 @@
                     </div>
                     <!-- Comienza Llantas -->
                     <div class="section-border">
-                        <div class="section-title">Llantas</div>
+                        <div class="section-title">Llantas <i class="bi bi-info-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="Proporcionan tracción y soporte al camión, distribuyendo el peso de manera uniforme. Aseguran tracción adecuada, estabilidad y seguridad en la carretera. Llantas desgastadas o mal mantenidas pueden aumentar el riesgo de deslizamientos y accidentes."></i> </div>
                         <!-- Rines -->
                         <div class="row">
                             <div class="subsection-title">Rines</div>
@@ -425,7 +425,7 @@
                         <!-- Caja de dirección -->
                         <div class="row">
                             <div class="mb-3">
-                                <label for="caja_direccion" class="form-label"><strong>Caja Dirección<i class="text-danger">*</i></strong></label>
+                                <label for="caja_direccion" class="form-label"><strong>Caja Dirección<i class="text-danger">*</i></strong> <i class="bi bi-info-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="Facilita el control y maniobrabilidad del camión, permitiendo un manejo más preciso y menos esfuerzo por parte del conductor. Un mal funcionamiento puede llevar a una pérdida de control, aumento del desgaste de neumáticos y problemas en la alineación, afectando la estabilidad del camión."></i> </label>
                                 <select class="form-select" id="caja_direccion" name="caja_direccion" required>
                                     <option value="" disabled selected>Seleccione...</option>
                                     <option value="1">Fuga de aceite</option>
@@ -436,7 +436,7 @@
                         <!-- Deposito de aceite -->
                         <div class="row">
                             <div class="mb-3">
-                                <label for="deposito_aceite" class="form-label"><strong>Depósito de Aceite<i class="text-danger">*</i></strong></label>
+                                <label for="deposito_aceite" class="form-label"><strong>Depósito de Aceite<i class="text-danger">*</i></strong> <i class="bi bi-info-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="Almacena el aceite necesario para la lubricación del motor y la transmisión, es esencial para evitar el sobrecalentamiento, reducir la fricción y el desgaste prematuro de las piezas móviles. El mantenimiento regular asegura un rendimiento eficiente y prolonga la vida útil del motor."></i></label>
                                 <select class="form-select" id="deposito_aceite" name="deposito_aceite" required>
                                     <option value="" disabled selected>Seleccione...</option>
                                     <option value="1">Fuga de aceite</option>
@@ -447,7 +447,7 @@
                         <!-- Parabrisas -->
                         <div class="row">
                             <div class="mb-3">
-                                <label for="parabrisas" class="form-label"><strong>Parabrisas<i class="text-danger">*</i></strong></label>
+                                <label for="parabrisas" class="form-label"><strong>Parabrisas<i class="text-danger">*</i></strong> <i class="bi bi-info-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="Bastidor con cristal que lleva el automóvil en su parte delantera para resguardar a los viajeros del aire cuando el vehículo se pone en movimiento. Proporciona una vista clara de la carretera y protege al conductor de elementos externos como viento, lluvia y escombros. Las grietas o daños pueden obstruir la visibilidad y aumentar el riesgo de accidentes."></i> </label>
                                 <select class="form-select" id="parabrisas" name="parabrisas" required>
                                     <option value="" disabled selected>Seleccione...</option>
                                     <option value="1">Aprobado</option>
@@ -470,7 +470,7 @@
                         </div>
                         <!-- Huelgo -->
                         <div class="row">
-                            <label for="huelgo" class="form-label"><strong>Huelgo<i class="text-danger">*</i></strong></label>
+                            <label for="huelgo" class="form-label"><strong>Huelgo<i class="text-danger">*</i> <i class="bi bi-info-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="Se refiere al espacio o movimiento permitido entre las piezas mecánicas, como en los componentes del sistema de suspensión y dirección. Mantener el huelgo dentro de los parámetros especificados asegura un funcionamiento suave y previene el desgaste prematuro de las piezas. Un huelgo excesivo puede provocar ruidos, vibraciones y un manejo ineficiente del camión, mientras que un huelgo insuficiente puede llevar a un desgaste acelerado y fallos mecánicos."></i></strong></label>
                             <div class="col-6 mb-3">
                                 <select class="form-select" id="huelgo" name="huelgo" required>
                                     <option value="" disabled selected>Seleccione...</option>
@@ -610,7 +610,7 @@
                         <!-- Escape -->
                         <div class="row">
                             <div class="mb-3">
-                                <label for="escape" class="form-label"><strong>Escape<i class="text-danger">*</i></strong></label>
+                                <label for="escape" class="form-label"><strong>Escape<i class="text-danger">*</i></strong> <i class="bi bi-info-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="Dirige los gases de escape del motor fuera del vehículo y reduce el ruido del motor, es vital para el cumplimiento de normas ambientales y para la reducción del ruido. El mantenimiento previene problemas de emisión y garantiza que los gases tóxicos sean correctamente eliminados."></i> </label>
                                 <select class="form-select" id="escape" name="escape" required>
                                     <option value="" disabled selected>Seleccione...</option>
                                     <option value="1">Aprobado</option>
@@ -956,5 +956,14 @@
     });
 </script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    });
+</script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
 <% request.getSession().removeAttribute("mensaje"); %>
 <jsp:include page="templates/footer.jsp" />

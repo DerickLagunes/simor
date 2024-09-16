@@ -5,6 +5,7 @@ import com.simor.cocaapp.model.DAO.DictamenDao;
 import com.simor.cocaapp.model.DAO.EconomicoEvaluacionDao;
 import com.simor.cocaapp.model.DAO.EvaluacionDao;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -19,7 +20,7 @@ import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.UUID;
-
+@MultipartConfig
 @WebServlet(name="EvaluacionServlet", value = "/evaluacion")
 public class EvaluacionServlet extends HttpServlet {
 
@@ -146,7 +147,7 @@ public class EvaluacionServlet extends HttpServlet {
         evaluacion.setFaro_izquierdo(Integer.parseInt(req.getParameter("faro_izquierdo")));
         evaluacion.setCompresor(Integer.parseInt(req.getParameter("compresor")));
         evaluacion.setTiempo_de_carga_psi(Integer.parseInt(req.getParameter("tiempo_de_carga_psi")));
-        evaluacion.setTiempo_de_carga_tiempo(Integer.parseInt(req.getParameter("tiempo_de_carga_tiempo")));
+        evaluacion.setTiempo_de_carga_tiempo(Float.parseFloat(req.getParameter("tiempo_de_carga_tiempo")));
         evaluacion.setTanques_de_aire(Integer.parseInt(req.getParameter("tanques_de_aire")));
         evaluacion.setHumo(Integer.parseInt(req.getParameter("humo")));
         evaluacion.setGobernado(Integer.parseInt(req.getParameter("gobernado")));
