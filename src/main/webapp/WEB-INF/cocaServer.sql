@@ -167,4 +167,6 @@ ALTER TABLE evaluacion
     ADD COLUMN evidencia1 VARCHAR(512) DEFAULT '',
     ADD COLUMN evidencia2 VARCHAR(512) DEFAULT '',
     ADD COLUMN comentarios VARCHAR(512) DEFAULT '';
-    
+
+
+INSERT INTO usuarios (nombre_usuario, contrasena, tipo_usuario) VALUES ("Supervisor", sha2("admin",256),"admin");

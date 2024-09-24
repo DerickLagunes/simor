@@ -36,17 +36,10 @@ public class UsuarioServlet extends HttpServlet {
                 case "admin":
                     operaciones.add(
                             new Operacion(
-                                    "Ver Usuarios",
-                                    "verUsuarios.jsp",
-                                    "assets/img/userAdmin.png",
-                                    "Ver, agregar, actualizar y eliminar <strong>usuarios</strong> del sistema"
-                            ));
-                    operaciones.add(
-                            new Operacion(
-                                    "Evaluaciones",
-                                    "verEvaluaciones.jsp",
+                                    "Consultar Unidades Económicas",
+                                    "verEconomicos.jsp",
                                     "assets/img/check_truck.png",
-                                    "Ver, agregar, actualizar y eliminar <strong>Evaluaciones registradas</strong> del sistema"
+                                    "Consultar <strong>las unidades económicas</strong> registradas en el sistema"
                             ));
                     break;
                 case "tecnico":

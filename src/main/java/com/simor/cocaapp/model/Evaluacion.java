@@ -610,33 +610,33 @@ public class Evaluacion implements Serializable {
             4 = aprobadas
         */
         if(this.luces_galibo == 1){
-            this.resultados.add(new Resultado(false,"Luces Galibo", "Luces","Ambas luces funcionan", "Izquierda fundida"));
+            this.resultados.add(new Resultado(false,"Luces Galibo", "Luces","Ambas luces funcionan", "Izquierda fundida",this.luces_galibo));
         } else if (this.luces_galibo == 2) {
-            this.resultados.add(new Resultado(false,"Luces Galibo","Luces", "Ambas luces funcionan","Derecha fundida"));
+            this.resultados.add(new Resultado(false,"Luces Galibo","Luces", "Ambas luces funcionan","Derecha fundida",this.luces_galibo));
         } else if (this.luces_galibo == 3) {
-            this.resultados.add(new Resultado(false,"Luces Galibo","Luces", "Ambas luces funcionan","Ambas fundidas"));
+            this.resultados.add(new Resultado(false,"Luces Galibo","Luces", "Ambas luces funcionan","Ambas fundidas",this.luces_galibo));
         }else{
-            this.resultados.add(new Resultado(true,"Luces Galibo","Luces", "Ambas luces funcionan","Aprobado"));
+            this.resultados.add(new Resultado(true,"Luces Galibo","Luces", "Ambas luces funcionan","Aprobado",this.luces_galibo));
         }
 
         if(this.luces_altas == 1){
-            this.resultados.add(new Resultado(false,"Luces Altas","Luces", "Ambas luces funcionan","Izquierda fundida"));
+            this.resultados.add(new Resultado(false,"Luces Altas","Luces", "Ambas luces funcionan","Izquierda fundida",this.luces_altas));
         } else if (this.luces_altas == 2) {
-            this.resultados.add(new Resultado(false,"Luces Altas","Luces", "Ambas luces funcionan","Derecha fundida"));
+            this.resultados.add(new Resultado(false,"Luces Altas","Luces", "Ambas luces funcionan","Derecha fundida",this.luces_altas));
         } else if (this.luces_altas == 3) {
-            this.resultados.add(new Resultado(false,"Luces Altas","Luces", "Ambas luces funcionan","Ambas fundidas"));
+            this.resultados.add(new Resultado(false,"Luces Altas","Luces", "Ambas luces funcionan","Ambas fundidas",this.luces_altas));
         }else{
-            this.resultados.add(new Resultado(true,"Luces Altas","Luces", "Ambas luces funcionan","Aprobado"));
+            this.resultados.add(new Resultado(true,"Luces Altas","Luces", "Ambas luces funcionan","Aprobado",this.luces_altas));
         }
 
         if(this.luces_bajas == 1){
-            this.resultados.add(new Resultado(false,"Luces Bajas","Luces", "Ambas luces funcionan","Izquierda fundida"));
+            this.resultados.add(new Resultado(false,"Luces Bajas","Luces", "Ambas luces funcionan","Izquierda fundida",this.luces_bajas));
         } else if (this.luces_bajas == 2) {
-            this.resultados.add(new Resultado(false,"Luces Bajas","Luces", "Ambas luces funcionan","Derecha fundida"));
+            this.resultados.add(new Resultado(false,"Luces Bajas","Luces", "Ambas luces funcionan","Derecha fundida",this.luces_bajas));
         } else if (this.luces_bajas == 3) {
-            this.resultados.add(new Resultado(false,"Luces Bajas","Luces", "Ambas luces funcionan","Ambas fundidas"));
+            this.resultados.add(new Resultado(false,"Luces Bajas","Luces", "Ambas luces funcionan","Ambas fundidas",this.luces_bajas));
         }else{
-            this.resultados.add(new Resultado(true,"Luces Bajas","Luces", "Ambas luces funcionan","Aprobado"));
+            this.resultados.add(new Resultado(true,"Luces Bajas","Luces", "Ambas luces funcionan","Aprobado",this.luces_bajas));
         }
 
         /*
@@ -647,23 +647,23 @@ public class Evaluacion implements Serializable {
             4 = aprobadas
         */
         if(this.luces_direccionales_delanteras == 1){
-            this.resultados.add(new Resultado(false,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Izquierda fundida"));
+            this.resultados.add(new Resultado(false,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Izquierda fundida",this.luces_direccionales_delanteras));
         } else if (this.luces_direccionales_delanteras == 2) {
-            this.resultados.add(new Resultado(false,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Derecha fundida"));
+            this.resultados.add(new Resultado(false,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Derecha fundida",this.luces_direccionales_delanteras));
         } else if (this.luces_direccionales_delanteras == 3) {
-            this.resultados.add(new Resultado(false,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Ambas fundidas"));
+            this.resultados.add(new Resultado(false,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Ambas fundidas",this.luces_direccionales_delanteras));
         }else{
-            this.resultados.add(new Resultado(true,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Aprobado"));
+            this.resultados.add(new Resultado(true,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Aprobado",this.luces_direccionales_delanteras));
         }
 
         if(this.luces_direccionales_traseras == 1){
-            this.resultados.add(new Resultado(false,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Izquierda fundida"));
+            this.resultados.add(new Resultado(false,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Izquierda fundida",this.luces_direccionales_traseras));
         } else if (this.luces_direccionales_traseras == 2) {
-            this.resultados.add(new Resultado(false,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Derecha fundida"));
+            this.resultados.add(new Resultado(false,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Derecha fundida",this.luces_direccionales_traseras));
         } else if (this.luces_direccionales_traseras == 3) {
-            this.resultados.add(new Resultado(false,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Ambas fundidas"));
+            this.resultados.add(new Resultado(false,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Ambas fundidas",this.luces_direccionales_traseras));
         }else{
-            this.resultados.add(new Resultado(true,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Aprobado"));
+            this.resultados.add(new Resultado(true,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Aprobado",this.luces_direccionales_traseras));
         }
 
         /*
@@ -674,23 +674,23 @@ public class Evaluacion implements Serializable {
             4 = aprobadas
         */
         if(this.luces_demarcadoras_delanteras == 1){
-            this.resultados.add(new Resultado(false,"Luces Demarcadoras Delanteras","Luces", "Ambas luces funcionan","Izquierda fundida"));
+            this.resultados.add(new Resultado(false,"Luces Demarcadoras Delanteras","Luces", "Ambas luces funcionan","Izquierda fundida",this.luces_demarcadoras_delanteras));
         } else if (this.luces_demarcadoras_delanteras == 2) {
-            this.resultados.add(new Resultado(false,"Luces Demarcadoras Delanteras","Luces", "Ambas luces funcionan","Derecha fundida"));
+            this.resultados.add(new Resultado(false,"Luces Demarcadoras Delanteras","Luces", "Ambas luces funcionan","Derecha fundida",this.luces_demarcadoras_delanteras));
         } else if (this.luces_demarcadoras_delanteras == 3) {
-            this.resultados.add(new Resultado(false,"Luces Demarcadoras Delanteras","Luces", "Ambas luces funcionan","Ambas fundidas"));
+            this.resultados.add(new Resultado(false,"Luces Demarcadoras Delanteras","Luces", "Ambas luces funcionan","Ambas fundidas",this.luces_demarcadoras_delanteras));
         }else{
-            this.resultados.add(new Resultado(true,"Luces Demarcadoras Delanteras","Luces", "Ambas luces funcionan","Aprobado"));
+            this.resultados.add(new Resultado(true,"Luces Demarcadoras Delanteras","Luces", "Ambas luces funcionan","Aprobado",this.luces_demarcadoras_delanteras));
         }
 
         if(this.luces_demarcadoras_traseras == 1){
-            this.resultados.add(new Resultado(false,"Luces Demarcadoras Traseras","Luces", "Ambas luces funcionan","Izquierda fundida"));
+            this.resultados.add(new Resultado(false,"Luces Demarcadoras Traseras","Luces", "Ambas luces funcionan","Izquierda fundida",this.luces_demarcadoras_traseras));
         } else if (this.luces_demarcadoras_traseras == 2) {
-            this.resultados.add(new Resultado(false,"Luces Demarcadoras Traseras","Luces", "Ambas luces funcionan","Derecha fundida"));
+            this.resultados.add(new Resultado(false,"Luces Demarcadoras Traseras","Luces", "Ambas luces funcionan","Derecha fundida",this.luces_demarcadoras_traseras));
         } else if (this.luces_demarcadoras_traseras == 3) {
-            this.resultados.add(new Resultado(false,"Luces Demarcadoras Traseras","Luces", "Ambas luces funcionan","Ambas fundidas"));
+            this.resultados.add(new Resultado(false,"Luces Demarcadoras Traseras","Luces", "Ambas luces funcionan","Ambas fundidas",this.luces_demarcadoras_traseras));
         }else{
-            this.resultados.add(new Resultado(true,"Luces Demarcadoras Traseras","Luces", "Ambas luces funcionan","Aprobado"));
+            this.resultados.add(new Resultado(true,"Luces Demarcadoras Traseras","Luces", "Ambas luces funcionan","Aprobado",this.luces_demarcadoras_traseras));
         }
 
         /*
@@ -701,33 +701,33 @@ public class Evaluacion implements Serializable {
             4 = aprobadas
         */
         if(this.luces_indicadoras == 1){
-            this.resultados.add(new Resultado(false,"Luces Indicadoras","Luces", "Todas las luces funcionan","1 fundida"));
+            this.resultados.add(new Resultado(false,"Luces Indicadoras","Luces", "Todas las luces funcionan","1 fundida",this.luces_indicadoras));
         } else if (this.luces_indicadoras == 2) {
-            this.resultados.add(new Resultado(false,"Luces Indicadoras","Luces", "Todas las luces funcionan","2 fundida"));
+            this.resultados.add(new Resultado(false,"Luces Indicadoras","Luces", "Todas las luces funcionan","2 fundida",this.luces_indicadoras));
         } else if (this.luces_indicadoras == 3) {
-            this.resultados.add(new Resultado(false,"Luces Indicadoras","Luces", "Todas las luces funcionan","3 fundidas"));
+            this.resultados.add(new Resultado(false,"Luces Indicadoras","Luces", "Todas las luces funcionan","3 fundidas",this.luces_indicadoras));
         }else{
-            this.resultados.add(new Resultado(true,"Luces Indicadoras","Luces", "Todas las luces funcionan","Aprobadas"));
+            this.resultados.add(new Resultado(true,"Luces Indicadoras","Luces", "Todas las luces funcionan","Aprobadas",this.luces_indicadoras));
         }
 
         //Direccionales
         if(this.luces_direccionales_delanteras == 1){
-            this.resultados.add(new Resultado(false,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Izquierda fundida"));
+            this.resultados.add(new Resultado(false,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Izquierda fundida",this.luces_direccionales_delanteras));
         } else if (this.luces_direccionales_delanteras == 2) {
-            this.resultados.add(new Resultado(false,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Derecha fundida"));
+            this.resultados.add(new Resultado(false,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Derecha fundida",this.luces_direccionales_delanteras));
         } else if (this.luces_direccionales_delanteras == 3) {
-            this.resultados.add(new Resultado(false,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Ambas fundidas"));
+            this.resultados.add(new Resultado(false,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Ambas fundidas",this.luces_direccionales_delanteras));
         }else{
-            this.resultados.add(new Resultado(true,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Aprobadas"));
+            this.resultados.add(new Resultado(true,"Luces Direccionales Delanteras","Luces", "Ambas luces funcionan","Aprobadas",this.luces_direccionales_delanteras));
         }
         if(this.luces_direccionales_traseras == 1){
-            this.resultados.add(new Resultado(false,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Izquierda fundida"));
+            this.resultados.add(new Resultado(false,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Izquierda fundida",this.luces_direccionales_traseras));
         } else if (this.luces_direccionales_traseras == 2) {
-            this.resultados.add(new Resultado(false,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Derecha fundida"));
+            this.resultados.add(new Resultado(false,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Derecha fundida",this.luces_direccionales_traseras));
         } else if (this.luces_direccionales_traseras == 3) {
-            this.resultados.add(new Resultado(false,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Ambas fundidas"));
+            this.resultados.add(new Resultado(false,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Ambas fundidas",this.luces_direccionales_traseras));
         }else{
-            this.resultados.add(new Resultado(true,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Aprobadas"));
+            this.resultados.add(new Resultado(true,"Luces Direccionales Traseras","Luces", "Ambas luces funcionan","Aprobadas",this.luces_direccionales_traseras));
         }
 
 
@@ -740,23 +740,23 @@ public class Evaluacion implements Serializable {
             4 = aprobados
         */
         if(this.llantas_rines_delanteros == 1){
-            this.resultados.add(new Resultado(false,"Rines Delanteros","Llantas", "Rines en buen estado","Derecho roto o soldado"));
+            this.resultados.add(new Resultado(false,"Rines Delanteros","Llantas", "Rines en buen estado","Derecho roto o soldado",this.llantas_rines_delanteros));
         } else if (this.llantas_rines_delanteros == 2) {
-            this.resultados.add(new Resultado(false,"Rines Delanteros","Llantas", "Rines en buen estado","Izquierdo roto o soldado"));
+            this.resultados.add(new Resultado(false,"Rines Delanteros","Llantas", "Rines en buen estado","Izquierdo roto o soldado",this.llantas_rines_delanteros));
         } else if (this.llantas_rines_delanteros == 3) {
-            this.resultados.add(new Resultado(false,"Rines Delanteros","Llantas", "Rines en buen estado","Ambos rotos o soldados"));
+            this.resultados.add(new Resultado(false,"Rines Delanteros","Llantas", "Rines en buen estado","Ambos rotos o soldados",this.llantas_rines_delanteros));
         }else{
-            this.resultados.add(new Resultado(true,"Rines Delanteros","Llantas", "Rines en buen estado","Aprobados"));
+            this.resultados.add(new Resultado(true,"Rines Delanteros","Llantas", "Rines en buen estado","Aprobados",this.llantas_rines_delanteros));
         }
 
         if(this.llantas_rines_traseros == 1){
-            this.resultados.add(new Resultado(false,"Rines Traseros","Llantas", "Rines en buen estado","Derecho roto o soldado"));
+            this.resultados.add(new Resultado(false,"Rines Traseros","Llantas", "Rines en buen estado","Derecho roto o soldado",this.llantas_rines_traseros));
         } else if (this.llantas_rines_traseros == 2) {
-            this.resultados.add(new Resultado(false,"Rines Traseros","Llantas", "Rines en buen estado","Izquierdo roto o soldado"));
+            this.resultados.add(new Resultado(false,"Rines Traseros","Llantas", "Rines en buen estado","Izquierdo roto o soldado",this.llantas_rines_traseros));
         } else if (this.llantas_rines_traseros == 3) {
-            this.resultados.add(new Resultado(false,"Rines Traseros","Llantas", "Rines en buen estado","Ambos rotos o soldados"));
+            this.resultados.add(new Resultado(false,"Rines Traseros","Llantas", "Rines en buen estado","Ambos rotos o soldados",this.llantas_rines_traseros));
         }else{
-            this.resultados.add(new Resultado(true,"Rines Traseros","Llantas", "Rines en buen estado","Aprobados"));
+            this.resultados.add(new Resultado(true,"Rines Traseros","Llantas", "Rines en buen estado","Aprobados",this.llantas_rines_traseros));
         }
 
         /*
@@ -767,23 +767,23 @@ public class Evaluacion implements Serializable {
             4 = aprobadas
         */
         if(this.llantas_masas_delanteras == 1){
-            this.resultados.add(new Resultado(false,"Masas Delanteras","Llantas", "Masas en buen estado","Derecha con fuga"));
+            this.resultados.add(new Resultado(false,"Masas Delanteras","Llantas", "Masas en buen estado","Derecha con fuga",this.llantas_masas_delanteras));
         } else if (this.llantas_masas_delanteras == 2) {
-            this.resultados.add(new Resultado(false,"Masas Delanteras","Llantas", "Masas en buen estado","Izquierda con fuga"));
+            this.resultados.add(new Resultado(false,"Masas Delanteras","Llantas", "Masas en buen estado","Izquierda con fuga",this.llantas_masas_delanteras));
         } else if (this.llantas_masas_delanteras == 3) {
-            this.resultados.add(new Resultado(false,"Masas Delanteras","Llantas", "Masas en buen estado","Ambas con fuga"));
+            this.resultados.add(new Resultado(false,"Masas Delanteras","Llantas", "Masas en buen estado","Ambas con fuga",this.llantas_masas_delanteras));
         }else{
-            this.resultados.add(new Resultado(true,"Masas Delanteras","Llantas", "Masas en buen estado","Aprobadas"));
+            this.resultados.add(new Resultado(true,"Masas Delanteras","Llantas", "Masas en buen estado","Aprobadas",this.llantas_masas_delanteras));
         }
 
         if(this.llantas_masas_traseras == 1){
-            this.resultados.add(new Resultado(false,"Masas Traseras","Llantas", "Masas en buen estado","Derecha con fuga"));
+            this.resultados.add(new Resultado(false,"Masas Traseras","Llantas", "Masas en buen estado","Derecha con fuga",this.llantas_masas_traseras));
         } else if (this.llantas_masas_traseras == 2) {
-            this.resultados.add(new Resultado(false,"Masas Traseras","Llantas", "Masas en buen estado","Izquierda con fuga"));
+            this.resultados.add(new Resultado(false,"Masas Traseras","Llantas", "Masas en buen estado","Izquierda con fuga",this.llantas_masas_traseras));
         } else if (this.llantas_masas_traseras == 3) {
-            this.resultados.add(new Resultado(false,"Masas Traseras","Llantas", "Masas en buen estado","Ambas con fuga"));
+            this.resultados.add(new Resultado(false,"Masas Traseras","Llantas", "Masas en buen estado","Ambas con fuga",this.llantas_masas_traseras));
         }else{
-            this.resultados.add(new Resultado(true,"Masas Traseras","Llantas", "Masas en buen estado","Aprobadas"));
+            this.resultados.add(new Resultado(true,"Masas Traseras","Llantas", "Masas en buen estado","Aprobadas",this.llantas_masas_traseras));
         }
 
         /*
@@ -791,34 +791,34 @@ public class Evaluacion implements Serializable {
             minimo 70
         */
         if(this.llantas_presion_delantera_izquierda >= 80){
-            this.resultados.add(new Resultado(true,"Presión Delantera Izquierda","Llantas", "La presión es igual o mayor a 80 PSI", "Obtuvo: " + this.llantas_presion_delantera_izquierda +" PSI"));
+            this.resultados.add(new Resultado(true,"Presión Delantera Izquierda","Llantas", "La presión es igual o mayor a 80 PSI", "Obtuvo: " + this.llantas_presion_delantera_izquierda +" PSI",this.llantas_presion_delantera_izquierda));
         }else{
-            this.resultados.add(new Resultado(false,"Presión Delantera Izquierda","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_delantera_izquierda +" PSI"));
+            this.resultados.add(new Resultado(false,"Presión Delantera Izquierda","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_delantera_izquierda +" PSI",this.llantas_presion_delantera_izquierda));
         }
         if(this.llantas_presion_delantera_derecha >= 80){
-            this.resultados.add(new Resultado(true,"Presión Delantera Derecha","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_delantera_derecha +" PSI"));
+            this.resultados.add(new Resultado(true,"Presión Delantera Derecha","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_delantera_derecha +" PSI",this.llantas_presion_delantera_derecha));
         }else{
-            this.resultados.add(new Resultado(false,"Presión Delantera Derecha","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_delantera_derecha +" PSI"));
+            this.resultados.add(new Resultado(false,"Presión Delantera Derecha","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_delantera_derecha +" PSI",this.llantas_presion_delantera_derecha));
         }
         if(this.llantas_presion_trasera_izquierda_1 >= 80){
-            this.resultados.add(new Resultado(true,"Presión Trasera Izquierda 1","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_izquierda_1 +" PSI"));
+            this.resultados.add(new Resultado(true,"Presión Trasera Izquierda 1","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_izquierda_1 +" PSI",this.llantas_presion_trasera_izquierda_1));
         }else{
-            this.resultados.add(new Resultado(false,"Presión Trasera Izquierda 1","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_izquierda_1 +" PSI"));
+            this.resultados.add(new Resultado(false,"Presión Trasera Izquierda 1","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_izquierda_1 +" PSI",this.llantas_presion_trasera_izquierda_1));
         }
         if(this.llantas_presion_trasera_izquierda_2 >= 80){
-            this.resultados.add(new Resultado(true,"Presión Trasera Izquierda 2","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_izquierda_2 +" PSI"));
+            this.resultados.add(new Resultado(true,"Presión Trasera Izquierda 2","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_izquierda_2 +" PSI",this.llantas_presion_trasera_izquierda_2));
         }else{
-            this.resultados.add(new Resultado(false,"Presión Trasera Izquierda 2","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_izquierda_2 +" PSI"));
+            this.resultados.add(new Resultado(false,"Presión Trasera Izquierda 2","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_izquierda_2 +" PSI", this.llantas_presion_trasera_izquierda_2));
         }
         if(this.llantas_presion_trasera_derecha_1 >= 80){
-            this.resultados.add(new Resultado(true,"Presión Trasera Derecha 1","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_derecha_1 +" PSI"));
+            this.resultados.add(new Resultado(true,"Presión Trasera Derecha 1","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_derecha_1 +" PSI",this.llantas_presion_trasera_derecha_1));
         }else{
-            this.resultados.add(new Resultado(false,"Presión Trasera Derecha 1","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_derecha_1 +" PSI"));
+            this.resultados.add(new Resultado(false,"Presión Trasera Derecha 1","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_derecha_1 +" PSI",this.llantas_presion_trasera_derecha_1));
         }
         if(this.llantas_presion_trasera_derecha_2 >= 80){
-            this.resultados.add(new Resultado(true,"Presión Trasera Derecha 2","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_derecha_2 +" PSI"));
+            this.resultados.add(new Resultado(true,"Presión Trasera Derecha 2","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_derecha_2 +" PSI",this.llantas_presion_trasera_derecha_2));
         }else{
-            this.resultados.add(new Resultado(false,"Presión Trasera Derecha 2","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_derecha_2 +" PSI"));
+            this.resultados.add(new Resultado(false,"Presión Trasera Derecha 2","Llantas", "La presión es igual o mayor a 80 PSI","Obtuvo: " + this.llantas_presion_trasera_derecha_2 +" PSI",this.llantas_presion_trasera_derecha_2));
         }
 
         /*
@@ -827,34 +827,34 @@ public class Evaluacion implements Serializable {
         minima trasera 1.6 mm
         */
         if(this.llantas_profundidad_delantera_izquierda >= 3.2){
-            this.resultados.add(new Resultado(true,"Profundidad Delantera Izquierda","Llantas", "La profundidad es igual o mayor a 3.2 milímetros","Obtuvo: " + this.llantas_profundidad_delantera_izquierda + " mm"));
+            this.resultados.add(new Resultado(true,"Profundidad Delantera Izquierda","Llantas", "La profundidad es igual o mayor a 3.2 milímetros","Obtuvo: " + this.llantas_profundidad_delantera_izquierda + " mm",1));
         }else{
-            this.resultados.add(new Resultado(false,"Profundidad Delantera Izquierda","Llantas", "La profundidad es igual o mayor a 3.2 milímetros","Obtuvo: " + this.llantas_profundidad_delantera_izquierda + " mm"));
+            this.resultados.add(new Resultado(false,"Profundidad Delantera Izquierda","Llantas", "La profundidad es igual o mayor a 3.2 milímetros","Obtuvo: " + this.llantas_profundidad_delantera_izquierda + " mm",1));
         }
         if(this.llantas_profundidad_delantera_derecha >= 3.2){
-            this.resultados.add(new Resultado(true,"Profundidad Delantera Derecha","Llantas", "La profundidad es igual o mayor a 3.2 milímetros","Obtuvo: " + this.llantas_profundidad_delantera_derecha + " mm"));
+            this.resultados.add(new Resultado(true,"Profundidad Delantera Derecha","Llantas", "La profundidad es igual o mayor a 3.2 milímetros","Obtuvo: " + this.llantas_profundidad_delantera_derecha + " mm",1));
         }else{
-            this.resultados.add(new Resultado(false,"Profundidad Delantera Derecha","Llantas", "La profundidad es igual o mayor a 3.2 milímetros","Obtuvo: " + this.llantas_profundidad_delantera_derecha + " mm"));
+            this.resultados.add(new Resultado(false,"Profundidad Delantera Derecha","Llantas", "La profundidad es igual o mayor a 3.2 milímetros","Obtuvo: " + this.llantas_profundidad_delantera_derecha + " mm",1));
         }
         if(this.llantas_profundidad_trasera_izquierda_1 >= 1.6){
-            this.resultados.add(new Resultado(true,"Profundidad Trasera Izquierda 1","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_izquierda_1 + " mm"));
+            this.resultados.add(new Resultado(true,"Profundidad Trasera Izquierda 1","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_izquierda_1 + " mm",1));
         }else{
-            this.resultados.add(new Resultado(false,"Profundidad Trasera Izquierda 1","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_izquierda_1 + " mm"));
+            this.resultados.add(new Resultado(false,"Profundidad Trasera Izquierda 1","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_izquierda_1 + " mm",1));
         }
         if(this.llantas_profundidad_trasera_izquierda_2 >= 1.6){
-            this.resultados.add(new Resultado(true,"Profundidad Trasera Izquierda 2","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_izquierda_2 + " mm"));
+            this.resultados.add(new Resultado(true,"Profundidad Trasera Izquierda 2","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_izquierda_2 + " mm",1));
         }else{
-            this.resultados.add(new Resultado(false,"Profundidad Trasera Izquierda 2","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_izquierda_2 + " mm"));
+            this.resultados.add(new Resultado(false,"Profundidad Trasera Izquierda 2","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_izquierda_2 + " mm",1));
         }
         if(this.llantas_profundidad_trasera_derecha_1 >= 1.6){
-            this.resultados.add(new Resultado(true,"Profundidad Trasera Derecha 1","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_derecha_1 + " mm"));
+            this.resultados.add(new Resultado(true,"Profundidad Trasera Derecha 1","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_derecha_1 + " mm",1));
         }else{
-            this.resultados.add(new Resultado(false,"Profundidad Trasera Derecha 1","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_derecha_1 + " mm"));
+            this.resultados.add(new Resultado(false,"Profundidad Trasera Derecha 1","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_derecha_1 + " mm",1));
         }
         if(this.llantas_profundidad_trasera_derecha_2 >= 1.6){
-            this.resultados.add(new Resultado(true,"Profundidad Trasera Derecha 2","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_derecha_2 + " mm"));
+            this.resultados.add(new Resultado(true,"Profundidad Trasera Derecha 2","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_derecha_2 + " mm",1));
         }else{
-            this.resultados.add(new Resultado(false,"Profundidad Trasera Derecha 2","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_derecha_2 + " mm"));
+            this.resultados.add(new Resultado(false,"Profundidad Trasera Derecha 2","Llantas", "La profundidad es igual o mayor a 1.6 milímetros","Obtuvo: " + this.llantas_profundidad_trasera_derecha_2 + " mm",1));
         }
 
         /*
@@ -864,79 +864,79 @@ public class Evaluacion implements Serializable {
         en caso de que sea 2 significa aprobados
         */
         if(this.llantas_birlos_delantera_izquierda == 2){
-            this.resultados.add(new Resultado(true,"Birlos Delantera Izquierda","Llantas", "Al menos 8 birlos en buen estado", "Obtuvo: " + this.llantas_birlos_delantera_izquierda_num + " birlos rotos o faltantes"));
+            this.resultados.add(new Resultado(true,"Birlos Delantera Izquierda","Llantas", "Al menos 8 birlos en buen estado", "Obtuvo: " + this.llantas_birlos_delantera_izquierda_num + " birlos rotos o faltantes",this.llantas_birlos_delantera_izquierda));
         }else{
             if(this.llantas_birlos_delantera_izquierda_num > 2){
-                this.resultados.add(new Resultado(false,"Birlos Delantera Izquierda","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_delantera_izquierda_num + " birlos rotos o faltantes"));
+                this.resultados.add(new Resultado(false,"Birlos Delantera Izquierda","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_delantera_izquierda_num + " birlos rotos o faltantes",this.llantas_birlos_delantera_izquierda_num));
             }else {
-                this.resultados.add(new Resultado(true,"Birlos Delantera Izquierda","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_delantera_izquierda_num + " birlos rotos o faltantes"));
+                this.resultados.add(new Resultado(true,"Birlos Delantera Izquierda","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_delantera_izquierda_num + " birlos rotos o faltantes",this.llantas_birlos_delantera_izquierda_num));
             }
         }
         if(this.llantas_birlos_delantera_derecha == 2){
-            this.resultados.add(new Resultado(true,"Birlos Delantera Derecha","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_delantera_derecha_num + " birlos rotos o faltantes"));
+            this.resultados.add(new Resultado(true,"Birlos Delantera Derecha","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_delantera_derecha_num + " birlos rotos o faltantes",this.llantas_birlos_delantera_derecha));
         }else{
             if(this.llantas_birlos_delantera_derecha_num > 2){
-                this.resultados.add(new Resultado(false,"Birlos Delantera Derecha","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_delantera_derecha_num + " birlos rotos o faltantes"));
+                this.resultados.add(new Resultado(false,"Birlos Delantera Derecha","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_delantera_derecha_num + " birlos rotos o faltantes",this.llantas_birlos_delantera_derecha_num));
             }else {
-                this.resultados.add(new Resultado(true,"Birlos Delantera Derecha","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_delantera_derecha_num + " birlos rotos o faltantes"));
+                this.resultados.add(new Resultado(true,"Birlos Delantera Derecha","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_delantera_derecha_num + " birlos rotos o faltantes",this.llantas_birlos_delantera_derecha_num));
             }
         }
 
         if(this.llantas_birlos_trasera_izquierda == 2){
-            this.resultados.add(new Resultado(true,"Birlos Trasera Izquierda","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_trasera_izquierda_num + " birlos rotos o faltantes"));
+            this.resultados.add(new Resultado(true,"Birlos Trasera Izquierda","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_trasera_izquierda_num + " birlos rotos o faltantes", this.llantas_birlos_trasera_izquierda));
         }else{
             if(this.llantas_birlos_trasera_izquierda_num > 2){
-                this.resultados.add(new Resultado(false,"Birlos Trasera Izquierda","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_trasera_izquierda_num + " birlos rotos o faltantes"));
+                this.resultados.add(new Resultado(false,"Birlos Trasera Izquierda","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_trasera_izquierda_num + " birlos rotos o faltantes",this.llantas_birlos_trasera_izquierda_num));
             }else {
-                this.resultados.add(new Resultado(true,"Birlos Trasera Izquierda","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_trasera_izquierda_num + " birlos rotos o faltantes"));
+                this.resultados.add(new Resultado(true,"Birlos Trasera Izquierda","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_trasera_izquierda_num + " birlos rotos o faltantes", this.llantas_birlos_trasera_izquierda_num));
             }
         }
         if(this.llantas_birlos_trasera_derecha == 2){
-            this.resultados.add(new Resultado(true,"Birlos Trasera Derecha","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_trasera_derecha_num + " birlos rotos o faltantes"));
+            this.resultados.add(new Resultado(true,"Birlos Trasera Derecha","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_trasera_derecha_num + " birlos rotos o faltantes", this.llantas_birlos_trasera_derecha));
         }else{
             if(this.llantas_birlos_trasera_derecha_num > 2){
-                this.resultados.add(new Resultado(false,"Birlos Trasera Derecha","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_trasera_derecha_num + " birlos rotos o faltantes"));
+                this.resultados.add(new Resultado(false,"Birlos Trasera Derecha","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_trasera_derecha_num + " birlos rotos o faltantes",this.llantas_birlos_trasera_derecha_num));
             }else {
-                this.resultados.add(new Resultado(true,"Birlos Trasera Derecha","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_trasera_derecha_num + " birlos rotos o faltantes"));
+                this.resultados.add(new Resultado(true,"Birlos Trasera Derecha","Llantas", "Al menos 8 birlos en buen estado","Obtuvo: " + this.llantas_birlos_trasera_derecha_num + " birlos rotos o faltantes", this.llantas_birlos_trasera_derecha_num));
             }
         }
 
         //Tuercas
         if(this.llantas_tuercas_delantera_izquierda == 2){
-            this.resultados.add(new Resultado(true,"Tuercas Delantera Izquierda","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_delantera_izquierda_num + " tuercas rotas o faltantes"));
+            this.resultados.add(new Resultado(true,"Tuercas Delantera Izquierda","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_delantera_izquierda_num + " tuercas rotas o faltantes",this.llantas_tuercas_delantera_izquierda));
         }else{
             if(this.llantas_tuercas_delantera_izquierda_num > 2){
-                this.resultados.add(new Resultado(false,"Tuercas Delantera Izquierda","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_delantera_izquierda_num + " tuercas rotas o faltantes"));
+                this.resultados.add(new Resultado(false,"Tuercas Delantera Izquierda","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_delantera_izquierda_num + " tuercas rotas o faltantes",this.llantas_birlos_delantera_izquierda_num));
             }else {
-                this.resultados.add(new Resultado(true,"Tuercas Delantera Izquierda","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_delantera_izquierda_num + " tuercas rotas o faltantes"));
+                this.resultados.add(new Resultado(true,"Tuercas Delantera Izquierda","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_delantera_izquierda_num + " tuercas rotas o faltantes",this.llantas_birlos_delantera_izquierda_num));
             }
         }
         if(this.llantas_tuercas_delantera_derecha == 2){
-            this.resultados.add(new Resultado(true,"Tuercas Delantera Derecha","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_delantera_derecha_num + " tuercas rotas o faltantes"));
+            this.resultados.add(new Resultado(true,"Tuercas Delantera Derecha","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_delantera_derecha_num + " tuercas rotas o faltantes",this.llantas_tuercas_delantera_derecha));
         }else{
             if(this.llantas_tuercas_delantera_derecha_num > 2){
-                this.resultados.add(new Resultado(false,"Tuercas Delantera Derecha","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_delantera_derecha_num + " tuercas rotas o faltantes"));
+                this.resultados.add(new Resultado(false,"Tuercas Delantera Derecha","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_delantera_derecha_num + " tuercas rotas o faltantes",this.llantas_birlos_delantera_derecha_num));
             }else {
-                this.resultados.add(new Resultado(true,"Tuercas Delantera Derecha","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_delantera_derecha_num + " tuercas rotas o faltantes"));
+                this.resultados.add(new Resultado(true,"Tuercas Delantera Derecha","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_delantera_derecha_num + " tuercas rotas o faltantes",this.llantas_birlos_delantera_derecha_num));
             }
         }
 
         if(this.llantas_tuercas_trasera_izquierda == 2){
-            this.resultados.add(new Resultado(true,"Tuercas Trasera Izquierda","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_trasera_izquierda_num + " tuercas rotas o faltantes"));
+            this.resultados.add(new Resultado(true,"Tuercas Trasera Izquierda","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_trasera_izquierda_num + " tuercas rotas o faltantes",this.llantas_tuercas_trasera_izquierda));
         }else{
             if(this.llantas_tuercas_trasera_izquierda_num > 2){
-                this.resultados.add(new Resultado(false,"Tuercas Trasera Izquierda","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_trasera_izquierda_num + " tuercas rotas o faltantes"));
+                this.resultados.add(new Resultado(false,"Tuercas Trasera Izquierda","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_trasera_izquierda_num + " tuercas rotas o faltantes",this.llantas_tuercas_trasera_izquierda_num));
             }else {
-                this.resultados.add(new Resultado(true,"Tuercas Trasera Izquierda","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_trasera_izquierda_num + " tuercas rotas o faltantes"));
+                this.resultados.add(new Resultado(true,"Tuercas Trasera Izquierda","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_trasera_izquierda_num + " tuercas rotas o faltantes",this.llantas_tuercas_trasera_izquierda_num));
             }
         }
         if(this.llantas_tuercas_trasera_derecha == 2){
-            this.resultados.add(new Resultado(true,"Tuercas Trasera Derecha","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_trasera_derecha_num + " tuercas rotas o faltantes"));
+            this.resultados.add(new Resultado(true,"Tuercas Trasera Derecha","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_trasera_derecha_num + " tuercas rotas o faltantes",this.llantas_tuercas_trasera_derecha));
         }else{
             if(this.llantas_tuercas_trasera_derecha_num > 2){
-                this.resultados.add(new Resultado(false,"Tuercas Trasera Derecha","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_trasera_derecha_num + " tuercas rotas o faltantes"));
+                this.resultados.add(new Resultado(false,"Tuercas Trasera Derecha","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_trasera_derecha_num + " tuercas rotas o faltantes",this.llantas_tuercas_trasera_derecha_num));
             }else {
-                this.resultados.add(new Resultado(true,"Tuercas Trasera Derecha","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_trasera_derecha_num + " tuercas rotas o faltantes"));
+                this.resultados.add(new Resultado(true,"Tuercas Trasera Derecha","Llantas", "Al menos 8 tuercas en buen estado", "Obtuvo: " + this.llantas_birlos_trasera_derecha_num + " tuercas rotas o faltantes",this.llantas_tuercas_trasera_derecha_num));
             }
         }
 
@@ -947,14 +947,14 @@ public class Evaluacion implements Serializable {
             2 = Aprobado
         */
         if(this.caja_direccion == 1){
-            this.resultados.add(new Resultado(false,"Caja de Dirección", "Otros", "Caja en buen estado", "Fuga de aceite"));
+            this.resultados.add(new Resultado(false,"Caja de Dirección", "Otros", "Caja en buen estado", "Fuga de aceite",this.caja_direccion));
         }else{
-            this.resultados.add(new Resultado(true,"Caja de Dirección","Otros", "Caja en buen estado","Aprobada"));
+            this.resultados.add(new Resultado(true,"Caja de Dirección","Otros", "Caja en buen estado","Aprobada",this.caja_direccion));
         }
         if(this.deposito_aceite == 1){
-            this.resultados.add(new Resultado(false,"Deposito de Aceite", "Otros", "Deposito en buen estado","Fuga de aceite"));
+            this.resultados.add(new Resultado(false,"Deposito de Aceite", "Otros", "Deposito en buen estado","Fuga de aceite",this.deposito_aceite));
         }else{
-            this.resultados.add(new Resultado(true,"Deposito de Aceite","Otros", "Deposito en buen estado","Aprobado"));
+            this.resultados.add(new Resultado(true,"Deposito de Aceite","Otros", "Deposito en buen estado","Aprobado",this.deposito_aceite));
         }
 
         /*
@@ -963,9 +963,9 @@ public class Evaluacion implements Serializable {
             2 = Estrellado
         */
         if(this.parabrisas == 2){
-            this.resultados.add(new Resultado(false,"Parabrisas", "Otros", "Parabrisas en buen estado","Estrellado"));
+            this.resultados.add(new Resultado(false,"Parabrisas", "Otros", "Parabrisas en buen estado","Estrellado",this.parabrisas));
         }else{
-            this.resultados.add(new Resultado(true,"Parabrisas","Otros", "Parabrisas en buen estado","Aprobado"));
+            this.resultados.add(new Resultado(true,"Parabrisas","Otros", "Parabrisas en buen estado","Aprobado",this.parabrisas));
         }
 
 
@@ -977,13 +977,13 @@ public class Evaluacion implements Serializable {
             4 = Faltan 2 plumas
         */
         if(this.limpiaparabrisas == 4){
-            this.resultados.add(new Resultado(false,"Limpia Parabrisas", "Otros", "Limpia parabrisas en buen estado","Faltan 2 plumas"));
+            this.resultados.add(new Resultado(false,"Limpia Parabrisas", "Otros", "Limpia parabrisas en buen estado","Faltan 2 plumas",this.limpiaparabrisas));
         } else if (this.limpiaparabrisas == 3) {
-            this.resultados.add(new Resultado(false,"Limpia Parabrisas", "Otros", "Limpia parabrisas en buen estado","Falta 1 pluma"));
+            this.resultados.add(new Resultado(false,"Limpia Parabrisas", "Otros", "Limpia parabrisas en buen estado","Falta 1 pluma",this.limpiaparabrisas));
         } else if (this.limpiaparabrisas == 2) {
-            this.resultados.add(new Resultado(false,"Limpia Parabrisas", "Otros", "Limpia parabrisas en buen estado","No funciona"));
+            this.resultados.add(new Resultado(false,"Limpia Parabrisas", "Otros", "Limpia parabrisas en buen estado","No funciona",this.limpiaparabrisas));
         }else{
-            this.resultados.add(new Resultado(true,"Limpia Parabrisas","Otros", "Limpia parabrisas en buen estado","Aprobado"));
+            this.resultados.add(new Resultado(true,"Limpia Parabrisas","Otros", "Limpia parabrisas en buen estado","Aprobado",this.limpiaparabrisas));
         }
 
         /*
@@ -992,9 +992,9 @@ public class Evaluacion implements Serializable {
             2 = cuanto
         */
         if(this.huelgo == 1){
-            this.resultados.add(new Resultado(true,"Huelgo","Otros", "Huelgo en buen estado","Aprobado"));
+            this.resultados.add(new Resultado(true,"Huelgo","Otros", "Huelgo en buen estado","Aprobado",this.huelgo));
         }else{
-            this.resultados.add(new Resultado(false,"Huelgo","Otros", "Huelgo en buen estado","Obtuvo: " + this.huelgo_cuanto));
+            this.resultados.add(new Resultado(false,"Huelgo","Otros", "Huelgo en buen estado","Obtuvo: " + this.huelgo_cuanto, this.huelgo));
         }
 
          /*
@@ -1003,9 +1003,9 @@ public class Evaluacion implements Serializable {
             2 = Aprobado
         */
         if(this.humo == 1){
-            this.resultados.add(new Resultado(false,"Humo","Otros", "Humo en buen estado","No Aprobado"));
+            this.resultados.add(new Resultado(false,"Humo","Otros", "Humo en buen estado","No Aprobado",this.humo));
         }else{
-            this.resultados.add(new Resultado(true,"Humo","Otros", "Humo en buen estado","Aprobado"));
+            this.resultados.add(new Resultado(true,"Humo","Otros", "Humo en buen estado","Aprobado",this.humo));
         }
 
         /*
@@ -1014,9 +1014,9 @@ public class Evaluacion implements Serializable {
             2 = Aprobado
         */
         if(this.gobernado == 1){
-            this.resultados.add(new Resultado(false,"Governado","Otros", "Governado en buen estado","No Aprobado"));
+            this.resultados.add(new Resultado(false,"Governado","Otros", "Governado en buen estado","No Aprobado",this.gobernado));
         }else{
-            this.resultados.add(new Resultado(true,"Governado","Otros", "Governado en buen estado","Aprobado"));
+            this.resultados.add(new Resultado(true,"Governado","Otros", "Governado en buen estado","Aprobado", this.gobernado));
         }
 
         /*
@@ -1026,11 +1026,11 @@ public class Evaluacion implements Serializable {
             3 = Roto
         */
         if(this.escape == 3){
-            this.resultados.add(new Resultado(false,"Escape", "Otros", "Escape en buen estado","Roto"));
+            this.resultados.add(new Resultado(false,"Escape", "Otros", "Escape en buen estado","Roto",this.escape));
         } else if (this.limpiaparabrisas == 2) {
-            this.resultados.add(new Resultado(false,"Escape", "Otros", "Escape en buen estado","Faltante"));
+            this.resultados.add(new Resultado(false,"Escape", "Otros", "Escape en buen estado","Faltante",this.escape));
         } else{
-            this.resultados.add(new Resultado(true,"Escape","Otros", "Escape en buen estado","Aprobado"));
+            this.resultados.add(new Resultado(true,"Escape","Otros", "Escape en buen estado","Aprobado",this.escape));
         }
 
         /*
@@ -1043,17 +1043,17 @@ public class Evaluacion implements Serializable {
             if(this.tiempo_de_carga_tiempo > 2.0){
                 this.resultados.add(new Resultado(false,"Tiempo de carga", "Otros",
                         "Entre 70 y 120 PSI y tiempo de carga máximo de 2 minutos",
-                        "PSI: " + this.tiempo_de_carga_psi + "\n Tiempo de carga: " + this.tiempo_de_carga_tiempo + " minutos"));
+                        "PSI: " + this.tiempo_de_carga_psi + "\n Tiempo de carga: " + this.tiempo_de_carga_tiempo + " minutos", 1));
             }
         }else{
             if(this.tiempo_de_carga_tiempo > 2.0){
                 this.resultados.add(new Resultado(false,"Tiempo de carga", "Otros",
                         "Entre 70 y 120 PSI y tiempo de carga máximo de 2 minutos",
-                        "PSI: " + this.tiempo_de_carga_psi + "\n Tiempo de carga: " + this.tiempo_de_carga_tiempo + " minutos"));
+                        "PSI: " + this.tiempo_de_carga_psi + "\n Tiempo de carga: " + this.tiempo_de_carga_tiempo + " minutos", 1));
             }else{
                 this.resultados.add(new Resultado(true,"Tiempo de carga", "Otros",
                         "Entre 70 y 120 PSI y tiempo de carga máximo de 2 minutos",
-                        "PSI y tiempo de carga en minutos correctos"));
+                        "PSI y tiempo de carga en minutos correctos", 1));
             }
         }
 
@@ -1064,9 +1064,9 @@ public class Evaluacion implements Serializable {
             2 = Aprobado
         */
         if(this.tanques_de_aire == 1){
-            this.resultados.add(new Resultado(false,"Tanques de aire","Otros", "Tanque de aire en buen estado","No Aprobado (Con agua)"));
+            this.resultados.add(new Resultado(false,"Tanques de aire","Otros", "Tanque de aire en buen estado","No Aprobado (Con agua)",this.tanques_de_aire));
         }else{
-            this.resultados.add(new Resultado(true,"Tanques de aire","Otros", "Tanque de aire en buen estado","Aprobado"));
+            this.resultados.add(new Resultado(true,"Tanques de aire","Otros", "Tanque de aire en buen estado","Aprobado",this.tanques_de_aire));
         }
 
         /*
@@ -1076,11 +1076,11 @@ public class Evaluacion implements Serializable {
             3 = Aprobado
         */
         if(this.compresor == 1){
-            this.resultados.add(new Resultado(false,"Compresor","Otros", "Compresor en buen estado","No corta (No aprobado)"));
+            this.resultados.add(new Resultado(false,"Compresor","Otros", "Compresor en buen estado","No corta (No aprobado)",this.compresor));
         }else if(this.compresor == 2){
-            this.resultados.add(new Resultado(false,"Compresor","Otros", "Compresor en buen estado","No Aprobado"));
+            this.resultados.add(new Resultado(false,"Compresor","Otros", "Compresor en buen estado","No Aprobado",this.compresor));
         } else {
-            this.resultados.add(new Resultado(true,"Compresor","Otros", "Compresor en buen estado","Aprobado"));
+            this.resultados.add(new Resultado(true,"Compresor","Otros", "Compresor en buen estado","Aprobado",this.compresor));
         }
 
         /*
@@ -1090,18 +1090,18 @@ public class Evaluacion implements Serializable {
             3 = Aprobado
         */
         if(this.faro_derecho == 1){
-            this.resultados.add(new Resultado(false,"Faro derecho","Otros", "Faro derecho en buen estado","Flojo (No aprobado)"));
+            this.resultados.add(new Resultado(false,"Faro derecho","Otros", "Faro derecho en buen estado","Flojo (No aprobado)",this.faro_derecho));
         }else if(this.faro_derecho == 2){
-            this.resultados.add(new Resultado(false,"Faro derecho","Otros", "Faro derecho en buen estado","Roto (No Aprobado)"));
+            this.resultados.add(new Resultado(false,"Faro derecho","Otros", "Faro derecho en buen estado","Roto (No Aprobado)",this.faro_derecho));
         } else {
-            this.resultados.add(new Resultado(true,"Faro derecho","Otros", "Faro derecho en buen estado","Aprobado"));
+            this.resultados.add(new Resultado(true,"Faro derecho","Otros", "Faro derecho en buen estado","Aprobado", this.faro_derecho));
         }
         if(this.faro_izquierdo == 1){
-            this.resultados.add(new Resultado(false,"Faro izquierdo","Otros", "Faro izquierdo en buen estado","Flojo (No aprobado)"));
+            this.resultados.add(new Resultado(false,"Faro izquierdo","Otros", "Faro izquierdo en buen estado","Flojo (No aprobado)",this.faro_izquierdo));
         }else if(this.faro_izquierdo == 2){
-            this.resultados.add(new Resultado(false,"Faro izquierdo","Otros", "Faro izquierdo en buen estado","Roto (No Aprobado)"));
+            this.resultados.add(new Resultado(false,"Faro izquierdo","Otros", "Faro izquierdo en buen estado","Roto (No Aprobado)",this.faro_izquierdo));
         } else {
-            this.resultados.add(new Resultado(true,"Faro izquierdo","Otros", "Faro izquierdo en buen estado","Aprobado"));
+            this.resultados.add(new Resultado(true,"Faro izquierdo","Otros", "Faro izquierdo en buen estado","Aprobado",this.faro_izquierdo));
         }
 
         /*
@@ -1110,9 +1110,9 @@ public class Evaluacion implements Serializable {
             2 = Aprobado
         */
         if(this.brazo_pitman == 1){
-            this.resultados.add(new Resultado(false,"Brazo Pitman","Otros", "Brazo Pitman en buen estado","Golpeado (No aprobado)"));
+            this.resultados.add(new Resultado(false,"Brazo Pitman","Otros", "Brazo Pitman en buen estado","Golpeado (No aprobado)", this.brazo_pitman));
         } else {
-            this.resultados.add(new Resultado(true,"Brazo Pitman","Otros", "Brazo Pitman en buen estado","Aprobado"));
+            this.resultados.add(new Resultado(true,"Brazo Pitman","Otros", "Brazo Pitman en buen estado","Aprobado",this.brazo_pitman));
         }
 
         /*
@@ -1122,11 +1122,11 @@ public class Evaluacion implements Serializable {
             3 = Aprobadas
         */
         if(this.manijas_de_puertas == 1){
-            this.resultados.add(new Resultado(false,"Manijas de puertas","Otros", "Manijas de puertas en buen estado","1 rota (No aprobado)"));
+            this.resultados.add(new Resultado(false,"Manijas de puertas","Otros", "Manijas de puertas en buen estado","1 rota (No aprobado)", this.manijas_de_puertas));
         } else if(this.manijas_de_puertas == 2) {
-            this.resultados.add(new Resultado(false,"Manijas de puertas","Otros", "Manijas de puertas en buen estado","2 rotas (No aprobado)"));
+            this.resultados.add(new Resultado(false,"Manijas de puertas","Otros", "Manijas de puertas en buen estado","2 rotas (No aprobado)",this.manijas_de_puertas));
         } else {
-            this.resultados.add(new Resultado(true,"Manijas de puertas","Otros", "Manijas de puertas en buen estado","Aprobadas"));
+            this.resultados.add(new Resultado(true,"Manijas de puertas","Otros", "Manijas de puertas en buen estado","Aprobadas",this.manijas_de_puertas));
         }
 
         /*
@@ -1135,9 +1135,9 @@ public class Evaluacion implements Serializable {
             2 = cuanto
         */
         if(this.chavetas == 1){
-            this.resultados.add(new Resultado(true,"Chavetas","Otros", "Chavetas en buen estado","Aprobadas"));
+            this.resultados.add(new Resultado(true,"Chavetas","Otros", "Chavetas en buen estado","Aprobadas",this.chavetas));
         }else{
-            this.resultados.add(new Resultado(false,"Chavetas","Otros", "Chavetas en buen estado","Obtuvo: " + this.chavetas_cuanto));
+            this.resultados.add(new Resultado(false,"Chavetas","Otros", "Chavetas en buen estado","Faltan: " + this.chavetas_cuanto + " chavetas (No aprobado)",this.chavetas));
         }
 
 

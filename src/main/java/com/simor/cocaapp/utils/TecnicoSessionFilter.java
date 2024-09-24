@@ -48,7 +48,7 @@ public class TecnicoSessionFilter implements Filter {
         // Check if the user is an admin(assuming isAdmin is a boolean session attribute)
         boolean isTecnico = false;
         if(session != null){
-            isTecnico = session.getAttribute("tipoSesion").equals("tecnico");
+            isTecnico = session.getAttribute("tipoSesion").equals("tecnico") || session.getAttribute("tipoSesion").equals("admin");
         }
 
         if (isTecnico) {

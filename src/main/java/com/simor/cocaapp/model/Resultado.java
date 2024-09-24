@@ -6,16 +6,18 @@ public class Resultado {
     private String categoria;
     private String apruebaCon;
     private String resultado;
+    private int valor;
 
     public Resultado() {
     }
 
-    public Resultado(boolean aprobado, String elemento, String categoria, String apruebaCon, String resultado) {
+    public Resultado(boolean aprobado, String elemento, String categoria, String apruebaCon, String resultado, int valor) {
         this.aprobado = aprobado;
         this.elemento = elemento;
         this.categoria = categoria;
         this.apruebaCon = apruebaCon;
         this.resultado = resultado;
+        this.valor = valor;
     }
 
     public boolean isAprobado() {
@@ -48,6 +50,15 @@ public class Resultado {
 
     public void setElemento(String elemento) {
         this.elemento = elemento;
+    }
+
+
+    public int getValor() {
+        return valor;
+    }
+
+    public void setValor(int valor) {
+        this.valor = valor;
     }
 
     public String getApruebaCon() {

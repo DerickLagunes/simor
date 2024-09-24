@@ -52,20 +52,9 @@
                             <tbody>
                                 <% int i = 1; %>
                                 <c:forEach items="${resultados}" var="r">
-                                    <c:choose>
-                                        <c:when test="${tipoSesion == 'tecnico'}">
-                                            <tr>
-                                                <td class="align-middle"><%=i%></td>
-                                                <td class="align-middle">${r.categoria}</td>
-                                                <td class="align-middle">${r.elemento}</td>
-                                                <td class="align-middle">${r.apruebaCon}</td>
-                                                <td class="align-middle">${r.resultado}</td>
-                                                <td class="${r.aprobado} align-middle"></td>
-                                            </tr>
-                                            <% i++; %>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <c:if test="${not r.aprobado}">
+                                    <c:if test="${r.valor != 0}">
+                                        <c:choose>
+                                            <c:when test="${tipoSesion == 'tecnico' or tipoSesion == 'admin'}">
                                                 <tr>
                                                     <td class="align-middle"><%=i%></td>
                                                     <td class="align-middle">${r.categoria}</td>
@@ -75,9 +64,22 @@
                                                     <td class="${r.aprobado} align-middle"></td>
                                                 </tr>
                                                 <% i++; %>
-                                            </c:if>
-                                        </c:otherwise>
-                                    </c:choose>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <c:if test="${not r.aprobado or r.aprobado}">
+                                                    <tr>
+                                                        <td class="align-middle"><%=i%></td>
+                                                        <td class="align-middle">${r.categoria}</td>
+                                                        <td class="align-middle">${r.elemento}</td>
+                                                        <td class="align-middle">${r.apruebaCon}</td>
+                                                        <td class="align-middle">${r.resultado}</td>
+                                                        <td class="${r.aprobado} align-middle"></td>
+                                                    </tr>
+                                                    <% i++; %>
+                                                </c:if>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </c:if>
                                 </c:forEach>
                             </tbody>
                         </table>

@@ -233,8 +233,14 @@ public class TablaDao {
             ps.setString(4, searchPattern);
             ps.setString(5, searchPattern);
             ps.setString(6, searchPattern);
-            ps.setInt(7, length);
-            ps.setInt(8, start);
+            if(filtro.isEmpty()){
+                ps.setInt(7, length);
+                ps.setInt(8, start);
+            }else{
+                ps.setString(7, "%" + valor + "%");
+                ps.setInt(8, length);
+                ps.setInt(9, start);
+            }
 
             ResultSet rs = ps.executeQuery();
 
@@ -351,6 +357,9 @@ public class TablaDao {
             ps.setString(4, searchPattern);
             ps.setString(5, searchPattern);
             ps.setString(6, searchPattern);
+            if(!filtro.isEmpty()) {
+                ps.setString(7, "%" + valor + "%");
+            }
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
                 res = rs.getInt("res");
