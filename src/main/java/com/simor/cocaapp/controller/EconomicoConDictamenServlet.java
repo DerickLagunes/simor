@@ -19,6 +19,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.Enumeration;
 import java.util.UUID;
 
 @MultipartConfig
@@ -30,14 +31,15 @@ public class EconomicoConDictamenServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id_economico = req.getParameter("id_economico");
-        String placa = req.getParameter("placa");
-        String economico_cedis = req.getParameter("economico_cedis");
-        String cliente = req.getParameter("id_usuario");
+        String id_economico     = getFormField(req, "id_economico");
+        String placa            = getFormField(req, "placa");
+        String economico_cedis  = getFormField(req, "economico_cedis");
+        String cliente          = getFormField(req, "id_usuario");
+        String semestreStr      = getFormField(req, "semestre");
 
         int semestre = 1;
-        if(!req.getParameter("semestre").isEmpty()){
-            semestre = Integer.parseInt(req.getParameter("semestre"));
+        if (!semestreStr.isEmpty()) {
+            semestre = Integer.parseInt(semestreStr);
         }
 
         String mensaje ="";
@@ -57,10 +59,9 @@ public class EconomicoConDictamenServlet extends HttpServlet {
             mensaje = "La unidad económica ya existe";
         }
 
-
-        String folio_humo = req.getParameter("folio_humo");
-        String folio_fisico = req.getParameter("folio_fisico");
-        if(!folio_humo.equals("") || !folio_fisico.equals("")){
+        String folio_humo = getFormField(req, "folio_humo");
+        String folio_fisico = getFormField(req, "folio_fisico");
+        if (!folio_humo.isEmpty() || !folio_fisico.isEmpty()) {
             ///////////////////////////////////////////////
             String UPLOAD_DIRECTORY = req.getServletContext().getRealPath("/") + "assets"+File.separator+"dictamenes";
             String filePath1 = "";
@@ -69,21 +70,28 @@ public class EconomicoConDictamenServlet extends HttpServlet {
 
             try {
                 Part filePart = req.getPart("archivo_humo");
-                String fileName = getSubmittedFileName(filePart);
-                String uniqueFileName = UUID.randomUUID().toString() + "_" + fileName;
-                filePath1 = UPLOAD_DIRECTORY + File.separator + uniqueFileName;
-                InputStream fileContent = filePart.getInputStream();
-                Files.copy(fileContent, Paths.get(filePath1));
+                if (filePart != null && filePart.getSize() > 0) {
+                    String fileName = getSubmittedFileName(filePart);
+                    String uniqueFileName = UUID.randomUUID().toString() + "_" + fileName;
+                    filePath1 = UPLOAD_DIRECTORY + File.separator + uniqueFileName;
+                    try (InputStream fileContent = filePart.getInputStream()) {
+                        Files.copy(fileContent, Paths.get(filePath1));
+                    }
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
             try {
                 Part filePart = req.getPart("archivo_fisico");
-                String fileName = getSubmittedFileName(filePart);
-                String uniqueFileName = UUID.randomUUID().toString() + "_" + fileName;
-                filePath2 = UPLOAD_DIRECTORY + File.separator + uniqueFileName;
-                InputStream fileContent = filePart.getInputStream();
-                Files.copy(fileContent, Paths.get(filePath2));
+                if (filePart != null && filePart.getSize() > 0) {
+                    String fileName = getSubmittedFileName(filePart);
+                    String uniqueFileName = UUID.randomUUID().toString() + "_" + fileName;
+                    filePath2 = UPLOAD_DIRECTORY + File.separator + uniqueFileName;
+                    try (InputStream fileContent = filePart.getInputStream()) {
+                        Files.copy(fileContent, Paths.get(filePath2));
+                    }
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -122,6 +130,17 @@ public class EconomicoConDictamenServlet extends HttpServlet {
             if (element.trim().startsWith("filename")) {
                 return element.substring(
                         element.indexOf("=") + 1).trim().replace("\"", "");
+            }
+        }
+        return "";
+    }
+
+    // ✅ Método auxiliar: leer campo de texto desde multipart
+    private String getFormField(HttpServletRequest req, String name) throws IOException, ServletException {
+        Part part = req.getPart(name);
+        if (part != null) {
+            try (InputStream input = part.getInputStream()) {
+                return new String(input.readAllBytes()).trim();
             }
         }
         return "";
